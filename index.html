@@ -118,10 +118,12 @@
     </script>
 </head>
 <body>
+    <a href="#hero" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:99999;">본문으로 건너뛰기</a>
+    <main id="main-content" role="main">
     <!-- ============================================ -->
     <!-- SECTION 1: HERO - 훅 (3초 안에 전달) -->
     <!-- ============================================ -->
-    <section id="hero" class="hero">
+    <section id="hero" class="hero" aria-label="소개">
         <div class="container">
             <div class="hero-badge">
                 <span class="badge-wia">WIA</span>
@@ -342,6 +344,45 @@
                 추가 대응: 한국 <strong>장애인차별금지법</strong> · <strong>GDPR</strong> · <strong>PIPA</strong> ·
                 <strong>EU AI Act</strong> (고영향 AI 자가진단) · <strong>한국 AI 기본법</strong>
             </p>
+
+            <!-- 자체 감사 프리미엄 배지 — 메타 증거 -->
+            <div class="a11y-premium-badge reveal" style="margin-top:60px;background:linear-gradient(135deg,#1a1a2e,#2d1b4e);border:2px solid #6c3ce1;border-radius:16px;padding:32px 28px;color:#fff;">
+                <div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap;">
+                    <div style="flex:0 0 120px;text-align:center;">
+                        <div style="background:linear-gradient(135deg,#6c3ce1,#a78bfa);border-radius:12px;padding:18px 8px;">
+                            <div style="font-size:36px;font-weight:900;line-height:1;color:#fff;">100</div>
+                            <div style="font-size:10px;color:#fff;opacity:0.9;margin-top:4px;">/ 100</div>
+                            <div style="font-size:8px;color:#fff;opacity:0.85;margin-top:6px;letter-spacing:1px;">WCAG 2.2 AA</div>
+                        </div>
+                    </div>
+                    <div style="flex:1;min-width:260px;">
+                        <div style="font-size:12px;color:#a78bfa;font-weight:700;letter-spacing:2px;margin-bottom:6px;">ACCESSIBILITY PREMIUM · 자체 감사 100점</div>
+                        <h3 style="font-size:20px;font-weight:800;color:#fff;margin-bottom:8px;line-height:1.4;">
+                            접근성 플랫폼을 만든 조직이, 자체 도구로 자사 사이트를 감사한 결과
+                        </h3>
+                        <p style="font-size:14px;color:#d1d5db;line-height:1.7;margin-bottom:14px;">
+                            WIA가 직접 개발한 <a href="https://a11y.wiabook.com" target="_blank" rel="noopener" style="color:#a78bfa;text-decoration:underline;">a11y.wiabook.com</a> 감사 플랫폼(axe-core 기반)으로 wiageulsalim.com을 감사한 결과,
+                            적용 가능한 <strong style="color:#fff;">90개 WCAG/ARIA 규칙 전체에서 위반 0건</strong>을 기록했습니다.
+                            <br>
+                            <span style="color:#a78bfa;font-weight:600;">Perceivable · Operable · Understandable · Robust — 4원칙 모두 100점.</span>
+                        </p>
+                        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+                            <a href="/docs/wia-geulsalim-a11y-report.pdf" download style="display:inline-flex;align-items:center;gap:6px;background:#6c3ce1;color:#fff;padding:10px 18px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;">
+                                <span style="font-size:15px;">📄</span> 감사 리포트 PDF 다운로드
+                            </a>
+                            <a href="/docs/a11y-report.html" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;background:transparent;color:#a78bfa;padding:10px 18px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;border:1px solid #6c3ce1;">
+                                웹에서 보기 ↗
+                            </a>
+                            <a href="https://a11y.wiabook.com/?url=https://wiageulsalim.com" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;background:transparent;color:#d1d5db;padding:10px 18px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;border:1px solid #374151;">
+                                직접 감사 돌려보기 ↗
+                            </a>
+                        </div>
+                        <p style="font-size:11px;color:#9ca3af;margin-top:12px;">
+                            감사 일시: 2026-04-24 · 도구: a11y.wiabook.com (Deque axe-core) · 리포트 ID: result-1776974916354-355dc3
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -434,11 +475,12 @@
         <img class="img-zoom-img" src="" alt="">
         <p class="img-zoom-caption"></p>
     </dialog>
+    </main>
 
     <!-- ============================================ -->
     <!-- SECTION 7: FOOTER -->
     <!-- ============================================ -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="container">
             <div class="footer-orgs">
                 <div class="footer-org">

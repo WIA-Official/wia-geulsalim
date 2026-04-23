@@ -12,7 +12,7 @@
     --bg-card-2: #252c3f;
     --text-primary: #f8fafc;
     --text-secondary: #94a3b8;
-    --text-muted: #64748b;
+    --text-muted: #a3b1c6;
 
     --accent-gold: #fbbf24;     /* 글살림 — 따뜻한 금색 (생명) */
     --accent-jade: #10b981;     /* 살림 — 생명·복원 (녹색) */
@@ -784,7 +784,7 @@ dialog.img-zoom[open] {
 }
 .vision-quote .quote-by {
     font-size: 13px;
-    color: var(--accent-violet);
+    color: #a78bfa;
     font-weight: 600;
     letter-spacing: 0.5px;
     font-style: normal;
@@ -853,13 +853,15 @@ dialog.img-zoom[open] {
    SCROLL REVEAL
    ============================================ */
 .reveal {
-    opacity: 0;
+    opacity: 1;
     transform: translateY(24px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
+    transition: transform 0.7s ease;
 }
 .reveal.is-visible {
-    opacity: 1;
     transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+    .reveal { transform: none; transition: none; }
 }
 
 /* ============================================
