@@ -100,7 +100,7 @@ GPT-4o-mini API로 번역 생성, YouTube 지원 전 언어 커버.
 
 **연삼흠 (Yeon Sam-heum)**  
 창립자 · WIA (세계인증산업협회 OÜ, 에스토니아 · 2018년 창립)  
-대표 · 스마일스토리㈜ (대한민국 · 2009년 창립)  
+대표 · (주)스마일스토리 (대한민국 · 2009년 창립)  
 17년 · 200개 이상 웹사이트 · AI 협업 60만 페이지 제작
 
 > *"홍익인간 (弘益人間) — 인류 모두에게, 지속 가능하게."*
@@ -136,4 +136,4 @@ A 4-stage unified AI pipeline that simultaneously solves:
 
 ## 라이선스 / License
 
-MIT License · © 2026 WIA · 스마일스토리㈜ (SmileStory Inc.)
+MIT License · © 2026 WIA · (주)스마일스토리 (SmileStory Inc.)
