@@ -1,5 +1,33 @@
 RewriteEngine Off
 
+# ═══ 성능 최적화 (Lighthouse) ═══
+# gzip 압축
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json text/xml application/xml image/svg+xml
+</IfModule>
+
+# 브라우저 캐시 (Cache-Control)
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/webp              "access plus 1 year"
+    ExpiresByType image/png               "access plus 1 year"
+    ExpiresByType image/jpeg              "access plus 1 year"
+    ExpiresByType image/svg+xml           "access plus 1 year"
+    ExpiresByType image/x-icon            "access plus 1 year"
+    ExpiresByType text/css                "access plus 1 month"
+    ExpiresByType application/javascript  "access plus 1 month"
+    ExpiresByType text/javascript         "access plus 1 month"
+    ExpiresByType font/woff2              "access plus 1 year"
+    ExpiresByType application/pdf         "access plus 1 week"
+    ExpiresByType text/html               "access plus 1 hour"
+</IfModule>
+
+# WebP MIME 등록
+<IfModule mod_mime.c>
+    AddType image/webp .webp
+</IfModule>
+
+
 # PDF 직접 접근 차단 (공개 PDF는 예외)
 <FilesMatch "\.pdf$">
     Order Allow,Deny
