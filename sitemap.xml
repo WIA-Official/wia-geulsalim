@@ -1,28 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://wiageulsalim.com/</loc>
     <lastmod>2026-04-24</lastmod>
-    <changefreq>weekly</changefreq>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://wiageulsalim.com/assets/images/og-image.png</image:loc>
+      <image:title>WIA 글살림 — 2026 전국민 AI 챔피언 대회 출품작</image:title>
+      <image:caption>과학기술정보통신부 주관 2026 전국민 AI 챔피언 대회 출품 · AI 고문서 복원 및 접근성 변환 통합 플랫폼</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://wiageulsalim.com/assets/images/global-roadmap.png</image:loc>
+      <image:title>WIA 글살림 글로벌 확산 로드맵</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://wiageulsalim.com/demo/restore/</loc>
     <lastmod>2026-04-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://wiageulsalim.com/demo/transform/</loc>
     <lastmod>2026-04-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://wiageulsalim.com/demo/multimodal/</loc>
     <lastmod>2026-04-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://wiageulsalim.com/demo/epub/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://wiageulsalim.com/docs/a11y-report.html</loc>
+    <lastmod>2026-04-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>
