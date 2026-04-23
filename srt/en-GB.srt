@@ -1,0 +1,133 @@
+1
+00:00:00,000 --> 00:00:02,500
+Hello.
+
+2
+00:00:02,500 --> 00:00:05,500
+I am a solo developer, Yeon Sam-heum.
+
+3
+00:00:05,500 --> 00:00:08,500
+For 17 years, I have been running a company,
+
+4
+00:00:08,500 --> 00:00:14,000
+creating over 200 websites and 600,000 pages with AI.
+
+5
+00:00:14,000 --> 00:00:17,000
+This submission is not something newly created.
+
+6
+00:00:17,000 --> 00:00:20,000
+It is a tool that has grown over eight years — WIA Geulsalim.
+
+7
+00:00:21,000 --> 00:00:26,000
+95% of humanity's 5,000 years of knowledge remains inaccessible.
+
+8
+00:00:26,000 --> 00:00:32,000
+87% of Korea's historical documents are still dormant, not digitised,
+
+9
+00:00:32,000 --> 00:00:40,000
+and 97% of the 7,000 languages in the world lack quality AI translation and voice services.
+
+10
+00:00:40,000 --> 00:00:45,000
+300 million individuals with sensory impairments  
+still cannot touch books.
+
+11
+00:00:46,000 --> 00:00:50,000
+These four barriers must be overcome simultaneously.
+
+12
+00:00:50,000 --> 00:00:54,500
+Geulsalim operates on a four-step pipeline —  
+restoration, structuring, conversion, and delivery.
+
+13
+00:00:54,500 --> 00:00:59,500
+From now on, I will show you through four demos.
+
+14
+00:01:00,000 --> 00:01:04,000
+The first demo — restoration.
+
+15
+00:01:04,000 --> 00:01:10,000
+A Diffusion model restores damaged historical documents,  
+and a language model infers missing characters.
+
+16
+00:01:10,000 --> 00:01:14,000
+Restoration is not manipulation.
+
+17
+00:01:14,000 --> 00:01:20,000
+The original hash is permanently preserved.
+
+18
+00:01:25,000 --> 00:01:29,000
+The second demo — structuring.
+
+19
+00:01:29,000 --> 00:01:36,000
+AI automatically structures a tag-less PDF into WCAG 2.2 compliant HTML,  
+even generating alternative text.
+
+20
+00:01:36,000 --> 00:01:42,000
+On the WIA Book accessibility testing site,  
+I am already automatically checking 80 items.
+
+21
+00:01:50,000 --> 00:01:54,000
+The third demo — EPUB accessibility restoration.
+
+22
+00:01:54,000 --> 00:02:00,000
+It automatically restores non-compliant EPUB 2 to EPUB 3.
+
+23
+00:02:00,000 --> 00:02:06,000
+It passes all 80 inspection items.
+
+24
+00:02:06,000 --> 00:02:13,000
+WCAG, EPUB A11y, KS X 6201, European EAA —  
+it meets four international standards simultaneously.
+
+25
+00:02:15,000 --> 00:02:19,000
+The fourth demo — multimodal delivery.
+
+26
+00:02:19,000 --> 00:02:24,000
+7,000 languages in Braille,  
+254 languages in voice,
+
+27
+00:02:24,000 --> 00:02:29,000
+WIA Talk 3D sign language,  
+436 interactive tools and simulators.
+
+28
+00:02:29,000 --> 00:02:36,000
+WIA Live enables deaf and visually impaired individuals to  
+communicate directly without an interpreter,
+
+29
+00:02:36,000 --> 00:02:39,500
+and it is already in trial operation.
+
+30
+00:02:40,500 --> 00:02:43,000
+Our Geulsalim.
+
+31
+00:02:43,000 --> 00:02:46,000
+弘益人間 — benefiting all people while being sustainable.  
+We're Geulsalim.

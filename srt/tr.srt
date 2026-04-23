@@ -1,0 +1,139 @@
+1
+00:00:00,000 --> 00:00:02,500
+Merhaba.
+
+2
+00:00:02,500 --> 00:00:05,500
+Ben bir bireysel geliştirici olan Yeon Sam Heum'ım.
+
+3
+00:00:05,500 --> 00:00:08,500
+17 yıl boyunca bir şirket yönettim,
+
+4
+00:00:08,500 --> 00:00:14,000
+AI ile birlikte 200'den fazla web sitesi,
+600.000 sayfa geliştirdim.
+
+5
+00:00:14,000 --> 00:00:17,000
+Bu eser yeni yapılmış değil.
+
+6
+00:00:17,000 --> 00:00:20,000
+8 yıl boyunca büyütülen bir araç — WIA Geulsalim.
+
+7
+00:00:21,000 --> 00:00:26,000
+İnsanlığın 5.000 yıllık bilgisinin %95’i
+hala erişilememiş durumda.
+
+8
+00:00:26,000 --> 00:00:32,000
+Kore tarihi belgelerinin %87’si dijitalleştirilemeden
+uykuya dalmış durumda,
+
+9
+00:00:32,000 --> 00:00:40,000
+Dünya çapında 7.000 dil arasında %97’sinin,
+AI çeviri ve ses kalitesi oldukça düşük ya da hiç yok.
+
+10
+00:00:40,000 --> 00:00:45,000
+300 milyon görme engelli,
+hala kitaplara dokunamıyor.
+
+11
+00:00:46,000 --> 00:00:50,000
+Bu dört katmanlı engel bir anda çözülmeli.
+
+12
+00:00:50,000 --> 00:00:54,500
+Geulsalim 4 aşamalı bir pipeline —
+Restorasyon · Yapılandırma · Dönüştürme · İletişim.
+
+13
+00:00:54,500 --> 00:00:59,500
+Artık dört demo ile
+bunu size göstereceğim.
+
+14
+00:01:00,000 --> 00:01:04,000
+İlk demo — restorasyon.
+
+15
+00:01:04,000 --> 00:01:10,000
+Diffusion modeli zarar görmüş tarihi belgeleri restore ederken,
+dil modeli kaybolan harfleri tahmin ediyor.
+
+16
+00:01:10,000 --> 00:01:14,000
+Restorasyon bir manipülasyon değildir.
+
+17
+00:01:14,000 --> 00:01:20,000
+Orijinal hash kalıcı olarak korunmaktadır.
+
+18
+00:01:25,000 --> 00:01:29,000
+İkinci demo — yapılandırma.
+
+19
+00:01:29,000 --> 00:01:36,000
+Etiketsiz PDF'leri WCAG 2.2 uyumlu HTML'ye,
+AI otomatik olarak yapılandırır ve alternatif metin bile oluşturur.
+
+20
+00:01:36,000 --> 00:01:42,000
+WIA Book erişilebilirlik kontrol sitesi üzerinden,
+ben zaten 80 maddeyi otomatik olarak kontrol ediyorum.
+
+21
+00:01:50,000 --> 00:01:54,000
+Üçüncü demo — EPUB erişilebilirlik restorasyonu.
+
+22
+00:01:54,000 --> 00:02:00,000
+Erişilebilirlik eksik olan EPUB 2'yi,
+EPUB 3'e otomatik olarak restore ediyor.
+
+23
+00:02:00,000 --> 00:02:06,000
+80 kontrol maddesinin hepsinden geçiyor.
+
+24
+00:02:06,000 --> 00:02:13,000
+WCAG, EPUB A11y, KS X 6201, Avrupa EAA —
+dört uluslararası standartı aynı anda karşılıyor.
+
+25
+00:02:15,000 --> 00:02:19,000
+Dördüncü demo — çok modlu iletişim.
+
+26
+00:02:19,000 --> 00:02:24,000
+Brahmi 7.000 dil,
+ses 254 dil,
+
+27
+00:02:24,000 --> 00:02:29,000
+WIA Talk 3D işaret dili,
+436 etkileşimli araç ve simülatör.
+
+28
+00:02:29,000 --> 00:02:36,000
+İşitme ve görme engelliler, tercüman olmadan
+doğrudan iletişim kurduğunda WIA Live,
+
+29
+00:02:36,000 --> 00:02:39,500
+zaten deneme aşamasında çalışıyor.
+
+30
+00:02:40,500 --> 00:02:43,000
+Bizim Geulsalim'imiz.
+
+31
+00:02:43,000 --> 00:02:46,000
+Hongik Ingan — herkese faydalı, sürdürülebilir şekilde.
+We're Geulsalim.

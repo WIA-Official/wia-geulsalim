@@ -1,0 +1,139 @@
+1
+00:00:00,000 --> 00:00:02,500
+Salom.
+
+2
+00:00:02,500 --> 00:00:05,500
+Men 1 shaxsiy dasturchi Yeon Sam-heumman.
+
+3
+00:00:05,500 --> 00:00:08,500
+17 yil davomida kompaniyani boshqarib keldim,
+
+4
+00:00:08,500 --> 00:00:14,000
+AI bilan birga 200 dan ortiq veb-sayt,
+600,000 sahifa yaratdim.
+
+5
+00:00:14,000 --> 00:00:17,000
+Bu mahsulot yangi yaratilmagan.
+
+6
+00:00:17,000 --> 00:00:20,000
+8 yil davomida o'sgan vosita — WIA Geulsalim.
+
+7
+00:00:21,000 --> 00:00:26,000
+Insoniyatning 5 ming yillik bilimining 95%i
+hanuzgacha yetib bormagan.
+
+8
+00:00:26,000 --> 00:00:32,000
+Janubiy Koreya tarixiy hujjatlarning 87%i raqamlashtirilmagan holda
+uyquda,
+
+9
+00:00:32,000 --> 00:00:40,000
+Dunyo bo'ylab 7,000 tilda 97%i,
+AI tarjima va ovoz sifatining ancha pastligi yoki umuman yo'qligi bor.
+
+10
+00:00:40,000 --> 00:00:45,000
+300 million nogiron shaxslar
+hali ham kitobni qo'lga ola olmayapti.
+
+11
+00:00:46,000 --> 00:00:50,000
+Bu to'rt qavatli to'siqni bir marta hal qilish kerak.
+
+12
+00:00:50,000 --> 00:00:54,500
+Geulsalim 4 bosqichli quvur liniyasi —
+tiklash · strukturaviylashtirish · aylantirish · yetkazib berish.
+
+13
+00:00:54,500 --> 00:00:59,500
+Endilikda to'rt ta demo orqali
+bevosita ko'rsatamiz.
+
+14
+00:01:00,000 --> 00:01:04,000
+Birinchi demo — tiklashdir.
+
+15
+00:01:04,000 --> 00:01:10,000
+Diffusion modeli buzilgan tarixiy hujjatlarni tiklaydi,
+til modeli yo'qolgan harflarni taxmin qiladi.
+
+16
+00:01:10,000 --> 00:01:14,000
+Tiklash manipulyatsiya emas.
+
+17
+00:01:14,000 --> 00:01:20,000
+Asli ko'rsatkichlari doimiy saqlanadi.
+
+18
+00:01:25,000 --> 00:01:29,000
+Ikkinchi demo — strukturaviylashtirishdir.
+
+19
+00:01:29,000 --> 00:01:36,000
+Teglarsiz PDF ni WCAG 2.2 ga muvofiq HTML ga,
+AI avtomatik tarzda strukturaviylashtiradi va o'rinli matnlar ishlab chiqaradi.
+
+20
+00:01:36,000 --> 00:01:42,000
+WIA Book imkoniyatlari tekshirish saytida,
+men allaqachon 80 ta bandni avtomatik ravishda tekshiryapman.
+
+21
+00:01:50,000 --> 00:01:54,000
+Uchinchi demo — EPUB imkoniyatlarini tiklashdir.
+
+22
+00:01:54,000 --> 00:02:00,000
+Imkoniyat va standartlarga javob bermaydigan EPUB 2 ni,
+EPUB 3 ga avtomatik tiklaydi.
+
+23
+00:02:00,000 --> 00:02:06,000
+80 ta tekshirish bandini to'liq o'tadi.
+
+24
+00:02:06,000 --> 00:02:13,000
+WCAG, EPUB A11y, KS X 6201, Yevropa EAA —
+to'rt xalqaro standartlarni bir vaqtda qondiradi.
+
+25
+00:02:15,000 --> 00:02:19,000
+To'rtinchi demo — multimodal yetkazib berishdir.
+
+26
+00:02:19,000 --> 00:02:24,000
+Braille 7,000 tilda,
+ova 254 tilda,
+
+27
+00:02:24,000 --> 00:02:29,000
+WIA Talk 3D qo'l harflari,
+436 ta interaktiv vositasi va simulyatori.
+
+28
+00:02:29,000 --> 00:02:36,000
+Dovdirash va ko'rish qobiliyati past shaxslar
+tarjimon orqali to'g'ridan-to'g'ri muloqot qilishadi WIA Live,
+
+29
+00:02:36,000 --> 00:02:39,500
+allaqachon sinovdan o'tmoqda.
+
+30
+00:02:40,500 --> 00:02:43,000
+Bizning Geulsalim.
+
+31
+00:02:43,000 --> 00:02:46,000
+弘益人間 — umuman foydali qilish, davomiylik bilan.  
+We're Geulsalim.

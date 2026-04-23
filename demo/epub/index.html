@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>WIA Geulsalim · Demo 3 · EPUB 접근성 복원</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+<link rel="stylesheet" href="/demo/nav.css">
+<link rel="icon" href="/favicon.ico">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body {
+    font-family: 'Pretendard', sans-serif;
+    background: #0a0a0f;
+    color: #e5e7eb;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+}
+.stage { display: flex; flex-direction: column; width: 100vw; height: 100vh; }
+
+.brandbar {
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 36px;
+    background: linear-gradient(90deg, #7c3aed 0%, #0a0a0f 100%);
+    border-bottom: 1px solid #1f2937;
+}
+.brandbar .logo { display:flex; align-items:center; gap:12px; }
+.brandbar .logo-mark {
+    width: 42px; height: 42px;
+    background: #ffffff;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+    box-shadow: 0 0 0 2px rgba(167, 139, 250, 0.5);
+}
+.brandbar .logo-mark img { width: 80%; height: 80%; object-fit: contain; display: block; }
+.brandbar .logo-text { font-weight: 800; font-size: 18px; }
+.brandbar .logo-text .sub { font-size: 11px; color: #9ca3af; font-weight: 500; margin-left: 8px; }
+.brandbar .demo-label {
+    font-size: 13px;
+    color: #a78bfa;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.main {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 120px 1fr;
+    gap: 18px;
+    padding: 24px 36px;
+    align-items: stretch;
+    min-height: 0;
+}
+.panel {
+    background: #111827;
+    border: 1px solid #1f2937;
+    border-radius: 14px;
+    padding: 20px 22px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+.panel h3 {
+    font-size: 13px;
+    color: #9ca3af;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+}
+.panel .sub {
+    font-size: 11px;
+    color: #6b7280;
+    margin-bottom: 12px;
+}
+.panel .version-tag {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+.panel.left .version-tag { background: #7f1d1d; color: #fecaca; }
+.panel.right .version-tag { background: #065f46; color: #a7f3d0; }
+
+/* Checklist */
+.checklist {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding-right: 4px;
+}
+.checklist-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    background: #0a0a0f;
+    border: 1px solid #1f2937;
+    border-radius: 6px;
+    font-size: 11.5px;
+    line-height: 1.3;
+    transition: all 0.35s ease;
+}
+.checklist-item .mark {
+    flex: 0 0 auto;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 900;
+}
+.checklist-item.fail .mark { background: #7f1d1d; color: #fecaca; }
+.checklist-item.fail { opacity: 0.85; }
+.checklist-item.fail .label { color: #9ca3af; text-decoration: line-through; text-decoration-color: rgba(254,202,202,0.4); }
+.checklist-item.pass {
+    background: rgba(6, 95, 70, 0.15);
+    border-color: rgba(16, 185, 129, 0.35);
+}
+.checklist-item.pass .mark {
+    background: #10b981;
+    color: #0a0a0f;
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+}
+.checklist-item.pass .label { color: #d1fae5; }
+.checklist-item .key {
+    font-family: 'JetBrains Mono', 'Consolas', monospace;
+    font-size: 10px;
+    color: #6b7280;
+    margin-left: 4px;
+}
+.checklist-item .label {
+    flex: 1;
+    color: #d1d5db;
+}
+
+/* Middle AI engine */
+.engine {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    position: relative;
+}
+.engine .ai-core {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #a78bfa 0%, #7c3aed 70%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 800;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-align: center;
+    line-height: 1.2;
+    box-shadow: 0 0 28px rgba(167, 139, 250, 0.55);
+    animation: corePulse 2s infinite;
+    position: relative;
+}
+.engine .ai-core::before {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    border: 2px solid rgba(167, 139, 250, 0.35);
+    border-radius: 50%;
+    animation: ringPulse 2s infinite;
+}
+@keyframes corePulse {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.05); }
+}
+@keyframes ringPulse {
+    0%   { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(1.4); }
+}
+.engine .progress-wrap {
+    width: 110px;
+    height: 6px;
+    background: #1f2937;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 6px;
+}
+.engine .progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #a78bfa, #10b981);
+    transition: width 0.3s ease;
+}
+.engine .progress-text {
+    font-size: 10px;
+    color: #9ca3af;
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+.engine .stage-label {
+    font-size: 11px;
+    color: #a78bfa;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-align: center;
+    min-height: 30px;
+}
+
+/* OPF metadata line */
+.opf-line {
+    flex: 0 0 auto;
+    padding: 10px 36px;
+    background: #0a0a0f;
+    border-top: 1px solid #1f2937;
+    text-align: center;
+    font-family: 'JetBrains Mono', 'Consolas', monospace;
+    font-size: 11.5px;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+    overflow-x: auto;
+    color: #9ca3af;
+}
+.opf-line .key { color: #a78bfa; font-weight: 700; margin-right: 10px; }
+.opf-line .val { color: #10b981; }
+.opf-line .pending { color: #4b5563; }
+
+.statusbar {
+    flex: 0 0 auto;
+    background: #111827;
+    border-top: 1px solid #1f2937;
+    padding: 14px 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+}
+.status-left { display: flex; gap: 28px; align-items: center; }
+.stat-item { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.stat-item .v { color: #a78bfa; font-weight: 700; font-size: 18px; line-height: 1; }
+.stat-item .l { color: #9ca3af; font-size: 10px; }
+.status-right {
+    color: #a78bfa;
+    font-weight: 700;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+.status-right::before { content: '●'; animation: dotblink 1s infinite; }
+@keyframes dotblink { 0%,100% {opacity:1;} 50%{opacity:0.3;} }
+</style>
+</head>
+<body>
+<div class="stage">
+    <div class="brandbar">
+        <div class="logo">
+            <div class="logo-mark"><img src="/assets/images/favicon.png" alt="WIA"></div>
+            <div class="logo-text">
+                WIA Geulsalim
+                <span class="sub">We're Geulsalim · 우리들의 글살림</span>
+            </div>
+        </div>
+        <div class="demo-label">DEMO 3 · TRANSFORM · EPUB 접근성 복원</div>
+    </div>
+
+    <div class="main">
+        <!-- LEFT · EPUB2 incomplete -->
+        <div class="panel left">
+            <span class="version-tag">EPUB 2.0 · 접근성 미달</span>
+            <h3>① INPUT · 기존 EPUB</h3>
+            <div class="sub">WCAG 2.2 AA · KS X 6201 · EPUB A11y 1.1 · EU EAA 80항목 점검</div>
+            <div class="checklist" id="leftChecklist"></div>
+        </div>
+
+        <!-- MIDDLE · AI engine -->
+        <div class="engine">
+            <div class="ai-core" id="aiCore">AI<br>INJECT</div>
+            <div class="stage-label" id="stageLabel">메타데이터<br>스캔 중</div>
+            <div class="progress-wrap"><div class="progress-bar" id="progressBar"></div></div>
+            <div class="progress-text"><span id="progressNum">0</span> / 15</div>
+        </div>
+
+        <!-- RIGHT · EPUB3 restored -->
+        <div class="panel right">
+            <span class="version-tag">EPUB 3.3 · A+ 접근성 완비</span>
+            <h3>② OUTPUT · 복원된 EPUB</h3>
+            <div class="sub">ARIA · Schema.org · 구조 네비게이션 · 대체텍스트 · 수식 · TTS 연동</div>
+            <div class="checklist" id="rightChecklist"></div>
+        </div>
+    </div>
+
+    <!-- OPF metadata line -->
+    <div class="opf-line">
+        <span class="key">package.opf · schema:accessibilityFeature</span>
+        <span class="val" id="opfVal"><span class="pending">─ 메타데이터 주입 대기 중 ─</span></span>
+    </div>
+
+    <div class="statusbar">
+        <div class="status-left">
+            <div class="stat-item"><span class="v" id="sProcessed">0</span><span class="l">통과 항목</span></div>
+            <div class="stat-item"><span class="v" id="sScore">0</span><span class="l">접근성 점수</span></div>
+            <div class="stat-item"><span class="v" id="sGrade">─</span><span class="l">등급</span></div>
+            <div class="stat-item"><span class="v">80</span><span class="l">전체 검사 항목</span></div>
+            <div class="stat-item"><span class="v">4</span><span class="l">국제표준 동시 대응</span></div>
+        </div>
+        <div class="status-right" id="statusText">SCANNING EPUB 2.0...</div>
+    </div>
+</div>
+
+<script>
+// 15 대표 접근성 항목 (a11y.wiabook.com 80항목 축약)
+const ITEMS = [
+    { key: 'schema:accessMode',              label: 'accessMode · 콘텐츠 인식 모드' },
+    { key: 'schema:accessibilityFeature',    label: 'accessibilityFeature · 구조 네비게이션' },
+    { key: 'schema:accessibilityFeature',    label: 'accessibilityFeature · alternativeText' },
+    { key: 'schema:accessibilityHazard',     label: 'accessibilityHazard · 위험 요소 표시' },
+    { key: 'schema:accessibilitySummary',    label: 'accessibilitySummary · 접근성 요약' },
+    { key: 'schema:accessModeSufficient',    label: 'accessModeSufficient · 충분 모드' },
+    { key: 'aria-label / role',              label: 'ARIA Landmark · main·nav·contentinfo' },
+    { key: 'heading structure',              label: 'Heading 구조 · h1~h6 순서 무결성' },
+    { key: 'img[alt]',                       label: '이미지 alt 속성 · AI 자동 생성' },
+    { key: 'table[headers]',                 label: '표 헤더 · th scope 지정' },
+    { key: 'html[lang]',                     label: 'lang 속성 · 언어 메타' },
+    { key: 'contrast ratio ≥ 4.5',           label: '색상 대비 4.5:1 이상' },
+    { key: 'keyboard nav',                   label: '키보드 내비게이션 가능' },
+    { key: 'skip-to-content',                label: '본문 바로가기 링크' },
+    { key: ':focus-visible',                 label: '포커스 인디케이터 표시' }
+];
+
+function renderList(container, state) {
+    container.innerHTML = '';
+    ITEMS.forEach(it => {
+        const row = document.createElement('div');
+        row.className = 'checklist-item ' + state;
+        row.innerHTML =
+            '<span class="mark">' + (state === 'pass' ? '✓' : '✗') + '</span>' +
+            '<span class="label">' + it.label + '<span class="key">' + it.key + '</span></span>';
+        container.appendChild(row);
+    });
+    return Array.from(container.children);
+}
+
+const left  = document.getElementById('leftChecklist');
+const right = document.getElementById('rightChecklist');
+const leftItems  = renderList(left,  'fail');
+const rightItems = renderList(right, 'fail');  // 초기엔 오른쪽도 fail 상태
+
+const aiCore       = document.getElementById('aiCore');
+const stageLabel   = document.getElementById('stageLabel');
+const progressBar  = document.getElementById('progressBar');
+const progressNum  = document.getElementById('progressNum');
+const sProcessed   = document.getElementById('sProcessed');
+const sScore       = document.getElementById('sScore');
+const sGrade       = document.getElementById('sGrade');
+const statusText   = document.getElementById('statusText');
+const opfVal       = document.getElementById('opfVal');
+
+const STAGES = [
+    'schema 메타\n주입',
+    'ARIA 자동\n매핑',
+    '이미지 alt\n자동 생성',
+    '구조 네비\n검증',
+    'A+ 완료'
+];
+
+function resetAll() {
+    rightItems.forEach(el => el.className = 'checklist-item fail');
+    // mark 문자 원복
+    rightItems.forEach(el => {
+        const m = el.querySelector('.mark');
+        if (m) m.textContent = '✗';
+    });
+    progressBar.style.width = '0%';
+    progressNum.textContent = '0';
+    sProcessed.textContent = '0';
+    sScore.textContent = '0';
+    sGrade.textContent = '─';
+    aiCore.innerHTML = 'AI<br>INJECT';
+    stageLabel.innerHTML = '메타데이터<br>스캔 중';
+    opfVal.innerHTML = '<span class="pending">─ 메타데이터 주입 대기 중 ─</span>';
+    statusText.style.color = '';
+    statusText.textContent = 'SCANNING EPUB 2.0...';
+}
+
+function runDemo() {
+    resetAll();
+
+    // Stage 0 — 1.2s scan
+    setTimeout(() => {
+        statusText.textContent = 'INJECTING EPUB 3.3 METADATA...';
+        stageLabel.innerHTML = STAGES[0];
+    }, 1200);
+
+    // Stage 1-N — 각 checklist 항목 순차 pass 전환
+    ITEMS.forEach((it, i) => {
+        setTimeout(() => {
+            rightItems[i].className = 'checklist-item pass';
+            rightItems[i].querySelector('.mark').textContent = '✓';
+            progressNum.textContent = (i + 1);
+            sProcessed.textContent = (i + 1);
+            progressBar.style.width = ((i + 1) / ITEMS.length * 100) + '%';
+
+            // 단계 라벨 변경
+            const stageIdx = Math.min(Math.floor(i / 3), STAGES.length - 1);
+            stageLabel.innerHTML = STAGES[stageIdx];
+
+            // 중간 점수 업데이트
+            const pct = Math.round((i + 1) / ITEMS.length * 96);
+            sScore.textContent = pct;
+        }, 1800 + i * 1300);
+    });
+
+    // Final — opf line reveal + grade A+
+    const finalT = 1800 + ITEMS.length * 1300 + 500;
+    setTimeout(() => {
+        opfVal.innerHTML =
+            '<span class="val">structuralNavigation · alternativeText · ARIA · MathML · displayTransformability</span>';
+        aiCore.innerHTML = 'A+<br>DONE';
+        stageLabel.innerHTML = '복원 완료';
+        sGrade.textContent = 'A+';
+        sScore.textContent = '96';
+        statusText.textContent = '✓ EPUB 3.3 RESTORED · 15/15 PASS · 80/80 COMPLIANT';
+        statusText.style.color = '#10b981';
+    }, finalT);
+
+    // Loop
+    const loopT = finalT + 4500;
+    setTimeout(runDemo, loopT);
+}
+
+runDemo();
+</script>
+<script src="/demo/nav.js"></script>
+<script src="/assets/js/a11y-widget.js" defer></script>
+</body>
+</html>

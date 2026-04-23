@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>구현제안서 · 점자본 (WIA Braille) · WIA Geulsalim</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+<link rel="icon" href="/favicon.ico">
+<meta name="description" content="WIA Geulsalim 구현제안서 핵심 문장을 실제 점자(Unicode Braille Patterns)로 변환한 접근성 버전. wiabraille.com API 규격.">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+    font-family: 'Pretendard', sans-serif;
+    background: #f8fafc;
+    color: #1e293b;
+    line-height: 1.7;
+    min-height: 100vh;
+}
+.wrap {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 48px 28px 100px;
+}
+header {
+    text-align: center;
+    margin-bottom: 44px;
+    padding-bottom: 24px;
+    border-bottom: 2px solid #e2e8f0;
+}
+header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: #0f172a;
+    margin-bottom: 8px;
+}
+header p {
+    font-size: 15px;
+    color: #475569;
+    margin-bottom: 16px;
+}
+header .chips {
+    display: inline-flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+header .chip {
+    background: #fef3c7;
+    color: #78350f;
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 700;
+}
+.entry {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 26px 30px;
+    margin-bottom: 22px;
+    box-shadow: 0 2px 12px rgba(15, 23, 42, 0.05);
+}
+.entry-section {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #f59e0b;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+.entry-orig {
+    font-size: 17px;
+    font-weight: 600;
+    color: #0f172a;
+    line-height: 1.55;
+    margin-bottom: 18px;
+}
+.entry-braille-block {
+    background: linear-gradient(180deg, #fafafa 0%, #f1f5f9 100%);
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    padding: 18px 20px;
+    font-family: 'JetBrains Mono', 'Consolas', monospace;
+    font-size: 24px;
+    line-height: 1.7;
+    letter-spacing: 3px;
+    color: #1e293b;
+    word-break: break-all;
+    white-space: pre-wrap;
+}
+.entry-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+    font-size: 12px;
+    color: #64748b;
+}
+.entry-meta a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+}
+.entry-meta a:hover { text-decoration: underline; }
+footer {
+    margin-top: 48px;
+    text-align: center;
+    padding: 28px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    font-size: 13px;
+    color: #475569;
+}
+footer .api {
+    display: inline-block;
+    background: #0f172a;
+    color: #fbbf24;
+    font-family: 'JetBrains Mono', monospace;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 12px;
+    margin-top: 10px;
+}
+footer .links a {
+    color: #2563eb;
+    margin: 0 6px;
+    font-weight: 600;
+    text-decoration: none;
+}
+.intro {
+    background: #fffbeb;
+    border-left: 4px solid #fbbf24;
+    padding: 16px 20px;
+    border-radius: 6px;
+    margin-bottom: 28px;
+    font-size: 14px;
+    color: #78350f;
+    line-height: 1.65;
+}
+.intro strong { color: #b45309; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+    <header>
+        <h1>구현제안서 · 점자본 (WIA Braille)</h1>
+        <p>2026 AI 챔피언 대회 · WIA Geulsalim · 제안자 연삼흠</p>
+        <div class="chips">
+            <span class="chip">Unicode Braille Patterns (U+2800)</span>
+            <span class="chip">Grade 1 English Braille</span>
+            <span class="chip">wiabraille.com API 규격</span>
+        </div>
+    </header>
+
+    <div class="intro">
+        <strong>왜 이 페이지가 존재하는가.</strong>
+        "접근성을 주창한다"와 "접근성을 실제 구현한다"는 다릅니다. 본 페이지는 제안서의 핵심 문장을 실제 <strong>점자로 변환한 결과물</strong>입니다.
+        심사위원, 투표자, 그리고 <strong>시각장애인 독자</strong>가 제안서의 요지를 점자로 직접 읽을 수 있도록 제공합니다.
+        3.2억 감각장애인이 닿을 수 있게 — WIA Geulsalim의 4단계 파이프라인 중 <strong>DELIVER 단계의 실증</strong>입니다.
+    </div>
+
+    <!-- 핵심 문장 1: 한 줄 정체성 -->
+    <div class="entry">
+        <div class="entry-section">P1 · 정체성</div>
+        <div class="entry-orig">We are Geulsalim.</div>
+        <div class="entry-braille-block">⠠⠺⠑ ⠁⠗⠑ ⠠⠛⠑⠥⠇⠎⠁⠇⠊⠍⠲</div>
+        <div class="entry-meta">
+            <span>Grade 1 · 19 cells · 17 chars</span>
+            <a href="https://wiabraille.com/demo.html" target="_blank" rel="noopener">wiabraille.com 라이브 변환 →</a>
+        </div>
+    </div>
+
+    <!-- 핵심 문장 2: 서사 -->
+    <div class="entry">
+        <div class="entry-section">P1 · 미션</div>
+        <div class="entry-orig">AI restores damaged text. Delivers to every sense. Every language. Every human.</div>
+        <div class="entry-braille-block">⠠⠁⠊ ⠗⠑⠎⠞⠕⠗⠑⠎ ⠙⠁⠍⠁⠛⠑⠙ ⠞⠑⠭⠞⠲
+⠠⠙⠑⠇⠊⠧⠑⠗⠎ ⠞⠕ ⠑⠧⠑⠗⠽ ⠎⠑⠝⠎⠑⠲
+⠠⠑⠧⠑⠗⠽ ⠇⠁⠝⠛⠥⠁⠛⠑⠲
+⠠⠑⠧⠑⠗⠽ ⠓⠥⠍⠁⠝⠲</div>
+        <div class="entry-meta">
+            <span>4 lines · Grade 1 · MIT License</span>
+            <a href="https://wiabraille.com/demo.html" target="_blank" rel="noopener">wiabraille.com 라이브 변환 →</a>
+        </div>
+    </div>
+
+    <!-- 문제 -->
+    <div class="entry">
+        <div class="entry-section">P1 · 문제</div>
+        <div class="entry-orig">95 percent of 5000 years of human knowledge is still unreachable.</div>
+        <div class="entry-braille-block">⠼⠊⠑ ⠏⠑⠗⠉⠑⠝⠞ ⠕⠋ ⠼⠑⠚⠚⠚ ⠽⠑⠁⠗⠎ ⠕⠋ ⠓⠥⠍⠁⠝ ⠅⠝⠕⠺⠇⠑⠙⠛⠑ ⠊⠎ ⠎⠞⠊⠇⠇ ⠥⠝⠗⠑⠁⠉⠓⠁⠃⠇⠑⠲</div>
+        <div class="entry-meta">
+            <span>Numbers prefix ⠼ · Grade 1</span>
+            <a href="https://wiabraille.com/demo.html" target="_blank" rel="noopener">wiabraille.com 라이브 변환 →</a>
+        </div>
+    </div>
+
+    <!-- 파이프라인 -->
+    <div class="entry">
+        <div class="entry-section">P2 · 4단계 파이프라인</div>
+        <div class="entry-orig">Restore. Structure. Transform. Deliver.</div>
+        <div class="entry-braille-block">⠠⠗⠑⠎⠞⠕⠗⠑⠲ ⠠⠎⠞⠗⠥⠉⠞⠥⠗⠑⠲ ⠠⠞⠗⠁⠝⠎⠋⠕⠗⠍⠲ ⠠⠙⠑⠇⠊⠧⠑⠗⠲</div>
+        <div class="entry-meta">
+            <span>4 verbs · 1 pipeline</span>
+            <a href="https://wiabraille.com/demo.html" target="_blank" rel="noopener">wiabraille.com 라이브 변환 →</a>
+        </div>
+    </div>
+
+    <!-- 실체 -->
+    <div class="entry">
+        <div class="entry-section">P3 · 실체</div>
+        <div class="entry-orig">Not a promise. 8 years of WIA Estonia. 17 years of SmileStory. 205 domains. 600000 pages.</div>
+        <div class="entry-braille-block">⠠⠝⠕⠞ ⠁ ⠏⠗⠕⠍⠊⠎⠑⠲
+⠼⠓ ⠽⠑⠁⠗⠎ ⠕⠋ ⠠⠺⠊⠁ ⠠⠑⠎⠞⠕⠝⠊⠁⠲
+⠼⠁⠛ ⠽⠑⠁⠗⠎ ⠕⠋ ⠠⠎⠍⠊⠇⠑⠠⠎⠞⠕⠗⠽⠲
+⠼⠃⠚⠑ ⠙⠕⠍⠁⠊⠝⠎⠲
+⠼⠋⠚⠚⠚⠚⠚ ⠏⠁⠛⠑⠎⠲</div>
+        <div class="entry-meta">
+            <span>5 stats · Number prefix 적용</span>
+            <a href="https://wiabraille.com/demo.html" target="_blank" rel="noopener">wiabraille.com 라이브 변환 →</a>
+        </div>
+    </div>
+
+    <!-- 표준 -->
+    <div class="entry">
+        <div class="entry-section">P4 · 국제 표준</div>
+        <div class="entry-orig">WCAG 2.2. EPUB Accessibility 1.1. KS X 6201. EU EAA 2025.</div>
+        <div class="entry-braille-block">⠠⠺⠉⠁⠛ ⠼⠃⠲⠼⠃⠲ ⠠⠑⠏⠥⠃ ⠠⠁⠉⠉⠑⠎⠎⠊⠃⠊⠇⠊⠞⠽ ⠼⠁⠲⠼⠁⠲ ⠠⠅⠎ ⠠⠭ ⠼⠋⠃⠚⠁⠲ ⠠⠑⠥ ⠠⠑⠁⠁ ⠼⠃⠚⠃⠑⠲</div>
+        <div class="entry-meta">
+            <span>4 international standards · simultaneous compliance</span>
+            <a href="https://wiabraille.com/demo.html" target="_blank" rel="noopener">wiabraille.com 라이브 변환 →</a>
+        </div>
+    </div>
+
+    <!-- 철학 -->
+    <div class="entry">
+        <div class="entry-section">P5 · 철학</div>
+        <div class="entry-orig">Hong-Ik-In-Gan. Benefit all humanity. Sustainably.</div>
+        <div class="entry-braille-block">⠠⠓⠕⠝⠛⠤⠠⠊⠅⠤⠠⠊⠝⠤⠠⠛⠁⠝⠲ ⠠⠃⠑⠝⠑⠋⠊⠞ ⠁⠇⠇ ⠓⠥⠍⠁⠝⠊⠞⠽⠲ ⠠⠎⠥⠎⠞⠁⠊⠝⠁⠃⠇⠽⠲</div>
+        <div class="entry-meta">
+            <span>弘益人間 · romanized + Grade 1</span>
+            <a href="https://wiabraille.com/demo.html" target="_blank" rel="noopener">wiabraille.com 라이브 변환 →</a>
+        </div>
+    </div>
+
+    <!-- 자원봉사 -->
+    <div class="entry">
+        <div class="entry-section">P5 · 글로벌 자원봉사자 모집</div>
+        <div class="entry-orig">We recruit sign language volunteers globally. No signup. No barrier. Just help.</div>
+        <div class="entry-braille-block">⠠⠺⠑ ⠗⠑⠉⠗⠥⠊⠞ ⠎⠊⠛⠝ ⠇⠁⠝⠛⠥⠁⠛⠑ ⠧⠕⠇⠥⠝⠞⠑⠑⠗⠎ ⠛⠇⠕⠃⠁⠇⠇⠽⠲ ⠠⠝⠕ ⠎⠊⠛⠝⠥⠏⠲ ⠠⠝⠕ ⠃⠁⠗⠗⠊⠑⠗⠲ ⠠⠚⠥⠎⠞ ⠓⠑⠇⠏⠲</div>
+        <div class="entry-meta">
+            <span>Participatory Design · 1인 ≠ 고립</span>
+            <a href="https://wiabraille.com/demo.html" target="_blank" rel="noopener">wiabraille.com 라이브 변환 →</a>
+        </div>
+    </div>
+
+    <footer>
+        <p><strong>wiabraille.com API v1</strong> · 211 언어 지원 · 7,000+ 확장 목표 · MIT License</p>
+        <p class="api">POST https://api.wiabraille.com/api/v1/convert</p>
+        <p style="margin-top:14px;">이 페이지의 점자 Unicode 블록은 WIA Braille 규격을 직접 따릅니다.</p>
+        <p class="links" style="margin-top:12px;">
+            <a href="/">← WIA Geulsalim 메인</a> ·
+            <a href="/docs/proposal-2026.html">제안서 원문 (시각)</a> ·
+            <a href="/pdf/WIA_Geulsalim_Proposal_2026.pdf">PDF</a> ·
+            <a href="https://wiabraille.com" target="_blank" rel="noopener">wiabraille.com</a>
+        </p>
+        <p style="margin-top:16px; color:#94a3b8; font-size:12px;">
+            © 2026 WIA · SmileStory Inc. · 弘益人間
+        </p>
+    </footer>
+
+</div>
+<script src="/assets/js/a11y-widget.js" defer></script>
+</body>
+</html>

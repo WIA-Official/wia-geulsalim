@@ -1,0 +1,137 @@
+1
+00:00:00,000 --> 00:00:02,500
+Sanibonani.
+
+2
+00:00:02,500 --> 00:00:05,500
+Ngingumthuthukisi ophakathi kwesiyingi, 연삼흠.
+
+3
+00:00:05,500 --> 00:00:08,500
+Ngisebenze inkampani iminyaka engu-17,
+
+4
+00:00:08,500 --> 00:00:14,000
+ndisebenzisa i-AI ukuze ngidalwe ama-websites angaphezu kuka-200,
+amakhasi angama-600,000.
+
+5
+00:00:14,000 --> 00:00:17,000
+Le mveliso akuyona entsha.
+
+6
+00:00:17,000 --> 00:00:20,000
+Ithuluzi elikhulile eminyakeni eyi-8 — WIA Geulsalim.
+
+7
+00:00:21,000 --> 00:00:26,000
+I-95% yolwazi lweminyaka engama-5,000 yabantu ayitholakali.
+
+8
+00:00:26,000 --> 00:00:32,000
+I-87% yemibhalo yasenkalakhangeni yaseKorea ayikadijithaliwe
+ishonile,
+
+9
+00:00:32,000 --> 00:00:40,000
+ku-97% yezilimi eziyizinkulungwane eziyi-7 emhlabeni,
+ikhwalithi yokuhumusha kwe-AI nekhwalithi yokukhuluma iphansi kakhulu noma ayikho.
+
+10
+00:00:40,000 --> 00:00:45,000
+Abantu abangu-300 million abakhubazekile
+basilahlekile ukuthintana nezincwadi.
+
+11
+00:00:46,000 --> 00:00:50,000
+Lezi zinsizi ezine kumele zixazululeke ngesikhathi esisodwa.
+
+12
+00:00:50,000 --> 00:00:54,500
+Geulsalim inepayipi lezi-4 —
+ukuvuselela · ukwakha · uguquko · ukudlulisela.
+
+13
+00:00:54,500 --> 00:00:59,500
+Manje sizokunikeza izibonelo ezine
+ngokwakho.
+
+14
+00:01:00,000 --> 00:01:04,000
+Isibonelo sokuqala — ukuvuselela.
+
+15
+00:01:04,000 --> 00:01:10,000
+Imodeli ye-Diffusion ivuselela imibhalo yasenkalakhangeni ehlukene,
+imodeli yezilimi ifanisa izinhlamvu ezilahlekile.
+
+16
+00:01:10,000 --> 00:01:14,000
+Uhvunyo akuyona ukudlula.
+
+17
+00:01:14,000 --> 00:01:20,000
+I-hash yokuqala igcinwa njalo.
+
+18
+00:01:25,000 --> 00:01:29,000
+Isibonelo sesibili — ukwakha.
+
+19
+00:01:29,000 --> 00:01:36,000
+I-PDF engenatags ye-WCAG 2.2 ihlangatshwa ku-HTML,
+i-AI ikwazi ukuhlela ngokuzenzakalelayo nokuqamba umbhalo osemandleni.
+
+20
+00:01:36,000 --> 00:01:42,000
+Kwisayithi yokuhlola ukufinyelela ye-WIA Book,
+ngivele ngiyahlola izinto ezingama-80 ngokuzenzakalelayo.
+
+21
+00:01:50,000 --> 00:01:54,000
+Isibonelo sesithathu — ukuvuselela ukufinyelela kwe-EPUB.
+
+22
+00:01:54,000 --> 00:02:00,000
+I-EPUB 2 engahlangabezani nezidingo izovuselelwa ngokuzenzakalelayo ibe yi-EPUB 3.
+
+23
+00:02:00,000 --> 00:02:06,000
+Iyangena ezifundweni zonke ezingu-80.
+
+24
+00:02:06,000 --> 00:02:13,000
+I-WCAG, i-EPUB A11y, i-KS X 6201, i-European EAA —
+ithobela izindinganiso ezine zomhlaba ngasikhathi sinye.
+
+25
+00:02:15,000 --> 00:02:19,000
+Isibonelo sesine — ukudlulisela kokuthile.
+
+26
+00:02:19,000 --> 00:02:24,000
+Iziphumo zesiBhulu ezingu-7,000,
+ilimi lokukhuluma elingu-254,
+
+27
+00:02:24,000 --> 00:02:29,000
+I-WIA Talk 3D ye-sign language,
+amadivayisi wokukhuluma angama-436 neziqeqebhiso.
+
+28
+00:02:29,000 --> 00:02:36,000
+I-WIA Live, lapho abantu abakhubazekile nendawo eyikhulu bengadingi umhumushi
+baxoxa ngqo,
+
+29
+00:02:36,000 --> 00:02:39,500
+sekuqhubeka nezivivinyo.
+
+30
+00:02:40,500 --> 00:02:43,000
+Izincwadi zethu ze-Geulsalim.
+
+31
+00:02:43,000 --> 00:02:46,000
+弘益人間 — ukusiza wonke, kodwa ngaphansi kokugcina.  
+We're Geulsalim.

@@ -1,0 +1,138 @@
+1
+00:00:00,000 --> 00:00:02,500
+Hej.
+
+2
+00:00:02,500 --> 00:00:05,500
+Jag är en enskild utvecklare, Yeon Sam-heum.
+
+3
+00:00:05,500 --> 00:00:08,500
+Under 17 år har jag drivit företag,
+
+4
+00:00:08,500 --> 00:00:14,000
+och tillsammans med AI har jag skapat över 200 webbplatser,
+600 000 sidor.
+
+5
+00:00:14,000 --> 00:00:17,000
+Detta verk är inte något nytt.
+
+6
+00:00:17,000 --> 00:00:20,000
+Det är ett verktyg som har vuxit i 8 år — WIA Geulsalim.
+
+7
+00:00:21,000 --> 00:00:26,000
+95% av mänsklighetens 5000-åriga kunskap
+är fortfarande otillgänglig.
+
+8
+00:00:26,000 --> 00:00:32,000
+87% av koreanska gamla dokument har inte digitaliserats
+och ligger fortfarande och väntar,
+
+9
+00:00:32,000 --> 00:00:40,000
+och av världens 7000 språk är 97%,
+AI-översättning och talkvalitet antingen mycket dålig eller helt obefintlig.
+
+10
+00:00:40,000 --> 00:00:45,000
+300 miljoner personer med synnedsättningar
+kan fortfarande inte hålla i en bok.
+
+11
+00:00:46,000 --> 00:00:50,000
+Denna fyrdubbelbarriär måste lösas på en gång.
+
+12
+00:00:50,000 --> 00:00:54,500
+Geulsalim är en fyrstegs pipeline —
+återställning · strukturerande · omvandling · leverans.
+
+13
+00:00:54,500 --> 00:00:59,500
+Från och med nu visar jag fyra demoer
+för att visa detta.
+
+14
+00:01:00,000 --> 00:01:04,000
+Den första demon — återställning.
+
+15
+00:01:04,000 --> 00:01:10,000
+Diffusion-modellen återställer skadade gamla dokument,
+och språkmodellen förutspår saknade bokstäver.
+
+16
+00:01:10,000 --> 00:01:14,000
+Återställning är ingen manipulation.
+
+17
+00:01:14,000 --> 00:01:20,000
+Den ursprungliga hash-koden bevaras permanent.
+
+18
+00:01:25,000 --> 00:01:29,000
+Den andra demon — strukturerande.
+
+19
+00:01:29,000 --> 00:01:36,000
+PDF utan taggar omvandlas automatiskt till HTML som följer WCAG 2.2,
+där AI automatiskt strukturerar och till och med genererar alternativtext.
+
+20
+00:01:36,000 --> 00:01:42,000
+På WIA Book tillgänglighetstestwebbplatsen,
+har jag redan automatiskt testat 80 punkter.
+
+21
+00:01:50,000 --> 00:01:54,000
+Den tredje demon — EPUB-tillgänglighetsåterställning.
+
+22
+00:01:54,000 --> 00:02:00,000
+EPUB 2 med bristande tillgänglighet
+återställs automatiskt till EPUB 3.
+
+23
+00:02:00,000 --> 00:02:06,000
+Den passerar alla 80 testpunkter.
+
+24
+00:02:06,000 --> 00:02:13,000
+WCAG, EPUB A11y, KS X 6201, europeiska EAA —
+alla fyra internationella standarder uppfylls samtidigt.
+
+25
+00:02:15,000 --> 00:02:19,000
+Den fjärde demon — multimodal leverans.
+
+26
+00:02:19,000 --> 00:02:24,000
+Punktskrift på 7000 språk,
+tal på 254 språk,
+
+27
+00:02:24,000 --> 00:02:29,000
+WIA Talk med 3D-teckenspråk,
+436 interaktiva verktyg och simulatorer.
+
+28
+00:02:29,000 --> 00:02:36,000
+WIA Live, där döva och synskadade kan kommunicera direkt utan tolk,
+
+29
+00:02:36,000 --> 00:02:39,500
+är redan i testdrift.
+
+30
+00:02:40,500 --> 00:02:43,000
+Vår Geulsalim.
+
+31
+00:02:43,000 --> 00:02:46,000
+弘益人間 — att gynna alla, på ett hållbart sätt.
+We're Geulsalim.

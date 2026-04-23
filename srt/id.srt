@@ -1,0 +1,143 @@
+1
+00:00:00,000 --> 00:00:02,500
+Halo.
+
+2
+00:00:02,500 --> 00:00:05,500
+Saya adalah pengembang independen Yeon Sam-heum.
+
+3
+00:00:05,500 --> 00:00:08,500
+Selama 17 tahun mengelola perusahaan,
+
+4
+00:00:08,500 --> 00:00:14,000
+saya telah membuat lebih dari 200 situs web 
+dan 600.000 halaman bersama AI.
+
+5
+00:00:14,000 --> 00:00:17,000
+Karya ini bukan sesuatu yang baru dibuat.
+
+6
+00:00:17,000 --> 00:00:20,000
+Ini adalah alat yang tumbuh selama 8 tahun — WIA Geulsalim.
+
+7
+00:00:21,000 --> 00:00:26,000
+95% pengetahuan manusia selama 5.000 tahun 
+masih belum dapat diakses.
+
+8
+00:00:26,000 --> 00:00:32,000
+87% dokumen kuno Korea 
+tidak terdigitalisasi dan 
+masih tertidur,
+
+9
+00:00:32,000 --> 00:00:40,000
+dari 7.000 bahasa di dunia, 97% 
+memiliki kualitas terjemahan dan suara AI yang sangat buruk atau bahkan tidak ada sama sekali.
+
+10
+00:00:40,000 --> 00:00:45,000
+300 juta penyandang disabilitas 
+masih tidak dapat menyentuh buku.
+
+11
+00:00:46,000 --> 00:00:50,000
+Keempat rintangan ini harus diatasi sekaligus.
+
+12
+00:00:50,000 --> 00:00:54,500
+Geulsalim memiliki pipeline 4 tahap —
+restorasi · pengstrukturan · konversi · penyampaian.
+
+13
+00:00:54,500 --> 00:00:59,500
+Dari sekarang, saya akan menunjukkan 
+empat demo langsung kepada Anda.
+
+14
+00:01:00,000 --> 00:01:04,000
+Demo pertama — restorasi.
+
+15
+00:01:04,000 --> 00:01:10,000
+Model Diffusion memulihkan dokumen kuno yang rusak, 
+sementara model bahasa memperkirakan huruf yang hilang.
+
+16
+00:01:10,000 --> 00:01:14,000
+Restorasi bukanlah manipulasi.
+
+17
+00:01:14,000 --> 00:01:20,000
+Hash asli akan disimpan secara permanen.
+
+18
+00:01:25,000 --> 00:01:29,000
+Demo kedua — pengstrukturan.
+
+19
+00:01:29,000 --> 00:01:36,000
+PDF tanpa tag akan diubah menjadi HTML yang 
+mematuhi WCAG 2.2,
+di mana AI secara otomatis mengatur struktur dan 
+menghasilkan teks alternatif.
+
+20
+00:01:36,000 --> 00:01:42,000
+Di situs pemeriksaan aksesibilitas WIA Book, 
+saya telah secara otomatis memeriksa 80 item.
+
+21
+00:01:50,000 --> 00:01:54,000
+Demo ketiga — restorasi aksesibilitas EPUB.
+
+22
+00:01:54,000 --> 00:02:00,000
+EPUB 2 yang tidak memenuhi aksesibilitas 
+secara otomatis dipulihkan menjadi EPUB 3.
+
+23
+00:02:00,000 --> 00:02:06,000
+Semua 80 item pemeriksaan dilalui.
+
+24
+00:02:06,000 --> 00:02:13,000
+WCAG, EPUB A11y, KS X 6201, EAA Eropa — 
+memenuhi empat standar internasional secara bersamaan.
+
+25
+00:02:15,000 --> 00:02:19,000
+Demo keempat — penyampaian multimodal.
+
+26
+00:02:19,000 --> 00:02:24,000
+Braille dalam 7.000 bahasa, 
+suara dalam 254 bahasa,
+
+27
+00:02:24,000 --> 00:02:29,000
+WIA Talk 3D isyarat, 
+436 alat interaktif dan simulator.
+
+28
+00:02:29,000 --> 00:02:36,000
+WIA Live memungkinkan tuli dan orang dengan 
+disabilitas visual berkomunikasi langsung 
+tanpa penerjemah,
+
+29
+00:02:36,000 --> 00:02:39,500
+yang sudah dalam tahap percobaan.
+
+30
+00:02:40,500 --> 00:02:43,000
+Geulsalim kita.
+
+31
+00:02:43,000 --> 00:02:46,000
+弘益人間 — memberi manfaat kepada semua, dengan keberlanjutan.
+We're Geulsalim.

@@ -1,0 +1,140 @@
+1
+00:00:00,000 --> 00:00:02,500
+Bună ziua.
+
+2
+00:00:02,500 --> 00:00:05,500
+Sunt Yeon Sam-heum, un dezvoltator singuratic.
+
+3
+00:00:05,500 --> 00:00:08,500
+Am operat o companie timp de 17 ani,
+
+4
+00:00:08,500 --> 00:00:14,000
+împreună cu AI am creat peste 200 de site-uri web
+și 600.000 de pagini.
+
+5
+00:00:14,000 --> 00:00:17,000
+Această creație nu este una nouă.
+
+6
+00:00:17,000 --> 00:00:20,000
+Este un instrument crescut pe parcursul a 8 ani — WIA Geulsalim.
+
+7
+00:00:21,000 --> 00:00:26,000
+95% din cunoștințele umanității de 5000 de ani
+nu sunt încă accesibile.
+
+8
+00:00:26,000 --> 00:00:32,000
+87% din documentele istorice coreene
+dorm ne-digitalizate,
+
+9
+00:00:32,000 --> 00:00:40,000
+iar din cele 7000 de limbi ale lumii, 97%,
+au calitate slabă a traducerilor AI sau nu au deloc.
+
+10
+00:00:40,000 --> 00:00:45,000
+300 de milioane de persoane cu dizabilități senzoriale
+încă nu pot atinge cărțile.
+
+11
+00:00:46,000 --> 00:00:50,000
+Aceste 4 bariere trebuie să fie depășite simultan.
+
+12
+00:00:50,000 --> 00:00:54,500
+Geulsalim este un pipeline în 4 etape —
+restaurare · structurare · transformare · livrare.
+
+13
+00:00:54,500 --> 00:00:59,500
+De acum înainte, vă voi arăta
+printr-o serie de patru demo-uri.
+
+14
+00:01:00,000 --> 00:01:04,000
+Primul demo — restaurare.
+
+15
+00:01:04,000 --> 00:01:10,000
+Modelul Diffusion restaurează documentele istorice deteriorate,
+iar modelul lingvistic deduce literele pierdute.
+
+16
+00:01:10,000 --> 00:01:14,000
+Restaurarea nu este o manipulare.
+
+17
+00:01:14,000 --> 00:01:20,000
+Hash-ul original este păstrat permanent.
+
+18
+00:01:25,000 --> 00:01:29,000
+Al doilea demo — structurare.
+
+19
+00:01:29,000 --> 00:01:36,000
+PDF-urile fără etichete sunt structurate automat
+de AI în HTML conform WCAG 2.2,
+inclusiv generarea de text alternativ.
+
+20
+00:01:36,000 --> 00:01:42,000
+Pe site-ul de verificare a accesibilității WIA Book,
+am verificat deja automat 80 de elemente.
+
+21
+00:01:50,000 --> 00:01:54,000
+Al treilea demo — restaurarea accesibilității EPUB.
+
+22
+00:01:54,000 --> 00:02:00,000
+EPUB 2 cu lipsuri de accesibilitate
+este restaurat automat la EPUB 3.
+
+23
+00:02:00,000 --> 00:02:06,000
+Trebuie să treacă toate cele 80 de elemente de verificare.
+
+24
+00:02:06,000 --> 00:02:13,000
+WCAG, EPUB A11y, KS X 6201, EAA europeană —
+satisfacem simultan patru standarde internaționale.
+
+25
+00:02:15,000 --> 00:02:19,000
+Al patrulea demo — livrare multimodală.
+
+26
+00:02:19,000 --> 00:02:24,000
+Limba Braille în 7000 de limbi,
+voce în 254 de limbi,
+
+27
+00:02:24,000 --> 00:02:29,000
+WIA Talk 3D limbaj semnelor,
+436 de instrumente interactive și simulatoare.
+
+28
+00:02:29,000 --> 00:02:36,000
+WIA Live, un sistem prin care persoanele surde și cele cu deficiențe de vedere comunică direct
+fără un interpret,
+
+29
+00:02:36,000 --> 00:02:39,500
+este deja în faza de pilot.
+
+30
+00:02:40,500 --> 00:02:43,000
+Geulsalim al nostru.
+
+31
+00:02:43,000 --> 00:02:46,000
+弘益人間 — să profităm de beneficiile reciproce și să ne asigurăm sustenabilitatea.
+We're Geulsalim.

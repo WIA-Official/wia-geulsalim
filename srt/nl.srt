@@ -1,0 +1,138 @@
+1
+00:00:00,000 --> 00:00:02,500
+Hallo.
+
+2
+00:00:02,500 --> 00:00:05,500
+Ik ben een eenmansontwikkelaar, Yeon Sam-heum.
+
+3
+00:00:05,500 --> 00:00:08,500
+Al 17 jaar run ik een bedrijf,
+
+4
+00:00:08,500 --> 00:00:14,000
+en samen met AI heb ik meer dan 200 websites,
+600.000 pagina's gemaakt.
+
+5
+00:00:14,000 --> 00:00:17,000
+Dit product is niet iets nieuws.
+
+6
+00:00:17,000 --> 00:00:20,000
+Het is een tool die acht jaar in de maak is — WIA Geulsalim.
+
+7
+00:00:21,000 --> 00:00:26,000
+95% van de kennis van de mensheid over 5000 jaar
+blijft nog steeds onbereikbaar.
+
+8
+00:00:26,000 --> 00:00:32,000
+87% van de Koreaanse oude documenten
+is niet gedigitaliseerd en slaapt nog steeds,
+
+9
+00:00:32,000 --> 00:00:40,000
+en van de 7000 talen in de wereld heeft 97% 
+een merkbaar lagere kwaliteit in AI-vertaling en spraak, of helemaal geen.
+
+10
+00:00:40,000 --> 00:00:45,000
+300 miljoen mensen met een visuele beperking
+kunnen nog steeds geen boeken aanraken.
+
+11
+00:00:46,000 --> 00:00:50,000
+Deze vier barrières moeten gelijktijdig worden doorbroken.
+
+12
+00:00:50,000 --> 00:00:54,500
+Geulsalim heeft een vier-staps pijplijn —
+herstel · structurering · conversie · levering.
+
+13
+00:00:54,500 --> 00:00:59,500
+Vanaf nu zal ik vier demo's
+zelf laten zien.
+
+14
+00:01:00,000 --> 00:01:04,000
+Eerste demo — herstel.
+
+15
+00:01:04,000 --> 00:01:10,000
+Het Diffusion-model herstelt beschadigde oude documenten,
+en het taalmodel inferreert verdwenen letters.
+
+16
+00:01:10,000 --> 00:01:14,000
+Herstel is geen manipulatie.
+
+17
+00:01:14,000 --> 00:01:20,000
+De originele hash wordt permanent bewaard.
+
+18
+00:01:25,000 --> 00:01:29,000
+Tweede demo — structurering.
+
+19
+00:01:29,000 --> 00:01:36,000
+Een PDF zonder tags wordt automatisch gestructureerd,
+en AI genereert ook alternatieve teksten die voldoen aan WCAG 2.2.
+
+20
+00:01:36,000 --> 00:01:42,000
+Op de toegankelijkheidstestsite van WIA Book
+heb ik al 80 items automatisch getest.
+
+21
+00:01:50,000 --> 00:01:54,000
+Derde demo — EPUB-toegankelijkheidsherstel.
+
+22
+00:01:54,000 --> 00:02:00,000
+Toegankelijkheidsbare EPUB 2 wordt automatisch hersteld naar EPUB 3.
+
+23
+00:02:00,000 --> 00:02:06,000
+Het voldoet aan alle 80 testcriteria.
+
+24
+00:02:06,000 --> 00:02:13,000
+WCAG, EPUB A11y, KS X 6201, Europese EAA —
+het voldoet tegelijkertijd aan vier internationale standaarden.
+
+25
+00:02:15,000 --> 00:02:19,000
+Vierde demo — multimodale levering.
+
+26
+00:02:19,000 --> 00:02:24,000
+Braille in 7000 talen,
+spraak in 254 talen,
+
+27
+00:02:24,000 --> 00:02:29,000
+WIA Talk 3D gebarentaal,
+436 interactieve tools en simulators.
+
+28
+00:02:29,000 --> 00:02:36,000
+Doven en blinden kunnen zonder tolk
+direct communiceren met WIA Live,
+
+29
+00:02:36,000 --> 00:02:39,500
+dat al in proefoperatie is.
+
+30
+00:02:40,500 --> 00:02:43,000
+Onze Geulsalim.
+
+31
+00:02:43,000 --> 00:02:46,000
+Hongik Ingan — voor iedereen nuttig, maar duurzaam.
+We're Geulsalim.

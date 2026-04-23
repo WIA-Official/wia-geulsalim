@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>WIA Geulsalim · Demo 1 · 고문서 복원</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+<link rel="stylesheet" href="/demo/nav.css">
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+        font-family: 'Pretendard', sans-serif;
+        background: #0a0a0f;
+        color: #e5e7eb;
+        overflow: hidden;
+        height: 100vh;
+        width: 100vw;
+    }
+    .stage {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+    /* Top brand bar */
+    .brandbar {
+        flex: 0 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 14px 36px;
+        background: linear-gradient(90deg, #1e3a8a 0%, #0a0a0f 100%);
+        border-bottom: 1px solid #1f2937;
+    }
+    .brandbar .logo { display:flex; align-items:center; gap:12px; }
+    .brandbar .logo-mark {
+        width: 42px; height: 42px;
+        background: #ffffff;
+        border-radius: 50%;
+        display: flex; align-items: center; justify-content: center;
+        overflow: hidden;
+        box-shadow: 0 0 0 2px rgba(251, 191, 36, 0.4);
+    }
+    .brandbar .logo-mark img {
+        width: 80%;
+        height: 80%;
+        object-fit: contain;
+        display: block;
+    }
+    .brandbar .logo-text { font-weight: 800; font-size: 18px; letter-spacing: 0.3px; }
+    .brandbar .logo-text .sub { font-size: 11px; color: #9ca3af; font-weight: 500; margin-left: 8px; }
+    .brandbar .demo-label {
+        font-size: 13px;
+        color: #fbbf24;
+        font-weight: 700;
+        letter-spacing: 2px;
+    }
+    /* Main stage content */
+    .main {
+        flex: 1;
+        display: grid;
+        grid-template-columns: 1fr 110px 1fr;
+        align-items: center;
+        padding: 32px 48px;
+        gap: 20px;
+    }
+    .panel {
+        background: #111827;
+        border: 1px solid #1f2937;
+        border-radius: 14px;
+        padding: 22px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .panel h3 {
+        font-size: 14px;
+        color: #9ca3af;
+        letter-spacing: 2px;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+    }
+    .panel .sub {
+        font-size: 11px;
+        color: #6b7280;
+        margin-bottom: 14px;
+    }
+    .paper {
+        flex: 1;
+        background: #fef3c7;
+        border-radius: 8px;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 28px;
+        box-shadow: inset 0 0 60px rgba(139,94,52,0.25);
+    }
+    .paper-damaged {
+        background: #c9b182;
+        background-image:
+            radial-gradient(circle at 20% 30%, rgba(40, 25, 12, 0.85) 0%, transparent 28%),
+            radial-gradient(circle at 78% 64%, rgba(45, 28, 14, 0.8) 0%, transparent 32%),
+            radial-gradient(circle at 48% 48%, rgba(50, 30, 15, 0.7) 0%, transparent 22%),
+            radial-gradient(circle at 45% 85%, rgba(35, 22, 10, 0.7) 0%, transparent 20%),
+            radial-gradient(circle at 90% 12%, rgba(70, 44, 22, 0.65) 0%, transparent 24%),
+            radial-gradient(circle at 12% 72%, rgba(45, 28, 14, 0.6) 0%, transparent 20%),
+            radial-gradient(circle at 62% 18%, rgba(55, 35, 18, 0.55) 0%, transparent 18%);
+    }
+    .paper-damaged::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background:
+            repeating-linear-gradient(48deg, transparent, transparent 28px, rgba(87,52,28,0.12) 28px, rgba(87,52,28,0.12) 29px),
+            repeating-linear-gradient(-32deg, transparent, transparent 40px, rgba(80,48,22,0.09) 40px, rgba(80,48,22,0.09) 41px);
+        pointer-events: none;
+    }
+    .text-lines {
+        position: relative;
+        z-index: 2;
+        color: #2a1808;
+        font-family: 'Nanum Myeongjo', 'Noto Serif KR', 'Batang', serif;
+        font-size: 28px;
+        line-height: 1.8;
+        text-align: center;
+        filter: blur(4px) contrast(0.7);
+        opacity: 0.32;
+        letter-spacing: 0.02em;
+        font-weight: 500;
+        mix-blend-mode: multiply;
+    }
+    .paper-restored {
+        background: #fefce8;
+        animation: paperFadeIn 1.2s ease forwards;
+    }
+    .paper-restored .text-lines {
+        filter: none;
+        opacity: 1;
+        color: #1f2937;
+        font-weight: 500;
+    }
+    @keyframes paperFadeIn {
+        0% { opacity: 0.3; transform: scale(0.98); }
+        100% { opacity: 1; transform: scale(1); }
+    }
+
+    /* Arrow in middle */
+    .pipeline {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    .pipeline .arrow {
+        font-size: 30px;
+        color: #fbbf24;
+        animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+        0%, 100% { opacity: 0.4; transform: translateX(-4px); }
+        50% { opacity: 1; transform: translateX(4px); }
+    }
+    .pipeline .ai-badge {
+        background: #3b82f6;
+        color: #fff;
+        padding: 6px 14px;
+        border-radius: 20px;
+        font-size: 11px;
+        font-weight: 700;
+        text-align: center;
+        box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+        white-space: nowrap;
+        line-height: 1.2;
+    }
+    .pipeline .step-label {
+        font-size: 10px;
+        color: #9ca3af;
+        text-align: center;
+    }
+
+    /* Bottom status bar */
+    .statusbar {
+        flex: 0 0 auto;
+        background: #111827;
+        border-top: 1px solid #1f2937;
+        padding: 14px 36px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 13px;
+    }
+    .status-left { display: flex; gap: 28px; align-items: center; }
+    .stat-item { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+    .stat-item .v { color: #fbbf24; font-weight: 700; font-size: 18px; line-height: 1; }
+    .stat-item .l { color: #9ca3af; font-size: 10px; }
+
+    /* 원본 SHA-256 — 전용 라인, 중앙정렬 */
+    .hash-line {
+        flex: 0 0 auto;
+        padding: 9px 36px;
+        background: #0a0a0f;
+        border-top: 1px solid #1f2937;
+        text-align: center;
+        font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', 'Courier New', monospace;
+        font-size: 11.5px;
+        letter-spacing: 0.3px;
+        white-space: nowrap;
+        overflow-x: auto;
+    }
+    .hash-line .hash-label {
+        color: #9ca3af;
+        font-weight: 700;
+        margin-right: 12px;
+        letter-spacing: 0.5px;
+    }
+    .hash-line .hash-value {
+        color: #10b981;
+        font-weight: 500;
+    }
+    .hash-line .hash-placeholder {
+        color: #4b5563;
+    }
+    .status-right {
+        color: #10b981;
+        font-weight: 700;
+        display: flex;
+        gap: 8px;
+        align-items: center;
+    }
+    .status-right::before {
+        content: '●';
+        animation: blink 1s infinite;
+    }
+    @keyframes blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.3; }
+    }
+
+    /* Progress bar in pipeline */
+    .progress-wrap {
+        position: absolute;
+        bottom: 12px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 300px;
+        height: 6px;
+        background: #1f2937;
+        border-radius: 3px;
+        overflow: hidden;
+    }
+    .progress-bar {
+        height: 100%;
+        width: 0%;
+        background: linear-gradient(90deg, #fbbf24, #10b981);
+        transition: width 0.3s ease;
+    }
+    .progress-label {
+        position: absolute;
+        bottom: 24px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 11px;
+        color: #9ca3af;
+        white-space: nowrap;
+    }
+</style>
+</head>
+<body>
+<div class="stage">
+    <!-- Brand bar -->
+    <div class="brandbar">
+        <div class="logo">
+            <div class="logo-mark"><img src="/assets/images/favicon.png" alt="WIA"></div>
+            <div class="logo-text">
+                WIA Geulsalim
+                <span class="sub">We're Geulsalim · 우리들의 글살림</span>
+            </div>
+        </div>
+        <div class="demo-label">DEMO 1 · RESTORE · 고문서 복원</div>
+    </div>
+
+    <!-- Main content -->
+    <div class="main">
+        <!-- LEFT: Damaged document -->
+        <div class="panel">
+            <h3>① INPUT · 훼손 고문서</h3>
+            <div class="sub">한국고문헌종합목록 145기관 · 미디지털화 87.2%</div>
+            <div class="paper paper-damaged">
+                <div class="text-lines" id="damagedText">
+                    이 몸이 죽고 죽어<br>
+                    일백 번 고쳐 죽어<br>
+                    백골이 진토되어<br>
+                    넋이라도 있고 없고
+                </div>
+            </div>
+        </div>
+
+        <!-- MIDDLE: Pipeline -->
+        <div class="pipeline">
+            <div class="ai-badge" id="aiStage">AI RESTORE</div>
+            <div class="step-label" id="stepLabel">Diffusion 복원</div>
+            <div class="arrow">▶</div>
+            <div class="ai-badge" style="background:#10b981;">LLM 보정</div>
+            <div class="step-label">텍스트 구조화</div>
+            <div class="arrow">▶</div>
+            <div class="step-label">원본 해시 보존</div>
+        </div>
+
+        <!-- RIGHT: Restored document -->
+        <div class="panel">
+            <h3>② OUTPUT · AI 복원본</h3>
+            <div class="sub">Diffusion + LLM + 원본 해시 보존 (복원 ≠ 조작)</div>
+            <div class="paper" id="restoredPaper">
+                <div class="text-lines" style="filter:blur(8px);opacity:0;" id="restoredText">
+                    이 몸이 죽고 죽어<br>
+                    일백 번 고쳐 죽어<br>
+                    백골이 진토되어<br>
+                    넋이라도 있고 없고
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SHA-256 full-width center line -->
+    <div class="hash-line">
+        <span class="hash-label">ORIGINAL SHA-256</span>
+        <span class="hash-value" id="sHash"><span class="hash-placeholder">─ 원본 해시 계산 대기 중 ─</span></span>
+    </div>
+
+    <!-- Status bar -->
+    <div class="statusbar">
+        <div class="status-left">
+            <div class="stat-item"><span class="v" id="sProcessed">0</span><span class="l">처리 페이지</span></div>
+            <div class="stat-item"><span class="v" id="sConfidence">0%</span><span class="l">복원 신뢰도</span></div>
+            <div class="stat-item"><span class="v">87.2%</span><span class="l">한국 고문서 미디지털화</span></div>
+        </div>
+        <div class="status-right" id="statusText">RESTORING...</div>
+        <div class="progress-label" id="progressLabel" style="display:none;">Diffusion 스텝</div>
+    </div>
+</div>
+
+<script>
+// Auto-play demo loop — 30-second cycle
+let loopCount = 0;
+
+function runDemo() {
+    const restoredText = document.getElementById('restoredText');
+    const restoredPaper = document.getElementById('restoredPaper');
+    const statusText = document.getElementById('statusText');
+    const sProcessed = document.getElementById('sProcessed');
+    const sConfidence = document.getElementById('sConfidence');
+    const sHash = document.getElementById('sHash');
+    const aiStage = document.getElementById('aiStage');
+    const stepLabel = document.getElementById('stepLabel');
+
+    // Reset
+    restoredPaper.classList.remove('paper-restored');
+    restoredText.style.filter = 'blur(8px)';
+    restoredText.style.opacity = '0';
+    statusText.textContent = 'ANALYZING INPUT...';
+    sProcessed.textContent = loopCount * 1;
+    sConfidence.textContent = '0%';
+    sHash.innerHTML = '<span class="hash-placeholder">─ 원본 해시 계산 대기 중 ─</span>';
+    aiStage.textContent = 'AI RESTORE';
+    stepLabel.textContent = 'Diffusion 복원';
+
+    // Stage 1: Diffusion (0-10s)
+    setTimeout(() => {
+        statusText.textContent = 'DIFFUSION DENOISING...';
+        restoredText.style.opacity = '0.4';
+        restoredText.style.filter = 'blur(4px)';
+        aiStage.textContent = 'STEP 8 / 50';
+        animateProgress(0, 40, sConfidence, '%', 3000);
+    }, 1500);
+
+    // Stage 2: LLM text correction (10-18s)
+    setTimeout(() => {
+        statusText.textContent = 'LLM TEXT CORRECTION...';
+        restoredText.style.opacity = '0.75';
+        restoredText.style.filter = 'blur(1.5px)';
+        aiStage.textContent = 'LLM FIX';
+        stepLabel.textContent = '오탈자·단어 추론';
+        animateProgress(40, 85, sConfidence, '%', 3000);
+    }, 10000);
+
+    // Stage 3: Hash + finalize (18-22s)
+    setTimeout(() => {
+        statusText.textContent = 'HASHING ORIGINAL...';
+        sHash.textContent = 'a8f3e9b7c2d4f1e0a5b3d8c6f1a0e4b2c9d7f5a8b6e3c4d1f9a0e2b5c3d6f1b21c';
+        aiStage.textContent = 'FINALIZE';
+        stepLabel.textContent = 'SHA-256 보존';
+    }, 18000);
+
+    // Stage 4: Reveal restored (22-26s)
+    setTimeout(() => {
+        restoredPaper.classList.add('paper-restored');
+        restoredText.style.filter = 'none';
+        restoredText.style.opacity = '1';
+        statusText.textContent = 'COMPLETE ✓';
+        statusText.style.color = '#10b981';
+        aiStage.textContent = 'DONE';
+        aiStage.style.background = '#10b981';
+        stepLabel.textContent = '원본 해시 첨부';
+        animateProgress(85, 98, sConfidence, '%', 1500);
+    }, 22000);
+
+    // Loop
+    setTimeout(() => {
+        loopCount++;
+        statusText.style.color = '';
+        aiStage.style.background = '';
+        runDemo();
+    }, 30000);
+}
+
+function animateProgress(from, to, element, suffix, duration) {
+    const start = Date.now();
+    const tick = () => {
+        const elapsed = Date.now() - start;
+        const pct = Math.min(elapsed / duration, 1);
+        const val = Math.floor(from + (to - from) * pct);
+        element.textContent = val + suffix;
+        if (pct < 1) requestAnimationFrame(tick);
+    };
+    tick();
+}
+
+runDemo();
+</script>
+<script src="/demo/nav.js"></script>
+<script src="/assets/js/a11y-widget.js" defer></script>
+</body>
+</html>

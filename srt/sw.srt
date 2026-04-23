@@ -1,0 +1,136 @@
+1
+00:00:00,000 --> 00:00:02,500
+Habari.
+
+2
+00:00:02,500 --> 00:00:05,500
+Mimi ni mtengenezaji mmoja, Yeon Sam-heum.
+
+3
+00:00:05,500 --> 00:00:08,500
+Nimeendesha kampuni kwa miaka 17,
+
+4
+00:00:08,500 --> 00:00:14,000
+na pamoja na AI, nimeunda tovuti zaidi ya 200,
+na kurasa 600,000.
+
+5
+00:00:14,000 --> 00:00:17,000
+Huu si mradi mpya.
+
+6
+00:00:17,000 --> 00:00:20,000
+Ni zana iliyokua kwa miaka 8 — WIA Geulsalim.
+
+7
+00:00:21,000 --> 00:00:26,000
+Asilimia 95% ya maarifa ya binadamu kwa miaka 5,000
+bado hayawezi kufikiwa.
+
+8
+00:00:26,000 --> 00:00:32,000
+Asilimia 87% ya hati za kihistoria za Korea
+hazijawa kidigitali na,
+
+9
+00:00:32,000 --> 00:00:40,000
+asilimia 97% ya lugha 7,000 za ulimwengu,
+yalijulikana kuwa ubora wa tafsiri wa AI na sauti umekuwa duni au hata haupo kabisa.
+
+10
+00:00:40,000 --> 00:00:45,000
+Hakuna milia milioni 300 ya wenye ulemavu wa hisia
+bado hawawezi kugusa vitabu.
+
+11
+00:00:46,000 --> 00:00:50,000
+Vikwazo hivi vinne vinapaswa kutatuliwa kwa wakati mmoja.
+
+12
+00:00:50,000 --> 00:00:54,500
+Geulsalim ni mchakato wa hatua nne —
+urejeshaji · uundaji · kubadilisha · kuwasilisha.
+
+13
+00:00:54,500 --> 00:00:59,500
+Kuanzia sasa, nitakuonyesha kwa mfano nne.
+
+14
+00:01:00,000 --> 00:01:04,000
+Mfano wa kwanza — urejeshaji.
+
+15
+00:01:04,000 --> 00:01:10,000
+Mfano wa Diffusion unarejesha hati zenye uharibifu,
+na mfano wa lugha unatoa maelezo ya maneno yaliyopotea.
+
+16
+00:01:10,000 --> 00:01:14,000
+Urejeshaji si udanganyifu.
+
+17
+00:01:14,000 --> 00:01:20,000
+Hash ya asili itahifadhiwa daima.
+
+18
+00:01:25,000 --> 00:01:29,000
+Mfano wa pili — uundaji.
+
+19
+00:01:29,000 --> 00:01:36,000
+PDF zisizo na lebo zinafanywa kuwa HTML inayokidhi viwango vya WCAG 2.2
+kiatomati na AI, ikizalisha maandiko mbadala.
+
+20
+00:01:36,000 --> 00:01:42,000
+Katika tovuti ya ukaguzi wa upatikanaji wa WIA Book,
+nimefanya ukaguzi wa vitu 80 kiatomati tayari.
+
+21
+00:01:50,000 --> 00:01:54,000
+Mfano wa tatu — urejeshaji wa upatikanaji wa EPUB.
+
+22
+00:01:54,000 --> 00:02:00,000
+EPUB 2 isiyokidhi viwango inarejeshwa kuwa EPUB 3 kwa kiatomati.
+
+23
+00:02:00,000 --> 00:02:06,000
+Inapita vitu vyote 80 vya ukaguzi.
+
+24
+00:02:06,000 --> 00:02:13,000
+WCAG, EPUB A11y, KS X 6201, EAA ya Ulaya —
+inakidhi viwango vinne vya kimataifa kwa pamoja.
+
+25
+00:02:15,000 --> 00:02:19,000
+Mfano wa nne — uwasilishaji wa matumizi mbalimbali.
+
+26
+00:02:19,000 --> 00:02:24,000
+Lugha ya alama 7,000,
+lugha za sauti 254,
+
+27
+00:02:24,000 --> 00:02:29,000
+WIA Talk 3D ya alama,
+zana 436 za mazungumzo na wasimulizi.
+
+28
+00:02:29,000 --> 00:02:36,000
+WIA Live inawawezesha watu wasio na uwezo wa kusikia na wenye ulemavu wa kuona kuzungumza moja kwa moja bila mfasiri,
+
+29
+00:02:36,000 --> 00:02:39,500
+ambayo tayari inafanyiwa majaribio.
+
+30
+00:02:40,500 --> 00:02:43,000
+Geulsalim yetu.
+
+31
+00:02:43,000 --> 00:02:46,000
+弘益人間 — kusaidia kwa faida lakini kwa kudumu.
+We're Geulsalim.

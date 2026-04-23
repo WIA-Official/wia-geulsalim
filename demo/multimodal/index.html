@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>WIA Geulsalim · Demo 3 · 멀티모달 통합</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+<link rel="stylesheet" href="/demo/nav.css">
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+        font-family: 'Pretendard', sans-serif;
+        background: #0a0a0f;
+        color: #e5e7eb;
+        overflow: hidden;
+        height: 100vh;
+        width: 100vw;
+    }
+    .stage { display: flex; flex-direction: column; width: 100vw; height: 100vh; }
+
+    .brandbar {
+        flex: 0 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 14px 36px;
+        background: linear-gradient(90deg, #831843 0%, #0a0a0f 100%);
+        border-bottom: 1px solid #1f2937;
+    }
+    .brandbar .logo { display:flex; align-items:center; gap:12px; }
+    .brandbar .logo-mark {
+        width: 42px; height: 42px;
+        background: #ffffff;
+        border-radius: 50%;
+        display: flex; align-items: center; justify-content: center;
+        overflow: hidden;
+        box-shadow: 0 0 0 2px rgba(236, 72, 153, 0.4);
+    }
+    .brandbar .logo-mark img {
+        width: 80%;
+        height: 80%;
+        object-fit: contain;
+        display: block;
+    }
+    .brandbar .logo-text { font-weight: 800; font-size: 18px; }
+    .brandbar .logo-text .sub { font-size: 11px; color: #9ca3af; font-weight: 500; margin-left: 8px; }
+    .brandbar .demo-label { font-size: 13px; color: #ec4899; font-weight: 700; letter-spacing: 2px; }
+
+    /* Source at top */
+    .source {
+        flex: 0 0 auto;
+        padding: 16px 36px;
+        background: #111827;
+        border-bottom: 1px solid #1f2937;
+        display: flex;
+        align-items: center;
+        gap: 18px;
+    }
+    .source-label {
+        font-size: 10px;
+        color: #9ca3af;
+        font-weight: 700;
+        letter-spacing: 2px;
+    }
+    .source-text {
+        flex: 1;
+        background: #0a0a0f;
+        border: 1px solid #374151;
+        border-radius: 8px;
+        padding: 12px 18px;
+        font-size: 15px;
+        line-height: 1.5;
+        color: #e5e7eb;
+    }
+    .source-text .highlight {
+        background: #fbbf24;
+        color: #0a0a0f;
+        font-weight: 700;
+        padding: 2px 7px;
+        border-radius: 4px;
+        box-shadow: 0 0 12px rgba(251, 191, 36, 0.4);
+    }
+
+    /* 4-up grid */
+    .main {
+        flex: 1;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 14px;
+        padding: 18px 36px;
+        min-height: 0;
+    }
+    .output {
+        background: #111827;
+        border: 1px solid #1f2937;
+        border-radius: 12px;
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        position: relative;
+    }
+    .output.active {
+        border-color: #ec4899;
+        box-shadow: 0 0 20px rgba(236, 72, 153, 0.3);
+    }
+    .output h3 {
+        font-size: 11px;
+        color: #9ca3af;
+        letter-spacing: 2px;
+        margin-bottom: 2px;
+        text-transform: uppercase;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .output h3 .status {
+        font-size: 8px;
+        padding: 2px 6px;
+        border-radius: 3px;
+        background: #1f2937;
+        color: #6b7280;
+    }
+    .output.active h3 .status {
+        background: #ec4899;
+        color: #0a0a0f;
+    }
+    .output .sub { font-size: 10px; color: #6b7280; margin-bottom: 10px; }
+    .output-body {
+        flex: 1;
+        background: #0a0a0f;
+        border-radius: 8px;
+        padding: 14px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        position: relative;
+    }
+
+    /* Braille — 실제 양각 점자판 스타일 (흰 돌출 · 종이 배경) */
+    .braille-paper {
+        width: 100%;
+        background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+        border-radius: 6px;
+        padding: 14px 12px;
+        box-shadow: inset 0 1px 4px rgba(0,0,0,0.15), 0 2px 8px rgba(0,0,0,0.3);
+    }
+    .braille-grid {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        gap: 10px 6px;
+        width: 100%;
+    }
+    .braille-cell {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 3px;
+        aspect-ratio: 2/3;
+    }
+    .braille-dot {
+        border-radius: 50%;
+        background: #cbd5e1;                             /* 오프 도트 (종이색) */
+        box-shadow: inset 0 1px 2px rgba(0,0,0,0.15);
+        transition: all 0.3s;
+    }
+    .braille-dot.on {
+        background: radial-gradient(circle at 30% 30%, #ffffff 0%, #64748b 70%, #1e293b 100%);
+        box-shadow: 0 1px 3px rgba(0,0,0,0.55), inset 1px 1px 2px rgba(255,255,255,0.8);  /* 돌출 효과 */
+    }
+    .braille-text {
+        margin-top: 10px;
+        font-size: 20px;
+        color: #1e293b;
+        text-align: center;
+        letter-spacing: 2px;
+        line-height: 1.4;
+        font-family: 'JetBrains Mono', 'Consolas', monospace;
+        min-height: 28px;
+    }
+    .braille-label {
+        margin-top: 4px;
+        font-size: 10px;
+        color: #475569;
+        text-align: center;
+        letter-spacing: 0.3px;
+        font-weight: 600;
+        min-height: 14px;
+    }
+    .braille-credit {
+        margin-top: 8px;
+        font-size: 9.5px;
+        color: #9ca3af;
+        text-align: center;
+        letter-spacing: 0.3px;
+    }
+    .braille-credit a {
+        color: #fbbf24;
+        text-decoration: none;
+        font-weight: 700;
+    }
+    .braille-credit a:hover { text-decoration: underline; }
+
+    /* TTS waveform */
+    .tts-wave {
+        display: flex;
+        align-items: center;
+        gap: 3px;
+        height: 60px;
+    }
+    .tts-bar {
+        width: 4px;
+        background: linear-gradient(180deg, #60a5fa, #0ea5e9);
+        border-radius: 2px;
+        transition: height 0.1s ease;
+    }
+    .tts-caption {
+        margin-top: 14px;
+        font-size: 12px;
+        color: #d1d5db;
+        text-align: center;
+        line-height: 1.5;
+        min-height: 40px;
+    }
+    .tts-lang-chip {
+        display: inline-block;
+        background: #1e3a8a;
+        color: #bfdbfe;
+        padding: 2px 7px;
+        border-radius: 3px;
+        font-size: 9px;
+        font-weight: 700;
+        margin: 2px;
+    }
+
+    /* Sign language — MediaPipe-style skeleton + avatar */
+    .avatar-container {
+        position: relative;
+        width: 100%;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #0d1b2a;
+        border-radius: 6px;
+        overflow: hidden;
+        min-height: 240px;
+    }
+    .sign-iframe {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+        background: transparent;
+    }
+    .sign-stage {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        min-height: 240px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .pose-svg {
+        width: 100%;
+        height: 100%;
+        max-width: 260px;
+        max-height: 280px;
+    }
+    /* SVG parts */
+    .pose-svg .body {
+        fill: url(#bodyGrad);
+        stroke: #a855f7;
+        stroke-width: 1.5;
+    }
+    .pose-svg .head {
+        fill: #f3e8ff;
+        stroke: #a855f7;
+        stroke-width: 2;
+    }
+    .pose-svg .arm-line,
+    .pose-svg .skel-line {
+        stroke: #c084fc;
+        stroke-width: 3;
+        stroke-linecap: round;
+        fill: none;
+        transition: all 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .pose-svg .skel-line {
+        stroke: rgba(192, 132, 252, 0.55);
+        stroke-width: 1.5;
+        stroke-dasharray: 3 3;
+    }
+    .pose-svg .kp {
+        fill: #fbbf24;
+        stroke: #0a0a0f;
+        stroke-width: 1;
+        filter: drop-shadow(0 0 4px rgba(251, 191, 36, 0.6));
+        transition: all 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .pose-svg .kp-finger {
+        fill: #22d3ee;
+        stroke: none;
+        filter: drop-shadow(0 0 3px rgba(34, 211, 238, 0.7));
+        transition: all 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .pose-svg .hand-finger {
+        stroke: #e9d5ff;
+        stroke-width: 2.5;
+        stroke-linecap: round;
+        fill: none;
+        transition: all 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .pose-svg .eye,
+    .pose-svg .mouth {
+        fill: #6b21a8;
+    }
+    .pose-svg .face-expr {
+        transition: all 0.4s ease;
+    }
+    @keyframes kpPulse {
+        0%, 100% { transform: scale(1); }
+        50%      { transform: scale(1.3); }
+    }
+    .pose-svg .kp.active {
+        animation: kpPulse 1s infinite;
+    }
+    .sign-caption {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 12px;
+        color: #f3e8ff;
+        text-align: center;
+        line-height: 1.4;
+        background: rgba(88, 28, 135, 0.85);
+        border: 1px solid rgba(192, 132, 252, 0.4);
+        padding: 5px 14px;
+        border-radius: 16px;
+        font-weight: 700;
+        letter-spacing: 0.3px;
+        white-space: nowrap;
+        backdrop-filter: blur(6px);
+    }
+    .sign-meta {
+        position: absolute;
+        top: 8px;
+        left: 8px;
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        font-size: 8.5px;
+        color: #c084fc;
+        font-family: 'JetBrains Mono', 'Consolas', monospace;
+        background: rgba(20, 14, 35, 0.7);
+        border: 1px solid rgba(124, 58, 237, 0.35);
+        padding: 5px 8px;
+        border-radius: 5px;
+        letter-spacing: 0.3px;
+        line-height: 1.4;
+        backdrop-filter: blur(4px);
+    }
+    .sign-meta .meta-key { color: #9333ea; }
+    .sign-meta .meta-val { color: #e9d5ff; font-weight: 700; }
+    .sign-gesture-counter {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        font-size: 9px;
+        color: #22d3ee;
+        background: rgba(8, 47, 73, 0.7);
+        border: 1px solid rgba(34, 211, 238, 0.4);
+        padding: 4px 9px;
+        border-radius: 10px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        backdrop-filter: blur(4px);
+    }
+    .mp-badge {
+        position: absolute;
+        bottom: 36px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 8px;
+        color: #22d3ee;
+        background: rgba(8, 47, 73, 0.6);
+        border: 1px solid rgba(34, 211, 238, 0.3);
+        padding: 3px 8px;
+        border-radius: 10px;
+        font-weight: 800;
+        letter-spacing: 1px;
+    }
+    .mp-badge::before {
+        content: '●';
+        color: #22d3ee;
+        animation: dotblink 1s infinite;
+    }
+
+    /* VR environment — immersive 3D space */
+    .vr-env {
+        width: 100%;
+        flex: 1;
+        position: relative;
+        background:
+            radial-gradient(ellipse at 50% 30%, #1e40af 0%, #0f172a 55%, #050817 100%);
+        border-radius: 8px;
+        overflow: hidden;
+        perspective: 600px;
+        perspective-origin: 50% 40%;
+    }
+    /* Tron-style perspective floor grid */
+    .vr-floor {
+        position: absolute;
+        bottom: -30%;
+        left: -50%;
+        width: 200%;
+        height: 80%;
+        background-image:
+            linear-gradient(rgba(96, 165, 250, 0.35) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(96, 165, 250, 0.35) 1px, transparent 1px);
+        background-size: 40px 40px;
+        transform: rotateX(68deg);
+        transform-origin: center top;
+        animation: floorMove 4s linear infinite;
+        mask-image: linear-gradient(to top, rgba(0,0,0,0.9) 20%, transparent 95%);
+        -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,0.9) 20%, transparent 95%);
+    }
+    @keyframes floorMove {
+        from { background-position: 0 0; }
+        to   { background-position: 0 40px; }
+    }
+    /* Horizon glow line */
+    .vr-horizon {
+        position: absolute;
+        top: 40%;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(96,165,250,0.9), transparent);
+        box-shadow: 0 0 14px 2px rgba(96,165,250,0.5);
+    }
+    .vr-stars {
+        position: absolute;
+        inset: 0;
+        background-image:
+            radial-gradient(1px 1px at 12% 18%, #fff, transparent),
+            radial-gradient(1.5px 1.5px at 60% 28%, #fbbf24, transparent),
+            radial-gradient(1px 1px at 35% 12%, #fff, transparent),
+            radial-gradient(1px 1px at 85% 22%, #fff, transparent),
+            radial-gradient(1px 1px at 70% 35%, #a5b4fc, transparent),
+            radial-gradient(1px 1px at 22% 32%, #fff, transparent),
+            radial-gradient(1px 1px at 48% 20%, #fff, transparent),
+            radial-gradient(1.5px 1.5px at 92% 10%, #fbbf24, transparent);
+        animation: starTwinkle 3s ease-in-out infinite;
+    }
+    @keyframes starTwinkle {
+        0%,100% { opacity: 0.8; }
+        50%     { opacity: 1; }
+    }
+    /* Floating letter cards (한글 자음 · 모음) */
+    .vr-card {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 42px;
+        border-radius: 4px;
+        font-family: 'Pretendard', 'Nanum Myeongjo', sans-serif;
+        font-weight: 900;
+        color: #0a0a0f;
+        text-align: center;
+        letter-spacing: -0.02em;
+    }
+    /* 자음 카드 (금색) — 5 카드 */
+    .vr-card.c1 { top: 28%; left: 16%; font-size: 20px; background: linear-gradient(135deg, #fcd34d, #f97316); box-shadow: 0 0 12px rgba(251,191,36,0.75), inset -2px 0 0 rgba(0,0,0,0.25); animation: float1 4s ease-in-out infinite; }
+    .vr-card.c2 { top: 18%; left: 60%; font-size: 18px; background: linear-gradient(135deg, #fbbf24, #f97316); box-shadow: 0 0 10px rgba(251,191,36,0.7); animation: float2 5s ease-in-out infinite; }
+    .vr-card.c3 { top: 40%; left: 80%; font-size: 17px; width: 28px; height: 38px; background: linear-gradient(135deg, #fbbf24, #ea580c); box-shadow: 0 0 10px rgba(251,191,36,0.7); animation: float3 6s ease-in-out infinite; }
+    .vr-card.c4 { top: 22%; left: 38%; font-size: 22px; width: 34px; height: 44px; background: linear-gradient(135deg, #fcd34d, #fb923c); box-shadow: 0 0 14px rgba(251,191,36,0.78); animation: float2 4.5s ease-in-out infinite; }
+    .vr-card.c5 { top: 42%; left: 24%; font-size: 19px; background: linear-gradient(135deg, #fbbf24, #f97316); box-shadow: 0 0 11px rgba(251,191,36,0.72); animation: float1 5.5s ease-in-out infinite; }
+    /* 모음 카드 (옥색) — 5 카드 */
+    .vr-card.v1 { top: 15%; left: 30%; font-size: 19px; background: linear-gradient(135deg, #5eead4, #0891b2); color:#052e2b; box-shadow: 0 0 10px rgba(94,234,212,0.6); animation: float2 4s ease-in-out infinite; }
+    .vr-card.v2 { top: 32%; left: 68%; font-size: 17px; width: 28px; height: 38px; background: linear-gradient(135deg, #6ee7b7, #0d9488); color:#052e2b; box-shadow: 0 0 10px rgba(94,234,212,0.6); animation: float1 5s ease-in-out infinite; }
+    .vr-card.v3 { top: 14%; left: 82%; font-size: 18px; background: linear-gradient(135deg, #5eead4, #10b981); color:#052e2b; box-shadow: 0 0 10px rgba(94,234,212,0.6); animation: float3 4.8s ease-in-out infinite; }
+    .vr-card.v4 { top: 46%; left: 50%; font-size: 17px; transform: translateX(-50%); width: 28px; height: 38px; background: linear-gradient(135deg, #67e8f9, #0891b2); color:#052e2b; box-shadow: 0 0 10px rgba(94,234,212,0.6); animation: float2 5.3s ease-in-out infinite; }
+    .vr-card.v5 { top: 48%; left: 64%; font-size: 19px; background: linear-gradient(135deg, #5eead4, #0ea5e9); color:#052e2b; box-shadow: 0 0 10px rgba(94,234,212,0.6); animation: float1 4.6s ease-in-out infinite; }
+
+    /* 단어 부유 (텍스트만, 카드 없음 — 상징적 글자들) */
+    .vr-word {
+        position: absolute;
+        font-family: 'Nanum Myeongjo', 'Noto Serif KR', 'Pretendard', serif;
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        pointer-events: none;
+        text-shadow: 0 0 10px currentColor;
+    }
+    .vr-word.w1 { top: 10%; left: 44%; font-size: 17px; color: #fef3c7; animation: float3 5s ease-in-out infinite; }       /* 꿈 */
+    .vr-word.w2 { top: 22%; left: 10%; font-size: 16px; color: #e0f2fe; animation: float1 6s ease-in-out infinite; }       /* 길 */
+    .vr-word.w3 { top: 38%; left: 92%; font-size: 18px; color: #fde68a; animation: float2 5.8s ease-in-out infinite; }     /* 해 */
+    .vr-word.w4 { top: 8%;  left: 88%; font-size: 17px; color: #dbeafe; animation: float3 4.4s ease-in-out infinite; }     /* 달 */
+    .vr-word.w5 { top: 26%; left: 90%; font-size: 15px; color: #fef3c7; animation: float1 5.2s ease-in-out infinite; }     /* 빛 */
+    .vr-word.w6 { top: 44%; left: 40%; font-size: 16px; color: #fbcfe8; animation: float2 6.3s ease-in-out infinite; }     /* 꽃 */
+    .vr-word.w7 { top: 12%; left: 20%; font-size: 14px; color: #c7d2fe; animation: float3 5.5s ease-in-out infinite; }     /* 별 */
+    .vr-word.w8 { top: 34%; left: 44%; font-size: 14px; color: #a7f3d0; animation: float1 4.7s ease-in-out infinite; }     /* 숨 */
+
+    /* 중앙 포커스 단어: 글살림 (가장 크게) */
+    .vr-focus {
+        position: absolute;
+        top: 55%;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: 'Pretendard', sans-serif;
+        font-size: 22px;
+        font-weight: 900;
+        letter-spacing: -0.03em;
+        background: linear-gradient(135deg, #fcd34d 0%, #10b981 55%, #0ea5e9 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-shadow: 0 0 18px rgba(251, 191, 36, 0.4);
+        animation: focusPulse 2.6s ease-in-out infinite;
+        z-index: 4;
+        filter: drop-shadow(0 0 12px rgba(251, 191, 36, 0.6));
+    }
+    @keyframes float1 {
+        0%,100% { transform: translateY(0) rotate(-4deg); }
+        50%     { transform: translateY(-9px) rotate(2deg); }
+    }
+    @keyframes float2 {
+        0%,100% { transform: translateY(0) rotate(3deg); }
+        50%     { transform: translateY(-11px) rotate(-3deg); }
+    }
+    @keyframes float3 {
+        0%,100% { transform: translateY(0) rotate(-2deg); }
+        50%     { transform: translateY(-7px) rotate(4deg); }
+    }
+    @keyframes focusPulse {
+        0%,100% { transform: translateX(-50%) scale(1); }
+        50%     { transform: translateX(-50%) scale(1.07); }
+    }
+    /* VR headset indicator */
+    .vr-headset {
+        position: absolute;
+        top: 8px;
+        left: 8px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        padding: 4px 8px;
+        background: rgba(96, 165, 250, 0.15);
+        border: 1px solid rgba(96, 165, 250, 0.4);
+        border-radius: 12px;
+        font-size: 8.5px;
+        color: #93c5fd;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        backdrop-filter: blur(6px);
+    }
+    .vr-headset svg { width: 14px; height: 14px; }
+    .vr-immersive-badge {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        padding: 3px 8px;
+        background: rgba(236, 72, 153, 0.18);
+        border: 1px solid rgba(236, 72, 153, 0.45);
+        border-radius: 10px;
+        font-size: 8px;
+        color: #fda4af;
+        font-weight: 800;
+        letter-spacing: 1.2px;
+        animation: badgePulse 1.8s infinite;
+    }
+    @keyframes badgePulse {
+        0%,100% { opacity: 0.65; }
+        50%     { opacity: 1; }
+    }
+    .vr-env-label {
+        position: absolute;
+        bottom: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 10px;
+        color: #dbeafe;
+        background: rgba(30, 58, 138, 0.85);
+        border: 1px solid rgba(96, 165, 250, 0.4);
+        padding: 5px 12px;
+        border-radius: 14px;
+        white-space: nowrap;
+        font-weight: 600;
+        backdrop-filter: blur(4px);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+    }
+    .vr-env-label .env-icon { font-size: 13px; }
+
+    /* Status */
+    .statusbar {
+        flex: 0 0 auto;
+        background: #111827;
+        border-top: 1px solid #1f2937;
+        padding: 12px 36px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 13px;
+    }
+    .status-left { display: flex; gap: 24px; }
+    .stat-item { display: flex; flex-direction: column; gap: 1px; }
+    .stat-item .v { color: #ec4899; font-weight: 700; font-size: 16px; line-height: 1; }
+    .stat-item .l { color: #9ca3af; font-size: 9px; }
+    .status-right {
+        color: #ec4899;
+        font-weight: 700;
+        font-size: 12px;
+        display: flex; gap: 6px; align-items: center;
+    }
+    .status-right::before { content: '●'; animation: dotblink 0.9s infinite; }
+    @keyframes dotblink { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+
+    .wia-live-badge {
+        display: inline-block;
+        background: #fef3c7;
+        color: #78350f;
+        padding: 3px 8px;
+        border-radius: 3px;
+        font-size: 9px;
+        font-weight: 700;
+        letter-spacing: 1px;
+    }
+</style>
+</head>
+<body>
+<div class="stage">
+    <div class="brandbar">
+        <div class="logo">
+            <div class="logo-mark"><img src="/assets/images/favicon.png" alt="WIA"></div>
+            <div class="logo-text">
+                WIA Geulsalim
+                <span class="sub">We're Geulsalim · 우리들의 글살림</span>
+            </div>
+        </div>
+        <div class="demo-label">DEMO 4 · DELIVER · 멀티모달 출력</div>
+    </div>
+
+    <!-- Source input -->
+    <div class="source">
+        <div class="source-label">원문 (INPUT)</div>
+        <div class="source-text">
+            "<span class="highlight">훼손된 5천년의 글</span>을 AI가 복원하여,
+            <span class="highlight">모든 감각·모든 언어</span>로
+            <span class="highlight">한 사람도 빠짐없이</span> 전달합니다."
+        </div>
+        <span class="wia-live-badge">WIA LIVE · 통역사 없는 직접 소통</span>
+    </div>
+
+    <!-- 4 modalities -->
+    <div class="main">
+        <!-- Braille -->
+        <div class="output" id="out-braille">
+            <h3>① Braille <span class="status">WIA Braille</span></h3>
+            <div class="sub">IPA 기반 · 7,000+ 언어 · wiabraille.com API · MIT License</div>
+            <div class="output-body">
+                <div class="braille-paper">
+                    <div class="braille-grid" id="brailleGrid"></div>
+                    <div class="braille-text" id="brailleText">⠠⠺⠑⠄⠗⠑ ⠠⠛⠑⠥⠇⠎⠁⠇⠊⠍</div>
+                    <div class="braille-label" id="brailleLabel">We're Geulsalim</div>
+                </div>
+                <div class="braille-credit">
+                    Powered by
+                    <a href="https://wiabraille.com/demo.html" target="_blank" rel="noopener">wiabraille.com</a>
+                    · 제안서 전문 →
+                    <a href="/docs/proposal-braille.html" target="_blank">proposal-braille</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- TTS -->
+        <div class="output" id="out-tts">
+            <h3>② Voice (TTS) <span class="status">WIHP · 254 Lang</span></h3>
+            <div class="sub">IPA 143MB · 30 언어 딥러닝 확장</div>
+            <div class="output-body">
+                <div class="tts-wave" id="ttsWave"></div>
+                <div class="tts-caption" id="ttsCaption">"훼손된 오천년의 글을 AI가..."</div>
+                <div>
+                    <span class="tts-lang-chip">ko</span>
+                    <span class="tts-lang-chip">en</span>
+                    <span class="tts-lang-chip">zh</span>
+                    <span class="tts-lang-chip">ja</span>
+                    <span class="tts-lang-chip">es</span>
+                    <span class="tts-lang-chip">+249</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sign Language -->
+        <div class="output" id="out-sign">
+            <h3>③ Sign Language <span class="status">WIA Talk</span></h3>
+            <div class="sub">wiatalk.com · 93 제스처 · GLB 3D 아바타 · 표정 인식</div>
+            <div class="output-body">
+                <div class="avatar-container">
+                    <!-- 실제 wiatalk.com 3D 수어 뷰어 임베드 (라이브 GLB 아바타 + 93 제스처) -->
+                    <iframe class="sign-iframe"
+                            src="https://wiatalk.com/sign-viewer.html?mode=embedded&sign_data=https%3A%2F%2Fwiabook.com%2Fwp-content%2Fuploads%2Fwiabook-signs%2F397141%2Fsign-data.json&title=WIA+Geulsalim"
+                            title="WIA Talk 3D Sign Language Viewer · Three.js GLB Avatar"
+                            loading="lazy"
+                            allow="autoplay"
+                            referrerpolicy="origin"></iframe>
+                    <div class="sign-gesture-counter" id="gestureCounter">wiatalk.com · LIVE GLB</div>
+
+                    <!-- Sign meta (3D 뷰어와 함께 표시할 수어 3요소 - JS 루프에서 업데이트) -->
+                    <div class="sign-meta">
+                        <div><span class="meta-key">hand</span> <span class="meta-val" id="metaHand">OPEN</span></div>
+                        <div><span class="meta-key">pos</span> <span class="meta-val" id="metaPos">가슴</span></div>
+                        <div><span class="meta-key">dir</span> <span class="meta-val" id="metaDir">수평</span></div>
+                    </div>
+                    <div class="sign-caption" id="signCaption">글살림 · 3D 수어</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- VR -->
+        <div class="output" id="out-vr">
+            <h3>④ WebXR VR <span class="status">특허 ①</span></h3>
+            <div class="sub">wia.tools 436 도구·시뮬레이터 · Three.js · Meta Quest / iPhone AR</div>
+            <div class="output-body">
+                <div class="vr-env">
+                    <div class="vr-stars"></div>
+                    <div class="vr-horizon"></div>
+                    <div class="vr-floor"></div>
+
+                    <!-- VR 헤드셋 아이콘 -->
+                    <div class="vr-headset">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 7h18a1 1 0 0 1 1 1v7a3 3 0 0 1-3 3h-3l-3-3h-2l-3 3H5a3 3 0 0 1-3-3V8a1 1 0 0 1 1-1z"/>
+                            <circle cx="8" cy="12" r="1.5"/>
+                            <circle cx="16" cy="12" r="1.5"/>
+                        </svg>
+                        META QUEST / VISION PRO
+                    </div>
+                    <div class="vr-immersive-badge">IMMERSIVE</div>
+
+                    <!-- 한글 자모·단어 부유 — "글을 살린다" 시각화 -->
+                    <!-- 자음 카드 5 (금색) -->
+                    <div class="vr-card c1">ㄱ</div>
+                    <div class="vr-card c2">ㄴ</div>
+                    <div class="vr-card c3">ㄷ</div>
+                    <div class="vr-card c4">ㄹ</div>
+                    <div class="vr-card c5">ㅁ</div>
+                    <!-- 모음 카드 5 (옥색) -->
+                    <div class="vr-card v1">ㅏ</div>
+                    <div class="vr-card v2">ㅓ</div>
+                    <div class="vr-card v3">ㅗ</div>
+                    <div class="vr-card v4">ㅜ</div>
+                    <div class="vr-card v5">ㅣ</div>
+                    <!-- 부유 단어 (카드 없이 텍스트만) -->
+                    <div class="vr-word w1">꿈</div>
+                    <div class="vr-word w2">길</div>
+                    <div class="vr-word w3">해</div>
+                    <div class="vr-word w4">달</div>
+                    <div class="vr-word w5">빛</div>
+                    <div class="vr-word w6">꽃</div>
+                    <div class="vr-word w7">별</div>
+                    <div class="vr-word w8">숨</div>
+                    <!-- 중앙 포커스 단어 -->
+                    <div class="vr-focus">글살림</div>
+
+                    <!-- 환경 라벨 -->
+                    <div class="vr-env-label" id="vrLabel">
+                        <span class="env-icon">🌌</span>
+                        <span id="vrLabelText">우주 도서관</span>
+                    </div>
+                </div>
+                <div class="sign-caption" style="margin-top:8px;">
+                    .wiabook 포맷 (특허 10-2025-0187878)
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="statusbar">
+        <div class="status-left">
+            <div class="stat-item"><span class="v">4/4</span><span class="l">모달리티 동시 활성</span></div>
+            <div class="stat-item"><span class="v">254</span><span class="l">i18n</span></div>
+            <div class="stat-item"><span class="v">7,000+</span><span class="l">Braille</span></div>
+            <div class="stat-item"><span class="v">436</span><span class="l">wia.tools 도구</span></div>
+            <div class="stat-item"><span class="v" style="font-size:14px;">WIA Talk</span><span class="l">3D 수어</span></div>
+        </div>
+        <div class="status-right" id="statusText">BROADCASTING TO ALL SENSES...</div>
+    </div>
+</div>
+
+<script>
+// === WIA Braille (6-dot) grid — 8 cells 표시용 ===
+const brailleGrid = document.getElementById('brailleGrid');
+const brailleChars = 8;
+const dots = [];
+for (let c = 0; c < brailleChars; c++) {
+    const cell = document.createElement('div');
+    cell.className = 'braille-cell';
+    const cellDots = [];
+    for (let i = 0; i < 6; i++) {
+        const d = document.createElement('div');
+        d.className = 'braille-dot';
+        cell.appendChild(d);
+        cellDots.push(d);
+    }
+    dots.push(cellDots);
+    brailleGrid.appendChild(cell);
+}
+
+/* 영문 Grade 1 점자 매핑 (6-dot positions: 1=top-left, 2=mid-L, 3=bot-L, 4=top-R, 5=mid-R, 6=bot-R
+   HTML grid는 위→아래, 좌→우 순. grid-rows:3, cols:2 → index 0=1, 1=4, 2=2, 3=5, 4=3, 5=6 */
+const POS = {1:0, 2:2, 3:4, 4:1, 5:3, 6:5};
+
+// 각 글자 → 켜진 dot 번호 (Grade 1 Braille 표준)
+const ENG = {
+    'a':[1], 'b':[1,2], 'c':[1,4], 'd':[1,4,5], 'e':[1,5], 'f':[1,2,4], 'g':[1,2,4,5],
+    'h':[1,2,5], 'i':[2,4], 'j':[2,4,5], 'k':[1,3], 'l':[1,2,3], 'm':[1,3,4], 'n':[1,3,4,5],
+    'o':[1,3,5], 'p':[1,2,3,4], 'q':[1,2,3,4,5], 'r':[1,2,3,5], 's':[2,3,4], 't':[2,3,4,5],
+    'u':[1,3,6], 'v':[1,2,3,6], 'w':[2,4,5,6], 'x':[1,3,4,6], 'y':[1,3,4,5,6], 'z':[1,3,5,6],
+    '.':[2,5,6], ',':[2], '!':[2,3,5], '?':[2,3,6], "'":[3], ' ':[]
+};
+const CAPITAL = [6];    // ⠠ 접두
+const NUMBER  = [3,4,5,6]; // ⠼
+const NUM = {'1':[1], '2':[1,2], '3':[1,4], '4':[1,4,5], '5':[1,5], '6':[1,2,4], '7':[1,2,4,5], '8':[1,2,5], '9':[2,4], '0':[2,4,5]};
+
+function setCellDots(cellIdx, posList) {
+    if (cellIdx >= brailleChars) return;
+    const cellDots = dots[cellIdx];
+    cellDots.forEach(d => d.classList.remove('on'));
+    posList.forEach(p => {
+        const i = POS[p];
+        if (i !== undefined) cellDots[i].classList.add('on');
+    });
+}
+function clearAllCells() {
+    dots.forEach(cd => cd.forEach(d => d.classList.remove('on')));
+}
+
+// 텍스트를 점자 셀 배열로 변환
+function textToBrailleCells(text) {
+    const cells = [];
+    let inNum = false;
+    for (let i = 0; i < text.length; i++) {
+        const ch = text[i];
+        const lower = ch.toLowerCase();
+        if (/[0-9]/.test(ch)) {
+            if (!inNum) { cells.push(NUMBER); inNum = true; }
+            cells.push(NUM[ch] || []);
+        } else {
+            inNum = false;
+            if (ch >= 'A' && ch <= 'Z') {
+                cells.push(CAPITAL);
+                cells.push(ENG[lower] || []);
+            } else if (ENG[lower] !== undefined) {
+                cells.push(ENG[lower]);
+            } else {
+                cells.push([]);  // 알 수 없는 문자 = 공백
+            }
+        }
+    }
+    return cells;
+}
+
+function renderBraille(cells) {
+    clearAllCells();
+    for (let i = 0; i < brailleChars && i < cells.length; i++) {
+        setCellDots(i, cells[i]);
+    }
+}
+
+// Unicode Braille Patterns (U+2800) 생성 — 텍스트 영역용
+function cellsToUnicode(cells) {
+    return cells.map(posList => {
+        let code = 0x2800;
+        // Unicode 8-dot: bit0=pos1, bit1=pos2, bit2=pos3, bit3=pos4, bit4=pos5, bit5=pos6
+        posList.forEach(p => { if (p >= 1 && p <= 6) code |= (1 << (p - 1)); });
+        return String.fromCharCode(code);
+    }).join('');
+}
+
+// 제안서 핵심 문구 cycle
+const brailleSentences = [
+    { text: "We're Geulsalim",    label: "We're Geulsalim ('우리들의 글살림')" },
+    { text: "Benefit All",        label: "弘益人間 · Benefit All Humanity" },
+    { text: "AI Restores",        label: "AI Restores · AI가 복원합니다" },
+    { text: "All Senses",         label: "All Senses · 모든 감각에 전달" },
+    { text: "WIA Geulsalim",      label: "WIA Geulsalim · 8년 위에 자라난 도구" }
+];
+let bSentIdx = 0;
+
+// Build TTS wave bars
+const ttsWave = document.getElementById('ttsWave');
+const ttsBars = [];
+for (let i = 0; i < 36; i++) {
+    const bar = document.createElement('div');
+    bar.className = 'tts-bar';
+    bar.style.height = '8px';
+    ttsWave.appendChild(bar);
+    ttsBars.push(bar);
+}
+
+function animateTtsWave() {
+    ttsBars.forEach(b => {
+        b.style.height = (6 + Math.random() * 50) + 'px';
+    });
+}
+let ttsWaveInterval = null;
+
+// TTS captions cycle
+const captions = [
+    { lang: '한국어', text: '"훼손된 오천년의 글을 AI가 복원하여,\n모든 감각·모든 언어로 전달합니다."' },
+    { lang: 'English', text: '"AI restores five millennia of damaged text\nand delivers it to every sense, every language."' },
+    { lang: '中文', text: '"AI 修復五千年受損的文字,\n以所有感官·所有語言傳達。"' },
+    { lang: '日本語', text: '"損なわれた五千年の文字をAIが復元し、\nすべての感覚・すべての言語で伝えます。"' },
+    { lang: 'Español', text: '"La IA restaura cinco milenios de textos dañados\ny los entrega a todos los sentidos."' }
+];
+
+// 각 포즈는 SVG 양팔(어깨→팔꿈치→손목) 좌표 + 얼굴 표정 + 수어 문법 메타
+const signPoses = [
+    {
+        caption: '훼손 (damage)',
+        armL: '60,100 30,135 28,175',  handL: {cx:28, cy:183},
+        armR: '140,100 170,135 172,175', handR: {cx:172, cy:183},
+        mouth: 'M 92 70 Q 100 66 108 70',  // 걱정/찌푸림
+        meta: { hand: 'CLOSED-FIST', pos: '가슴 높이', dir: '안쪽' }
+    },
+    {
+        caption: '복원 (restore)',
+        armL: '60,100 45,145 75,190', handL: {cx:75, cy:198},
+        armR: '140,100 155,145 125,190', handR: {cx:125, cy:198},
+        mouth: 'M 92 68 Q 100 72 108 68',
+        meta: { hand: 'OPEN-PALM', pos: '가슴 중앙', dir: '위' }
+    },
+    {
+        caption: '전달 (deliver)',
+        armL: '60,100 40,90 20,75', handL: {cx:20, cy:80},
+        armR: '140,100 160,90 180,75', handR: {cx:180, cy:80},
+        mouth: 'M 88 68 Q 100 76 112 68',   // 밝은 표정
+        meta: { hand: 'POINT-OUT', pos: '어깨 위', dir: '바깥' }
+    },
+    {
+        caption: '모든 사람 (everyone)',
+        armL: '60,100 25,120 15,100', handL: {cx:15, cy:108},
+        armR: '140,100 175,120 185,100', handR: {cx:185, cy:108},
+        mouth: 'M 90 68 Q 100 74 110 68',
+        meta: { hand: 'OPEN-WIDE', pos: '양옆', dir: '수평' }
+    },
+    {
+        caption: '홍익인간 (benefit all)',
+        armL: '60,100 50,140 90,170', handL: {cx:90, cy:178},
+        armR: '140,100 150,140 110,170', handR: {cx:110, cy:178},
+        mouth: 'M 88 68 Q 100 78 112 68',   // 큰 미소
+        meta: { hand: 'HEART-CHEST', pos: '가슴 중앙', dir: '안쪽' }
+    }
+];
+
+// 손바닥·손가락 좌표 갱신 헬퍼
+function applyHand(handId, cx, cy) {
+    const g = document.getElementById(handId);
+    if (!g) return;
+    const palm = g.querySelector('ellipse');
+    if (palm) { palm.setAttribute('cx', cx); palm.setAttribute('cy', cy); }
+    const fingerOffsets = [
+        {dx:-2, dy:12}, {dx:-4, dy:16}, {dx:2, dy:18}, {dx:6, dy:15}, {dx:8, dy:8}
+    ];
+    const paths = g.querySelectorAll('.hand-finger');
+    paths.forEach((p, i) => {
+        const o = fingerOffsets[i];
+        p.setAttribute('d', `M ${cx} ${cy} L ${cx + o.dx} ${cy + o.dy}`);
+    });
+    const tips = g.querySelectorAll('.kp-finger');
+    tips.forEach((t, i) => {
+        const o = fingerOffsets[i];
+        t.setAttribute('cx', cx + o.dx);
+        t.setAttribute('cy', cy + o.dy);
+    });
+}
+
+// VR environment cycle
+const vrEnvs = [
+    { icon: '🌌', label: '우주 도서관 · Universe Library' },
+    { icon: '📜', label: '고대 서재 · Ancient Study' },
+    { icon: '🏖️', label: '해변 정원 · Beach Garden' },
+    { icon: '🏔️', label: '설산 사찰 · Mountain Temple' },
+    { icon: '🗼', label: '미래 타워 · Future Tower' },
+    { icon: '🌲', label: '숲속 숨결 · Forest Quiet' },
+    { icon: '🕌', label: '대성당 · Great Cathedral' },
+    { icon: '🚀', label: '우주 정거장 · Space Station' }
+];
+
+let captionIdx = 0;
+let poseIdx = 0;
+let envIdx = 0;
+let braillePatternIdx = 0;
+
+function runDemo() {
+    const statusText = document.getElementById('statusText');
+    const ttsCaption = document.getElementById('ttsCaption');
+    const signCaption = document.getElementById('signCaption');
+    const gestureCounter = document.getElementById('gestureCounter');
+    const armLeft = document.getElementById('armLeft');
+    const armRight = document.getElementById('armRight');
+    const vrLabel = document.getElementById('vrLabel');
+    const outputs = ['out-braille', 'out-tts', 'out-sign', 'out-vr'];
+
+    // Stage 1: activate braille (0-6s) — 제안서 핵심 문구를 실제 Unicode Braille로 변환
+    outputs.forEach(id => document.getElementById(id).classList.remove('active'));
+    document.getElementById('out-braille').classList.add('active');
+    statusText.textContent = 'CONVERTING TO WIA BRAILLE (wiabraille.com)...';
+
+    const brailleTextEl  = document.getElementById('brailleText');
+    const brailleLabelEl = document.getElementById('brailleLabel');
+    function showBrailleSentence() {
+        const s = brailleSentences[bSentIdx];
+        const cells = textToBrailleCells(s.text);
+        renderBraille(cells);
+        brailleTextEl.textContent = cellsToUnicode(cells);
+        brailleLabelEl.textContent = s.label;
+        bSentIdx = (bSentIdx + 1) % brailleSentences.length;
+    }
+    showBrailleSentence();
+    const brailleInterval = setInterval(showBrailleSentence, 1800);
+
+    // Stage 2: activate TTS (6-14s)
+    setTimeout(() => {
+        document.getElementById('out-tts').classList.add('active');
+        statusText.textContent = 'SYNTHESIZING VOICE (254 LANG)...';
+        ttsWaveInterval = setInterval(animateTtsWave, 120);
+
+        // cycle captions
+        const captionInterval = setInterval(() => {
+            const c = captions[captionIdx];
+            ttsCaption.innerHTML = '<span style="font-size:9px;color:#60a5fa;font-weight:700;">' + c.lang + '</span><br>' + c.text.replace(/\n/g,'<br>');
+            captionIdx = (captionIdx + 1) % captions.length;
+        }, 1800);
+
+        // stash for cleanup
+        window._captionInterval = captionInterval;
+    }, 6000);
+
+    // Stage 3: activate sign language (12-22s) — iframe 내부의 실제 3D GLB 아바타가 자체 재생.
+    // 여기서는 좌상단 "수어 3요소 meta"와 캡션만 동기 업데이트.
+    setTimeout(() => {
+        document.getElementById('out-sign').classList.add('active');
+        statusText.textContent = 'RENDERING 3D SIGN LANGUAGE (wiatalk.com · GLB)...';
+
+        const metaHand = document.getElementById('metaHand');
+        const metaPos  = document.getElementById('metaPos');
+        const metaDir  = document.getElementById('metaDir');
+
+        const signInterval = setInterval(() => {
+            const pose = signPoses[poseIdx];
+            if (metaHand) metaHand.textContent = pose.meta.hand;
+            if (metaPos)  metaPos.textContent  = pose.meta.pos;
+            if (metaDir)  metaDir.textContent  = pose.meta.dir;
+            if (signCaption) signCaption.textContent = pose.caption;
+            poseIdx = (poseIdx + 1) % signPoses.length;
+        }, 1600);
+        window._signInterval = signInterval;
+    }, 12000);
+
+    // Stage 4: activate VR (20-30s)
+    setTimeout(() => {
+        document.getElementById('out-vr').classList.add('active');
+        statusText.textContent = 'RENDERING WIA.TOOLS (436 INTERACTIVE TOOLS)...';
+
+        const vrLabelText = document.getElementById('vrLabelText');
+        const vrLabelIcon = vrLabel.querySelector('.env-icon');
+        const vrInterval = setInterval(() => {
+            const env = vrEnvs[envIdx];
+            vrLabelIcon.textContent = env.icon;
+            vrLabelText.textContent = env.label;
+            envIdx = (envIdx + 1) % vrEnvs.length;
+        }, 1800);
+        window._vrInterval = vrInterval;
+    }, 20000);
+
+    // Stage 5: all together (28-34s)
+    setTimeout(() => {
+        statusText.textContent = '✓ ALL SENSES SIMULTANEOUSLY · WIA LIVE MODE';
+    }, 28000);
+
+    // Loop reset (36s)
+    setTimeout(() => {
+        clearInterval(brailleInterval);
+        if (ttsWaveInterval) { clearInterval(ttsWaveInterval); ttsWaveInterval = null; }
+        if (window._captionInterval) clearInterval(window._captionInterval);
+        if (window._signInterval) clearInterval(window._signInterval);
+        if (window._vrInterval) clearInterval(window._vrInterval);
+        runDemo();
+    }, 36000);
+}
+
+runDemo();
+</script>
+<script src="/demo/nav.js"></script>
+<script src="/assets/js/a11y-widget.js" defer></script>
+</body>
+</html>

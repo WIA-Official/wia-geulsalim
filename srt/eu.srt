@@ -1,0 +1,138 @@
+1
+00:00:00,000 --> 00:00:02,500
+Kaixo.
+
+2
+00:00:02,500 --> 00:00:05,500
+Ni 1 pertsonako garatzailea naiz, Yeonsamheum.
+
+3
+00:00:05,500 --> 00:00:08,500
+17 urtean enpresa bat kudeatzen,
+
+4
+00:00:08,500 --> 00:00:14,000
+AI-rekin 200 webgune baino gehiago,
+600.000 orrialde sortu ditut.
+
+5
+00:00:14,000 --> 00:00:17,000
+Hau ez da berriki sortu den obra.
+
+6
+00:00:17,000 --> 00:00:20,000
+8 urteko garapenarekin — WIA Geulsalim da.
+
+7
+00:00:21,000 --> 00:00:26,000
+Gizadien 5.000 urteko ezagutzaren %95
+oraindik iritsi ezina da.
+
+8
+00:00:26,000 --> 00:00:32,000
+Korean, 87% dokumentu zahar digitalizatu gabe daude,
+lotan daude,
+
+9
+00:00:32,000 --> 00:00:40,000
+dun 7.000 hizkuntza munduan, %97k,
+AI itzulpen eta ahots kalitateak nabarmen jaitsiak edo desagertuta daude.
+
+10
+00:00:40,000 --> 00:00:45,000
+300 milioi ezgaitasunen jabeek
+oraindik liburuak ukitu ezin dituzte.
+
+11
+00:00:46,000 --> 00:00:50,000
+Hiru oztopo hauek aldi berean gainditu beharrekoak dira.
+
+12
+00:00:50,000 --> 00:00:54,500
+Geulsalim 4 faseko pipeline da —
+berreskuratzeko, egituratzeko, bihurtzeko eta transmititzeko.
+
+13
+00:00:54,500 --> 00:00:59,500
+Orain, lau demo zuzenean erakutsiko dizkizuet.
+
+14
+00:01:00,000 --> 00:01:04,000
+Lehenengo demo — berreskuratzea da.
+
+15
+00:01:04,000 --> 00:01:10,000
+Diffusion modeloak suntsitutako dokumentuak berreskuratzen ditu,
+hizkuntza modeloak desagertu diren idatzietan inferentziak egiten ditu.
+
+16
+00:01:10,000 --> 00:01:14,000
+Berreskuraketa manipulazioa ez da.
+
+17
+00:01:14,000 --> 00:01:20,000
+Jatorrizko hash-a iraunkortasunez gorde da.
+
+18
+00:01:25,000 --> 00:01:29,000
+Bigarren demo — egituratzea da.
+
+19
+00:01:29,000 --> 00:01:36,000
+Etiketarik gabeko PDF-a WCAG 2.2 arauaren arabera HTMLra,
+AI-k automatikoki egituratzea eta ordezko testua sortzea lortzen du.
+
+20
+00:01:36,000 --> 00:01:42,000
+WIA Booken accesibilidad kontrolatzeko gunean,
+jadanik 80 elementu automatikoki kontrolatzen ari naiz.
+
+21
+00:01:50,000 --> 00:01:54,000
+Hirugarren demo — EPUB accesibilidad berreskuratzen da.
+
+22
+00:01:54,000 --> 00:02:00,000
+Accesibilidad murriztua duen EPUB 2,
+EPUB 3ra automatikoki berreskuratzen da.
+
+23
+00:02:00,000 --> 00:02:06,000
+80 kontrol elementuak guztiak gainditzen ditu.
+
+24
+00:02:06,000 --> 00:02:13,000
+WCAG, EPUB A11y, KS X 6201, Europa EAA —
+lau estandar internazional aldi berean betetzen ditu.
+
+25
+00:02:15,000 --> 00:02:19,000
+Laugarren demo — multimodal transmisioa da.
+
+26
+00:02:19,000 --> 00:02:24,000
+Brailleko 7.000 hizkuntza,
+ahots 254 hizkuntzak,
+
+27
+00:02:24,000 --> 00:02:29,000
+WIA Talk 3D hizkuntza sinbolikoa,
+436 tresna elkarreragile eta simuladore.
+
+28
+00:02:29,000 --> 00:02:36,000
+Entzumen eta ikuskaitasun desgaituen jabeek itzultzaile gabe
+zuzenean elkarrizketan parte hartzen dute WIA Live,
+
+29
+00:02:36,000 --> 00:02:39,500
+jadanik proba fasean dago.
+
+30
+00:02:40,500 --> 00:02:43,000
+Gure Geulsalim.
+
+31
+00:02:43,000 --> 00:02:46,000
+Hongik Ingan — orokorrean irabazteko, iraunkortasunez. 
+We're Geulsalim.

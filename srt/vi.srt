@@ -1,0 +1,137 @@
+1
+00:00:00,000 --> 00:00:02,500
+Chào bạn.
+
+2
+00:00:02,500 --> 00:00:05,500
+Tôi là nhà phát triển độc lập Yeon Sam-heum.
+
+3
+00:00:05,500 --> 00:00:08,500
+Trong 17 năm điều hành công ty,
+
+4
+00:00:08,500 --> 00:00:14,000
+Tôi đã tạo ra hơn 200 trang web,
+600,000 trang.
+
+5
+00:00:14,000 --> 00:00:17,000
+Sản phẩm này không phải là cái mới.
+
+6
+00:00:17,000 --> 00:00:20,000
+Nó là công cụ phát triển trong 8 năm — WIA Geulsalim.
+
+7
+00:00:21,000 --> 00:00:26,000
+95% tri thức của nhân loại trong 5,000 năm
+vẫn chưa thể tiếp cận được.
+
+8
+00:00:26,000 --> 00:00:32,000
+87% tài liệu cổ của Hàn Quốc vẫn đang ngủ quên
+không được số hoá,
+
+9
+00:00:32,000 --> 00:00:40,000
+Trong số 7,000 ngôn ngữ trên thế giới, 97%,
+chất lượng dịch thuật AI và giọng nói đều kém hoặc hoàn toàn không có.
+
+10
+00:00:40,000 --> 00:00:45,000
+300 triệu người khiếm thính
+vẫn không thể chạm vào sách.
+
+11
+00:00:46,000 --> 00:00:50,000
+Bốn rào cản này cần được giải quyết cùng một lúc.
+
+12
+00:00:50,000 --> 00:00:54,500
+Geulsalim có quy trình 4 bước —
+Phục hồi · Cấu trúc · Chuyển đổi · Giao tiếp.
+
+13
+00:00:54,500 --> 00:00:59,500
+Từ bây giờ, tôi sẽ thể hiện điều đó qua bốn bản demo.
+
+14
+00:01:00,000 --> 00:01:04,000
+Demo đầu tiên — Phục hồi.
+
+15
+00:01:04,000 --> 00:01:10,000
+Mô hình Diffusion phục hồi tài liệu cổ bị hư hại,
+và mô hình ngôn ngữ suy luận các ký tự bị mất.
+
+16
+00:01:10,000 --> 00:01:14,000
+Phục hồi không phải là thao tác.
+
+17
+00:01:14,000 --> 00:01:20,000
+Băm (hash) gốc sẽ được bảo tồn vĩnh viễn.
+
+18
+00:01:25,000 --> 00:01:29,000
+Demo thứ hai — Cấu trúc.
+
+19
+00:01:29,000 --> 00:01:36,000
+PDF không có thẻ được AI tự động cấu trúc thành HTML tuân thủ WCAG 2.2,
+cùng với việc tạo văn bản thay thế.
+
+20
+00:01:36,000 --> 00:01:42,000
+Tại trang web kiểm tra khả năng tiếp cận WIA Book,
+tôi đã tự động kiểm tra 80 mục.
+
+21
+00:01:50,000 --> 00:01:54,000
+Demo thứ ba — Phục hồi khả năng truy cập EPUB.
+
+22
+00:01:54,000 --> 00:02:00,000
+EPUB 2 không đạt chuẩn được tự động phục hồi thành EPUB 3.
+
+23
+00:02:00,000 --> 00:02:06,000
+Nó vượt qua tất cả 80 mục kiểm tra.
+
+24
+00:02:06,000 --> 00:02:13,000
+WCAG, EPUB A11y, KS X 6201, EU EAA —
+Đáp ứng bốn tiêu chuẩn quốc tế cùng một lúc.
+
+25
+00:02:15,000 --> 00:02:19,000
+Demo thứ tư — Truyền tải đa phương thức.
+
+26
+00:02:19,000 --> 00:02:24,000
+Ngôn ngữ bằng chữ nổi 7,000,
+ngôn ngữ giọng nói 254,
+
+27
+00:02:24,000 --> 00:02:29,000
+WIA Talk với ngôn ngữ ký hiệu 3D,
+436 công cụ và mô phỏng tương tác.
+
+28
+00:02:29,000 --> 00:02:36,000
+WIA Live cho người khiếm thính và người khiếm thị nói chuyện trực tiếp
+mà không cần phiên dịch viên,
+
+29
+00:02:36,000 --> 00:02:39,500
+hiện đã được thử nghiệm.
+
+30
+00:02:40,500 --> 00:02:43,000
+Chúng ta là Geulsalim.
+
+31
+00:02:43,000 --> 00:02:46,000
+弘益人間 — Mang lại lợi ích cho tất cả, một cách bền vững.
+We're Geulsalim.

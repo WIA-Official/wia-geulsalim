@@ -1,0 +1,138 @@
+1
+00:00:00,000 --> 00:00:02,500
+Cześć.
+
+2
+00:00:02,500 --> 00:00:05,500
+Nazywam się Yeon Sam-heum, jestem twórcą indywidualnym.
+
+3
+00:00:05,500 --> 00:00:08,500
+Przez 17 lat prowadzę firmę,
+
+4
+00:00:08,500 --> 00:00:14,000
+wspólnie z AI stworzyłem ponad 200 stron internetowych,  
+600 tysięcy stron.
+
+5
+00:00:14,000 --> 00:00:17,000
+Ten projekt nie jest nowym dziełem.
+
+6
+00:00:17,000 --> 00:00:20,000
+To narzędzie, które rozwijało się przez 8 lat — WIA Geulsalim.
+
+7
+00:00:21,000 --> 00:00:26,000
+95% wiedzy ludzkości z 5000 lat  
+jest nadal niedostępne.
+
+8
+00:00:26,000 --> 00:00:32,000
+87% koreańskich dokumentów historycznych  
+nie zostało zdigitalizowanych i
+
+9
+00:00:32,000 --> 00:00:40,000
+wśród 7000 języków na świecie, 97%  
+ma znaczące problemy z jakością tłumaczenia i dźwięku lub ich w ogóle nie ma.
+
+10
+00:00:40,000 --> 00:00:45,000
+300 milionów osób z niepełnosprawnością sensoryczną  
+nadal nie ma dostępu do książek.
+
+11
+00:00:46,000 --> 00:00:50,000
+Te cztery bariery muszą być usunięte jednocześnie.
+
+12
+00:00:50,000 --> 00:00:54,500
+Geulsalim to czterostopniowy proces —  
+przywracanie, strukturalizacja, konwersja, przekaz.
+
+13
+00:00:54,500 --> 00:00:59,500
+Teraz pokażę to na czterech demonstracjach.
+
+14
+00:01:00,000 --> 00:01:04,000
+Pierwsza demonstracja — przywracanie.
+
+15
+00:01:04,000 --> 00:01:10,000
+Model Diffusion przywraca uszkodzone dokumenty historyczne,  
+a model językowy przekształca zaginione litery.
+
+16
+00:01:10,000 --> 00:01:14,000
+Przywracanie to nie manipulacja.
+
+17
+00:01:14,000 --> 00:01:20,000
+Oryginalny hash jest trwale zachowywany.
+
+18
+00:01:25,000 --> 00:01:29,000
+Druga demonstracja — strukturalizacja.
+
+19
+00:01:29,000 --> 00:01:36,000
+PDF bez znaczników jest automatycznie strukturalizowany przez AI  
+do HTML zgodnego z WCAG 2.2, łącznie z tworzeniem tekstów alternatywnych.
+
+20
+00:01:36,000 --> 00:01:42,000
+Na stronie wia.tools do sprawdzania dostępności WIA Book  
+już automatycznie sprawdziłem 80 pozycji.
+
+21
+00:01:50,000 --> 00:01:54,000
+Trzecia demonstracja — przywracanie dostępności EPUB.
+
+22
+00:01:54,000 --> 00:02:00,000
+EPUB 2, który nie spełnia standardów dostępności,  
+jest automatycznie przywracany do EPUB 3.
+
+23
+00:02:00,000 --> 00:02:06,000
+Przechodzi wszystkie 80 kryteriów sprawdzających.
+
+24
+00:02:06,000 --> 00:02:13,000
+WCAG, EPUB A11y, KS X 6201, europejska EAA —  
+spełnia jednocześnie cztery międzynarodowe standardy.
+
+25
+00:02:15,000 --> 00:02:19,000
+Czwarta demonstracja — multimodalny przekaz.
+
+26
+00:02:19,000 --> 00:02:24,000
+Braille 7000 języków,  
+dźwięk 254 języków,
+
+27
+00:02:24,000 --> 00:02:29,000
+WIA Talk 3D w języku migowym,  
+436 interaktywnych narzędzi i symulatorów.
+
+28
+00:02:29,000 --> 00:02:36,000
+WIA Live umożliwia osobom niesłyszącym i niewidomym  
+bez tłumacza rozmowę bezpośrednią,
+
+29
+00:02:36,000 --> 00:02:39,500
+już działa w pilotażu.
+
+30
+00:02:40,500 --> 00:02:43,000
+Nasza Geulsalim.
+
+31
+00:02:43,000 --> 00:02:46,000
+弘益人間 — dla dobra wszystkich, w sposób zrównoważony.  
+We're Geulsalim.

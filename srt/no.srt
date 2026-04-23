@@ -1,0 +1,138 @@
+1
+00:00:00,000 --> 00:00:02,500
+Hei.
+
+2
+00:00:02,500 --> 00:00:05,500
+Jeg er enehånds utvikler Yeon Sam-heum.
+
+3
+00:00:05,500 --> 00:00:08,500
+I 17 år har jeg drevet selskap,
+
+4
+00:00:08,500 --> 00:00:14,000
+og sammen med AI har jeg laget over 200 nettsteder,
+600 000 sider.
+
+5
+00:00:14,000 --> 00:00:17,000
+Dette prosjektet er ikke noe helt nytt.
+
+6
+00:00:17,000 --> 00:00:20,000
+Det er et verktøy som har vokst frem over 8 år — WIA Geulsalim.
+
+7
+00:00:21,000 --> 00:00:26,000
+95% av menneskehetens 5000 år gamle kunnskap
+er fortsatt utilgjengelig.
+
+8
+00:00:26,000 --> 00:00:32,000
+87% av koreanske gamle dokumenter har ikke blitt digitalisert
+og hviler,
+
+9
+00:00:32,000 --> 00:00:40,000
+og blant de 7000 språkene i verden, er 97%,
+AI-oversettelse og tale kvaliteter enten betydelig dårligere eller helt fraværende.
+
+10
+00:00:40,000 --> 00:00:45,000
+300 millioner personer med sansehemninger
+kan fortsatt ikke ta på bøker.
+
+11
+00:00:46,000 --> 00:00:50,000
+Disse fire barrierene må løses samtidig.
+
+12
+00:00:50,000 --> 00:00:54,500
+Geulsalim har en fire-trinns pipeline —
+restaurering, strukturering, konvertering, levering.
+
+13
+00:00:54,500 --> 00:00:59,500
+Fra nå av vil jeg vise deg med fire demoer.
+
+14
+00:01:00,000 --> 00:01:04,000
+Første demo — restaurering.
+
+15
+00:01:04,000 --> 00:01:10,000
+Diffusion-modellen gjenoppretter skadede gamle dokumenter,
+og språklige modeller gjetter bortfallede tegn.
+
+16
+00:01:10,000 --> 00:01:14,000
+Restaurering er ikke manipulering.
+
+17
+00:01:14,000 --> 00:01:20,000
+Den opprinnelige hashen blir bevart for alltid.
+
+18
+00:01:25,000 --> 00:01:29,000
+Andre demo — strukturering.
+
+19
+00:01:29,000 --> 00:01:36,000
+Uten taggede PDF-er blir automatisk strukturert til WCAG 2.2 kompatibel HTML,
+der AI også genererer alternativ tekst.
+
+20
+00:01:36,000 --> 00:01:42,000
+På WIA Book tilgjengelighetssjekk-siden,
+har jeg allerede automatisk sjekket 80 elementer.
+
+21
+00:01:50,000 --> 00:01:54,000
+Tredje demo — EPUB tilgjengelighetsrestaurering.
+
+22
+00:01:54,000 --> 00:02:00,000
+EPUB 2 med utilstrekkelig tilgjengelighet,
+blir automatisk restaurert til EPUB 3.
+
+23
+00:02:00,000 --> 00:02:06,000
+Den består av alle 80 testkriteriene.
+
+24
+00:02:06,000 --> 00:02:13,000
+WCAG, EPUB A11y, KS X 6201, europeisk EAA —
+oppfyller fire internasjonale standarder samtidig.
+
+25
+00:02:15,000 --> 00:02:19,000
+Fjerde demo — multimodal levering.
+
+26
+00:02:19,000 --> 00:02:24,000
+Punktskrift på 7000 språk,
+tale på 254 språk,
+
+27
+00:02:24,000 --> 00:02:29,000
+WIA Talk 3D tegnspråk,
+436 interaktive verktøy og simulatorer.
+
+28
+00:02:29,000 --> 00:02:36,000
+WIA Live, som lar døve og synshemmede
+kommunisere uten tolk,
+
+29
+00:02:36,000 --> 00:02:39,500
+er allerede i pilotdrift.
+
+30
+00:02:40,500 --> 00:02:43,000
+Vår Geulsalim.
+
+31
+00:02:43,000 --> 00:02:46,000
+弘益人間 — for alle, på en bærekraftig måte.
+We're Geulsalim.

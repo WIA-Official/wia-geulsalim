@@ -1,0 +1,138 @@
+1
+00:00:00,000 --> 00:00:02,500
+Halló.
+
+2
+00:00:02,500 --> 00:00:05,500
+Ég er sjálfstæður forritari, Yeon Sam-heum.
+
+3
+00:00:05,500 --> 00:00:08,500
+Eftir að hafa rekið fyrirtæki í 17 ár,
+
+4
+00:00:08,500 --> 00:00:14,000
+hef ég skapað meira en 200 vefsíður
+og 600,000 blaðsíður með AI.
+
+5
+00:00:14,000 --> 00:00:17,000
+Þetta verkefni er ekki nýtt.
+
+6
+00:00:17,000 --> 00:00:20,000
+Þetta er verkfæri sem hefur vaxið í 8 ár — WIA Geulsalim.
+
+7
+00:00:21,000 --> 00:00:26,000
+95% þekkingar mannkyns frá síðustu 5,000 árum
+er enn óklæðanleg.
+
+8
+00:00:26,000 --> 00:00:32,000
+87% kóreanskra fornrits eru ódigitalizeraðir
+og liggja ónotaðir,
+
+9
+00:00:32,000 --> 00:00:40,000
+og 97% af 7,000 tungumálum heimsins
+er AI þýðing og talgæði verulega lélegt eða jafnvel ekki til staðar.
+
+10
+00:00:40,000 --> 00:00:45,000
+300 milljónir sjónskertra einstaklinga
+geta enn ekki snert bækur.
+
+11
+00:00:46,000 --> 00:00:50,000
+Þessar fjórar hindranir verða að leysast á sama tíma.
+
+12
+00:00:50,000 --> 00:00:54,500
+Geulsalim er fjögurra þrepa leiðslukerfi — 
+endurheimt · uppbygging · umbreyting · sending.
+
+13
+00:00:54,500 --> 00:00:59,500
+Frá þessum tíma munum við sýna þér
+fjögur sýnishorn.
+
+14
+00:01:00,000 --> 00:01:04,000
+Fyrsta sýnishornið — endurheimt.
+
+15
+00:01:04,000 --> 00:01:10,000
+Diffusion líkanið endurheimtir skemmd fornrit,
+og tungumálalíkan reynir að áætla týnd skrif.
+
+16
+00:01:10,000 --> 00:01:14,000
+Endurheimt er ekki breyting.
+
+17
+00:01:14,000 --> 00:01:20,000
+Upprunalega hash er varanlega varðveitt.
+
+18
+00:01:25,000 --> 00:01:29,000
+Annað sýnishorn — uppbygging.
+
+19
+00:01:29,000 --> 00:01:36,000
+PDF án merkja er breytt í HTML sem fylgir WCAG 2.2,
+og AI byggir það sjálfkrafa upp og skapar staðgengistekst.
+
+20
+00:01:36,000 --> 00:01:42,000
+Á WIA Book aðgengisskoðunarvefsíðunni
+er ég þegar að skoða 80 atriði sjálfkrafa.
+
+21
+00:01:50,000 --> 00:01:54,000
+Þriðja sýnishorn — EPUB aðgengisendurnýjun.
+
+22
+00:01:54,000 --> 00:02:00,000
+Viðkvæmur EPUB 2 er sjálfkrafa endurheimtur í EPUB 3.
+
+23
+00:02:00,000 --> 00:02:06,000
+Það fer í gegnum öll 80 prófunaratriðin.
+
+24
+00:02:06,000 --> 00:02:13,000
+WCAG, EPUB A11y, KS X 6201, Evrópu EAA —
+sættir fjögur alþjóðleg staðla á sama tíma.
+
+25
+00:02:15,000 --> 00:02:19,000
+Fjórða sýnishorn — fjölbreytileg sending.
+
+26
+00:02:19,000 --> 00:02:24,000
+Blindraletur á 7,000 tungumálum,
+maðulegar raddir á 254 tungumálum,
+
+27
+00:02:24,000 --> 00:02:29,000
+WIA Talk 3D táknmál,
+436 interaktífa verkfæri og hermar.
+
+28
+00:02:29,000 --> 00:02:36,000
+WIA Live, þar sem heyrnarskertir og sjónskertir
+ræða beint án túlks,
+
+29
+00:02:36,000 --> 00:02:39,500
+er þegar í sýnishornavinnu.
+
+30
+00:02:40,500 --> 00:02:43,000
+Vort Geulsalim.
+
+31
+00:02:43,000 --> 00:02:46,000
+弘益人間 — að vera sjaldgæfur en varanlegur.
+We're Geulsalim.

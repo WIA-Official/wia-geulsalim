@@ -1,0 +1,138 @@
+1
+00:00:00,000 --> 00:00:02,500
+Tere tulemast.
+
+2
+00:00:02,500 --> 00:00:05,500
+Mina olen ühe inimese arendaja Yeon Sam-heum.
+
+3
+00:00:05,500 --> 00:00:08,500
+Olen juhtinud ettevõtet 17 aastat,
+
+4
+00:00:08,500 --> 00:00:14,000
+ja loonud koos AI-ga üle 200 kodulehe,
+600 000 lehte.
+
+5
+00:00:14,000 --> 00:00:17,000
+See teos pole midagi uut.
+
+6
+00:00:17,000 --> 00:00:20,000
+See on tööriist, mis on kasvanud 8 aasta jooksul — WIA Geulsalim.
+
+7
+00:00:21,000 --> 00:00:26,000
+Inimkonna 5000 aasta teadmiste 95% on
+endiselt kätte saamata.
+
+8
+00:00:26,000 --> 00:00:32,000
+Korea ajaloolistest dokumentidest on 87% digitaliseerimata
+ja ootab,
+
+9
+00:00:32,000 --> 00:00:40,000
+maailma 7000 keele hulgast 97% puhul
+on AI tõlke- ja häälekvaliteet oluliselt madalam või puudub täielikult.
+
+10
+00:00:40,000 --> 00:00:45,000
+300 miljonit nägemispuudega inimest
+ei saa endiselt raamatuid käega puudutada.
+
+11
+00:00:46,000 --> 00:00:50,000
+Need neli takistust tuleb korraga lahendada.
+
+12
+00:00:50,000 --> 00:00:54,500
+Geulsalim on neljaastmeline protsess —
+ taastamine · struktureerimine · konversioon · edastamine.
+
+13
+00:00:54,500 --> 00:00:59,500
+Alates nüüd näitan nelja demot,
+
+14
+00:01:00,000 --> 00:01:04,000
+esimene demo — taastamine.
+
+15
+00:01:04,000 --> 00:01:10,000
+Diffusion mudel taastab kahjustatud ajaloolisi dokumente
+ja keelemudel ennustab kadunud tähti.
+
+16
+00:01:10,000 --> 00:01:14,000
+Taastamine ei ole manipuleerimine.
+
+17
+00:01:14,000 --> 00:01:20,000
+Originaalhash jääb alatiseks alles.
+
+18
+00:01:25,000 --> 00:01:29,000
+Teine demo — struktureerimine.
+
+19
+00:01:29,000 --> 00:01:36,000
+Mitte-täiendatud PDF-d WCAG 2.2 vastavuses HTML-iks,
+struktureerib AI automaatselt ja genereerib alternatiivteksti.
+
+20
+00:01:36,000 --> 00:01:42,000
+wia.tools ligipääsetavuse kontrollimise saidil
+olen automatiseerinud juba 80 punkti kontrolli.
+
+21
+00:01:50,000 --> 00:01:54,000
+Kolmas demo — EPUB ligipääsetavuse taastamine.
+
+22
+00:01:54,000 --> 00:02:00,000
+Ligipääsetavuse puudustega EPUB 2,
+taastatakse automaatselt EPUB 3.
+
+23
+00:02:00,000 --> 00:02:06,000
+Kõik 80 kontrollpunkti läbitakse.
+
+24
+00:02:06,000 --> 00:02:13,000
+WCAG, EPUB A11y, KS X 6201, Euroopa EAA —
+rahvusvahelisi standardeid rahuldame korraga nelja.
+
+25
+00:02:15,000 --> 00:02:19,000
+Neljas demo — multimodaalne edastus.
+
+26
+00:02:19,000 --> 00:02:24,000
+Brajad 7000 keeles,
+hääl 254 keeles,
+
+27
+00:02:24,000 --> 00:02:29,000
+WIA Talk 3D viipes,
+436 interaktiivse tööriista ja simulaatorit.
+
+28
+00:02:29,000 --> 00:02:36,000
+Nägijad ja kuulmispuudega inimesed saavad ilma tõlgita
+otseselt suhelda WIA Live's,
+
+29
+00:02:36,000 --> 00:02:39,500
+mis on juba katsetamise faasis.
+
+30
+00:02:40,500 --> 00:02:43,000
+Meie Geulsalim.
+
+31
+00:02:43,000 --> 00:02:46,000
+弘益人間 — kasulik kõigile, kuid jätkusuutlikult.
+We're Geulsalim.

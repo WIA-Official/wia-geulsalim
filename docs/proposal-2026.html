@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>구현제안서 — WIA Geulsalim | 2026 인공지능 챔피언 대회</title>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+    <style>
+        /* A4 인쇄 최적화: 21cm x 29.7cm — @page 마진은 0, .page 내부 패딩으로 여백 제어 */
+        @page { size: A4; margin: 0; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Pretendard', sans-serif;
+            font-size: 9.5pt;
+            line-height: 1.45;
+            color: #1a1a1a;
+            background: #f5f5f7;
+        }
+        .page {
+            width: 210mm;
+            height: 297mm;
+            padding: 12mm 14mm;
+            margin: 20px auto;
+            background: white;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            page-break-after: always;
+            position: relative;
+            overflow: hidden;
+        }
+        .page:last-of-type { page-break-after: auto; }
+        .page-num {
+            position: absolute;
+            bottom: 10mm;
+            right: 18mm;
+            font-size: 8pt;
+            color: #888;
+        }
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #1a1a1a;
+            margin-bottom: 16px;
+        }
+        .page-header h1 {
+            font-size: 14pt;
+            font-weight: 800;
+        }
+        .page-header .meta {
+            font-size: 9pt;
+            color: #666;
+        }
+        h2 { font-size: 12pt; font-weight: 700; margin: 10px 0 6px; color: #1a1a1a; }
+        h3 { font-size: 10pt; font-weight: 700; margin: 8px 0 5px; color: #333; }
+        p { margin-bottom: 5px; }
+        ul, ol { margin: 4px 0 4px 18px; }
+        li { margin-bottom: 2px; }
+        .lead {
+            font-size: 10pt;
+            line-height: 1.55;
+            padding: 9px 13px;
+            background: #f0f4ff;
+            border-left: 4px solid #3b82f6;
+            margin: 8px 0;
+            font-weight: 500;
+        }
+        .callout {
+            padding: 8px 12px;
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            margin: 8px 0;
+            font-size: 9pt;
+        }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .card {
+            padding: 9px 11px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+        }
+        .card ul { margin: 4px 0 0 16px; }
+        .card li { font-size: 8.8pt; line-height: 1.4; }
+        .card h3 { margin-top: 0; }
+        .stat { text-align: center; padding: 5px; }
+        .stat .num { font-size: 16pt; font-weight: 800; color: #3b82f6; display: block; line-height: 1.1; }
+        .stat .label { font-size: 7.5pt; color: #666; }
+        table { width: 100%; border-collapse: collapse; font-size: 8.5pt; margin: 6px 0; }
+        th, td { padding: 4px 8px; border: 1px solid #cbd5e1; text-align: left; vertical-align: top; }
+        th { background: #f1f5f9; font-weight: 700; }
+        .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 8pt; font-weight: 700; }
+        .b-green { background: #d1fae5; color: #065f46; }
+        .b-blue { background: #dbeafe; color: #1e40af; }
+        .todo { color: #dc2626; font-weight: 700; background: #fee2e2; padding: 2px 6px; border-radius: 3px; font-size: 9pt; }
+        .hero-banner {
+            width: 100%;
+            aspect-ratio: 1800 / 400;
+            background: url('/assets/images/proposal-banner.png') center/cover no-repeat #0a0e1a;
+            border-radius: 8px;
+            margin: 0 0 10px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-banner::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(10,14,26,0.15) 0%, transparent 40%, transparent 60%, rgba(10,14,26,0.15) 100%);
+        }
+        @media print {
+            body { background: white; }
+            .page { margin: 0; box-shadow: none; }
+            .hero-banner { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ======================================================== -->
+<!-- PAGE 1: 문제 정의 + 솔루션 한 방에 -->
+<!-- ======================================================== -->
+<div class="page">
+    <div class="page-header">
+        <h1>WIA Geulsalim — We're Geulsalim</h1>
+        <div class="meta">2026 인공지능 챔피언 대회 · 일반 트랙</div>
+    </div>
+
+    <div class="hero-banner" role="img" aria-label="훼손된 고문서에서 황금빛 글자가 떠올라 점자·수어·음파·VR 신호로 분화되어 다양한 사람에게 전달되는 메타포"></div>
+
+    <h2>1. 문제 정의 — 인류의 95%는 아직 글에 접근할 수 없다</h2>
+    
+    <div class="lead">
+        <strong>훼손·언어·포맷·감각 4중 장벽이 인류 5천년 지식의 95%를 가두고 있다.</strong>
+        종이는 삭고, 7,000+ 언어 중 97%는 AI 품질이 현격히 미달하며, 문서 포맷의 80%는 접근성 태그가 없고,
+        3.2억 감각장애인은 여전히 글에 닿을 수 없다.
+        <em>이 4개 장벽을 한 번의 파이프라인으로 깨는 통합 AI는 현재 지구상에 확인되지 않는다.</em>
+    </div>
+
+    <div class="grid-2">
+        <div class="card">
+            <h3>🏛️ 물리적 훼손 — 5천년이 삭고 있다</h3>
+            <p><strong>한국고문헌종합목록 145개 기관</strong> · 서지 <strong>517,750건</strong> ·
+            원문 디지털화 <strong>66,446건(12.8%)</strong>. 즉 <strong>87.2%</strong>는 아직 훼손된 채 방치.
+            국가기록원은 2026.4월 136년 전 선교사 편지를 AI로 복원 발표 —
+            <strong>수요는 이미 국가 정책 의제</strong>이나 범용 복원 엔진은 부재.</p>
+        </div>
+        <div class="card">
+            <h3>🌐 언어·포맷 장벽 — 소수만 허용된 디지털</h3>
+            <p>지구상 <strong>7,000+ 언어</strong> 중 <strong>97%</strong>는 AI 번역·음성·검색 품질이 현격히 떨어지거나 아예 없음.
+            WebAIM 조사상 공개 PDF의 <strong>80%+는 접근성 태그가 전혀 없음</strong>.
+            결과 — <strong>22억 모국어 화자</strong>가 디지털 지식 사각지대에 방치.</p>
+        </div>
+        <div class="card">
+            <h3>♿ 감각 장벽 (EAA) — 2025.6.28 강제 시행</h3>
+            <p>EU <strong>1.01억 장애인</strong> (16세 이상의 25%, Eurostat).
+            <strong>EU EAA (Directive 2019/882)</strong>는 <strong>2025.6.28 강제 시행</strong>,
+            <strong>2030 전면 전환</strong>. 미준수 시 <strong>벌금·EU 시장 퇴출</strong>.
+            대응 가능한 통합 접근성 AI는 부재.</p>
+        </div>
+        <div class="card">
+            <h3>👁 시·청각 접근성 — 인류 역사상 가장 단절된 3.2억</h3>
+            <p>WHO — <strong>시각장애 2.5억 명</strong> · <strong>청각장애 7천만 명</strong>.
+            세계 수어 <strong>300+ 종</strong>은 상호 이해 불가이며,
+            농인과 맹인은 통역사 없이는 대화조차 불가능.
+            <strong>시각↔촉각↔청각 삼중 변환을 하나로 통합한 플랫폼은 없다.</strong></p>
+        </div>
+    </div>
+
+    <p style="margin-top:10px; text-align:center; font-size:10.5pt; font-weight:600; color:#dc2626;">
+        이 4개 장벽을 <u>한 번의 파이프라인</u>으로 해결하는 AI는 현재 지구상에 존재하지 않는다.
+    </p>
+
+    <h2>2. 솔루션 — WIA Geulsalim</h2>
+    
+    <p class="lead">
+        <strong>한 번 업로드하면, AI가 복원하고, 모든 감각·모든 언어로 살려내는 에이전트.</strong>
+    </p>
+
+    <p style="margin: 10px 0; font-size: 10pt; line-height: 1.65;">
+    <strong>We're Geulsalim = 우리들의 글살림.</strong>
+    "살림"은 한국어에서 두 가지를 뜻한다 — <strong>살려내는 일(復), 그리고 지속하는 일(營)</strong>.
+    훼손된 글을 AI로 복원(restore)하고, 언어·포맷·감각의 장벽을 넘어 모든 사람에게 전달(deliver)하여
+    지식이 <strong>끊기지 않고 이어지게 하는 일</strong> — 그것이 글살림이다.
+    본 프로젝트의 뿌리는 <strong>WIA (World Certification Industry Association OÜ, Estonia Registry 16928621, 2018.4.19 설립)</strong>이며,
+    그 철학은 <strong>홍익인간(弘益人間) — 두루 이롭게 하되, 지속가능하게</strong>이다.
+    </p>
+
+    <div class="callout">
+        <strong>핵심 차별화:</strong> 복원(Restore) + 구조화(Structure) + 변환(Transform) + 전달(Deliver) 
+        — 4단계를 <strong>단일 파이프라인</strong>으로 통합한 플랫폼은 현재 전 세계에서 확인되지 않음.
+    </div>
+
+    <div class="page-num">1 / 5</div>
+</div>
+
+<!-- ======================================================== -->
+<!-- PAGE 2: 아키텍처 + 70/30 (이미 70%, 대회 기간 30% 고도화) -->
+<!-- ======================================================== -->
+<div class="page">
+    <div class="page-header">
+        <h1>WIA Geulsalim — We're Geulsalim</h1>
+        <div class="meta">P2. 기술 아키텍처 + 실행 계획</div>
+    </div>
+
+    <h2>3. AI 파이프라인 아키텍처</h2>
+
+    <p style="font-size:9.5pt; color:#555; margin-bottom:8px;">
+    입력(고문서 스캔·PDF·EPUB·이미지) → <strong>4단계 통합 파이프라인</strong> → 멀티모달 출력
+    </p>
+
+    <svg viewBox="0 0 720 170" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; margin:6px 0 10px;">
+        <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+            </marker>
+        </defs>
+        <!-- Input -->
+        <rect x="2" y="55" width="70" height="60" rx="6" fill="#e5e7eb" stroke="#6b7280" stroke-width="1.2"/>
+        <text x="37" y="80" text-anchor="middle" font-size="10" font-weight="700" fill="#1a1a1a">INPUT</text>
+        <text x="37" y="95" text-anchor="middle" font-size="7.5" fill="#374151">고문서·PDF</text>
+        <text x="37" y="105" text-anchor="middle" font-size="7.5" fill="#374151">EPUB·이미지</text>
+
+        <line x1="74" y1="85" x2="92" y2="85" stroke="#1a1a1a" stroke-width="1.6" marker-end="url(#arrow)"/>
+
+        <!-- 1. RESTORE -->
+        <rect x="94" y="30" width="140" height="110" rx="8" fill="#dbeafe" stroke="#1e40af" stroke-width="1.5"/>
+        <text x="164" y="52" text-anchor="middle" font-size="11" font-weight="800" fill="#1e3a8a">① RESTORE</text>
+        <text x="164" y="66" text-anchor="middle" font-size="7.5" fill="#1e3a8a" font-weight="600">복원</text>
+        <text x="164" y="83" text-anchor="middle" font-size="7.5" fill="#1e3a8a">Diffusion 이미지 복원</text>
+        <text x="164" y="95" text-anchor="middle" font-size="7.5" fill="#1e3a8a">LLM 텍스트 보정</text>
+        <text x="164" y="107" text-anchor="middle" font-size="7.5" fill="#1e3a8a">원본 해시 보존</text>
+        <text x="164" y="128" text-anchor="middle" font-size="7" fill="#6b7280" font-style="italic">복원 ≠ 조작</text>
+
+        <line x1="236" y1="85" x2="254" y2="85" stroke="#1a1a1a" stroke-width="1.6" marker-end="url(#arrow)"/>
+
+        <!-- 2. STRUCTURE -->
+        <rect x="256" y="30" width="140" height="110" rx="8" fill="#d1fae5" stroke="#065f46" stroke-width="1.5"/>
+        <text x="326" y="52" text-anchor="middle" font-size="11" font-weight="800" fill="#064e3b">② STRUCTURE</text>
+        <text x="326" y="66" text-anchor="middle" font-size="7.5" fill="#064e3b" font-weight="600">구조화</text>
+        <text x="326" y="83" text-anchor="middle" font-size="7.5" fill="#064e3b">OCR · 레이아웃 분석</text>
+        <text x="326" y="95" text-anchor="middle" font-size="7.5" fill="#064e3b">WCAG 2.2 태깅</text>
+        <text x="326" y="107" text-anchor="middle" font-size="7.5" fill="#064e3b">ARIA Role 자동 매핑</text>
+        <text x="326" y="128" text-anchor="middle" font-size="7" fill="#6b7280" font-style="italic">a11y.wiabook.com 기반</text>
+
+        <line x1="398" y1="85" x2="416" y2="85" stroke="#1a1a1a" stroke-width="1.6" marker-end="url(#arrow)"/>
+
+        <!-- 3. TRANSFORM -->
+        <rect x="418" y="30" width="140" height="110" rx="8" fill="#fef3c7" stroke="#b45309" stroke-width="1.5"/>
+        <text x="488" y="52" text-anchor="middle" font-size="11" font-weight="800" fill="#78350f">③ TRANSFORM</text>
+        <text x="488" y="66" text-anchor="middle" font-size="7.5" fill="#78350f" font-weight="600">변환</text>
+        <text x="488" y="80" text-anchor="middle" font-size="7.5" fill="#78350f">WIA Braille 7,000+</text>
+        <text x="488" y="92" text-anchor="middle" font-size="7.5" fill="#78350f">WIHP-AI 한글표기</text>
+        <text x="488" y="104" text-anchor="middle" font-size="7.5" fill="#78350f">TTS · WIA Talk 수어</text>
+        <text x="488" y="116" text-anchor="middle" font-size="7.5" fill="#78350f">i18n 254 언어</text>
+
+        <line x1="560" y1="85" x2="578" y2="85" stroke="#1a1a1a" stroke-width="1.6" marker-end="url(#arrow)"/>
+
+        <!-- 4. DELIVER -->
+        <rect x="580" y="30" width="138" height="110" rx="8" fill="#fce7f3" stroke="#9d174d" stroke-width="1.5"/>
+        <text x="649" y="52" text-anchor="middle" font-size="11" font-weight="800" fill="#831843">④ DELIVER</text>
+        <text x="649" y="66" text-anchor="middle" font-size="7.5" fill="#831843" font-weight="600">전달</text>
+        <text x="649" y="83" text-anchor="middle" font-size="7.5" fill="#831843">EPUB A11y 1.1</text>
+        <text x="649" y="95" text-anchor="middle" font-size="7.5" fill="#831843">wia.tools · 436 도구</text>
+        <text x="649" y="107" text-anchor="middle" font-size="7.5" fill="#831843">.wiabook (특허 ②)</text>
+        <text x="649" y="128" text-anchor="middle" font-size="7" fill="#6b7280" font-style="italic">모든 감각·모든 기기</text>
+
+        <!-- Bottom label -->
+        <text x="360" y="160" text-anchor="middle" font-size="8" fill="#6b7280" font-style="italic">
+            단일 파이프라인 · 원본→복원→구조→변환→전달까지 무인 오케스트레이션
+        </text>
+    </svg>
+
+    <h2>4. 실행 계획 — 70%는 검증 완료, 30%는 대회 기간에 고도화</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th width="20%">구성 요소</th>
+                <th width="15%">상태</th>
+                <th width="45%">증거 · 실측</th>
+                <th width="20%">대회 기간 작업</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>접근성 검사·수정</strong></td>
+                <td><span class="badge b-green">가동 중 70%</span></td>
+                <td><strong>a11y.wiabook.com</strong> · 80항목 실제 검사 가동 · 4개 국제표준 동시 대응</td>
+                <td>API 공개</td>
+            </tr>
+            <tr>
+                <td><strong>WIA Braille</strong></td>
+                <td><span class="badge b-green">가동 중 75%</span></td>
+                <td>wiabraille.com · IPA 기반 7,000+ 언어 점자 · MIT</td>
+                <td>실시간 최적화</td>
+            </tr>
+            <tr>
+                <td><strong>WIHP-AI (발음 변환)</strong></td>
+                <td><span class="badge b-green">가동 중 70%</span></td>
+                <td>IPA 30개 언어 143MB DB · 수백만 단어</td>
+                <td><strong>딥러닝 확장 7,000+</strong></td>
+            </tr>
+            <tr>
+                <td><strong>WIA Talk (수어)</strong></td>
+                <td><span class="badge b-blue">부분 50%</span></td>
+                <td>93 유니버설 제스처 + MediaPipe 손추적</td>
+                <td><strong>LLM 연동 (핵심)</strong></td>
+            </tr>
+            <tr>
+                <td><strong>WebXR Book</strong></td>
+                <td><span class="badge b-green">가동 중 80%</span></td>
+                <td>wia.tools · <strong>436 도구·시뮬레이터</strong> · WebXR · Meta Quest / iPhone AR · 254 언어 지원</td>
+                <td>멀티유저 소셜</td>
+            </tr>
+            <tr>
+                <td><strong>문서 복원 엔진</strong></td>
+                <td><span class="badge b-blue">신규 30%</span></td>
+                <td>계획: Diffusion + LLM 텍스트 보정</td>
+                <td><strong>신규 구현 (GPU)</strong></td>
+            </tr>
+            <tr>
+                <td><strong>통합 파이프라인</strong></td>
+                <td><span class="badge b-blue">신규 20%</span></td>
+                <td>계획: 입력→복원→구조화→변환→전달 오케스트레이션</td>
+                <td><strong>신규 구현</strong></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="callout">
+        <strong>GPU · 예산 지원이 필요한 이유 (심사위원을 위한 명시):</strong><br>
+        1) 문서 복원 엔진의 Diffusion 학습<br>
+        2) WIHP-AI를 30개 → 7,000+ 언어로 확장하기 위한 멀티링구얼 LLM 파인튜닝<br>
+        3) WIA Talk LLM-수어 연동을 위한 시퀀스 학습
+    </div>
+
+    <div class="page-num">2 / 5</div>
+</div>
+
+<!-- ======================================================== -->
+<!-- PAGE 3: 구현 가능성 - 실체 증명 (형님의 킬러 카드) -->
+<!-- ======================================================== -->
+<div class="page">
+    <div class="page-header">
+        <h1>WIA Geulsalim — We're Geulsalim</h1>
+        <div class="meta">P3. 구현 가능성 · 실체 증명</div>
+    </div>
+
+    <h2>5. 이미 운영 중인 증거 (Production Evidence)</h2>
+    <p style="font-size: 9pt; color: #666; margin-bottom: 8px;">
+    ※ <strong>WIA (World Certification Industry Association OÜ)</strong> · 
+    Registry Code: <strong>16928621</strong> · 
+    Harju maakond, Tallinn, Estonia · 설립 2018.4.19 (8년차) · 
+    운영사 <strong>SmileStory Inc.</strong> (South Korea, 2009 설립, 17년차)
+    </p>
+
+    <p class="lead">
+        "만들겠습니다"가 아니라, "이미 8년간 만들어왔습니다." 
+        대회 기간의 30%는 완성된 70% 위에 얹는 작업입니다.
+    </p>
+
+    <div class="grid-2">
+        <div class="stat"><span class="num">8년</span><span class="label">WIA 에스토니아 법인 (2018.4.19~)</span></div>
+        <div class="stat"><span class="num">17년</span><span class="label">SmileStory Inc. (2009~)</span></div>
+        <div class="stat"><span class="num">40+</span><span class="label">WIA 생태계 서비스 (실운영)</span></div>
+        <div class="stat"><span class="num">254</span><span class="label">i18n 지원 언어</span></div>
+        <div class="stat"><span class="num">7,000+</span><span class="label">WIA Braille 지원 언어</span></div>
+        <div class="stat"><span class="num">133</span><span class="label">wiabook.com 실판매 도서</span></div>
+        <div class="stat"><span class="num">80</span><span class="label">a11y.wiabook.com 검사 항목</span></div>
+        <div class="stat"><span class="num">4</span><span class="label">동시 대응 국제표준</span></div>
+    </div>
+
+    <h2>6. 운영 중인 핵심 플랫폼 (URL로 직접 확인 가능)</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>서비스</th>
+                <th>역할</th>
+                <th>증거</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>a11y.wiabook.com</td><td>접근성 검사·수정·표준</td><td>EAA+WCAG 2.2+KS X 6201+EPUB A11y</td></tr>
+            <tr><td>wiabook.com</td><td>출판 플랫폼</td><td>133도서 · 21GB · EDD 결제</td></tr>
+            <tr><td>wiabraille.com</td><td>7,000+언어 점자</td><td>IPA 기반 · 학습시스템</td></tr>
+            <tr><td>wihp.wiastandards.com</td><td>발음 변환</td><td>30개 언어 · 143MB IPA DB</td></tr>
+            <tr><td>wiatalk (준비)</td><td>3D 수어</td><td>WIA Talk · MediaPipe 손추적</td></tr>
+            <tr><td>wia.tools</td><td>대화형 도구·시뮬레이터 · WebXR</td><td><strong>436 tools &amp; simulators</strong> · Three.js · Meta Quest / iPhone AR · 254 언어</td></tr>
+            <tr><td>wiasoom.com</td><td>254언어 AI 터미널</td><td>Electron + Multi-AI</td></tr>
+            <tr style="background:#fef3c7;"><td><strong>wia.live (시범)</strong></td><td><strong>★ 농인↔맹인 직접 대화</strong></td><td><strong>WIA Talk + WIA Braille + IPA 통합 · 통역사 없는 양방향 소통</strong></td></tr>
+        </tbody>
+    </table>
+
+    <div class="callout" style="background:#fef3c7;border-left-color:#fbbf24;">
+        <strong>★ WIA Live 의 의미:</strong> 농인(시각언어 사용자)과 맹인(촉각·청각언어 사용자)은 인류 역사상 가장 단절된 두 그룹으로, 통상 통역사 매개가 필수였다. 
+        WIA Live는 WIA Talk(수어 인식) + WIA Braille(점자 변환) + IPA(음성 중개)를 통합하여 <strong>직접 대화를 시범 구현</strong>한 플랫폼이다. 
+        본 출품작 WIA Geulsalim은 이와 동일한 통합 기술을 <strong>문서 복원·접근성 변환 영역으로 확장</strong>하는 자연스러운 다음 단계이다.
+    </div>
+
+    <h2>7. 법적 · 제도적 실체</h2>
+
+    <table>
+        <thead><tr><th width="30%">항목</th><th>내용</th></tr></thead>
+        <tbody>
+            <tr><td><strong>WIA 국제 법인</strong></td><td>World Certification Industry Association OÜ · Registry Code <strong>16928621</strong> · Harju, Tallinn, Estonia · 2018.4.19 설립</td></tr>
+            <tr><td><strong>운영사</strong></td><td>SmileStory Inc. · 대한민국 · 2009 설립 · 17년 IT 운영</td></tr>
+            <tr><td><strong>특허 ① WebXR 독서 시스템</strong></td><td>"교육용 몰입형 독서를 위한 WebXR 기반 다중 VR/AR 환경 통합 시스템" · 출원번호 <strong>10-2025-0186631</strong> · 2025.12.01 출원 (진행중) · IPC 5종 (G06F 3/01·3/16·40/00, G06N 3/00, G09B 5/00)</td></tr>
+            <tr><td><strong>특허 ② .wiabook 포맷</strong></td><td>"WebXR 기반 가상현실 독서 콘텐츠의 저장 및 렌더링을 위한 다중 접근성 통합 파일 포맷 구조" · 출원번호 <strong>10-2025-0187878</strong> · 2025.12.02 출원 (진행중)</td></tr>
+            <tr><td><strong>특허 ③ 개인 사진 VR 환경</strong></td><td>"사용자 개인 사진 기반 맞춤형 가상현실 독서 환경 생성 방법 및 시스템" · 출원번호 <strong>10-2025-0187887</strong> · 2025.12.02 출원 (진행중)</td></tr>
+            <tr><td><strong>WIA Braille (의도적 비출원)</strong></td><td><em>"점자는 인류의 것이다"</em> · IPA 기반 8-dot 유니버설 점자 · 7,000+ 언어 지원 · <strong>MIT License</strong> · GitHub WIA-Official/wia-braille · UNESCO 정식 제출 · 1.4(루이 브라이유 생일) ↔ 4.1(연삼흠 생일) — 600년 만의 완성</td></tr>
+            <tr><td><strong>WIHP (한글 음성표기)</strong></td><td>"WIA International Hangul Phonology" · IPA → 한글 변환 시스템 · <strong>122개 언어 Phase 1 완성</strong> · MIT License · 세종대왕 1443 → 연삼흠 2025 · "100년 후 언어가 사라져도 한글 기록은 남는다"</td></tr>
+            <tr><td style="padding-left:20px; color:#666;"><em>└ 출원인 · 발명자</em></td><td><em>출원인: (주)스마일스토리 · 발명자: 연삼흠 · 법적 지분 50:50</em></td></tr>
+            <tr><td><strong>YUJIN Transform (의도적 비출원)</strong></td><td><em>"주소는 인권이다. 소유할 수도, 소유할 필요도 없다."</em> — GPS→9자리 주소 알고리즘은 <strong>특허 대상이지만 의도적으로 공개</strong>, 50+ 개발도상국·난민에게 무료 개방. 루이 브라이유가 점자를 공개한 결.</td></tr>
+            <tr><td><strong>WIA SOOM (Prior Art 공개)</strong></td><td>Proprietary License · GitHub <strong>WIA-Official/wiasoom</strong> · 바이너리 무료 배포 · <strong>동일 기능 상용 SSH 클라이언트 현재 확인되지 않음</strong> — 기술 선점 공개</td></tr>
+            <tr><td><strong>오픈소스</strong></td><td>WIA Braille <strong>MIT License</strong> · WIA Standards 공개 · GitHub WIA-Official 조직</td></tr>
+            <tr><td><strong>관계 법령 대응</strong></td><td>EU EAA (2019/882) · WCAG 2.2 AA · KS X 6201 · EPUB Accessibility 1.1 · 장애인차별금지법 · GDPR · PIPA</td></tr>
+        </tbody>
+    </table>
+
+    <div class="page-num">3 / 5</div>
+</div>
+
+<!-- ======================================================== -->
+<!-- PAGE 4: 확장성 · 사업화 · 글로벌 -->
+<!-- ======================================================== -->
+<div class="page">
+    <div class="page-header">
+        <h1>WIA Geulsalim — We're Geulsalim</h1>
+        <div class="meta">P4. 확장성 · 사업화 · 글로벌</div>
+    </div>
+
+    <h2>8. 시장 규모 · 법적 필연성</h2>
+
+    <p style="font-size:9.5pt; color:#555; margin-bottom:6px;">
+    "시장이 있을까?"가 아니라 <strong>"2030년까지 EU 전체 디지털 제품·서비스가 의무 전환"</strong>이라는 법적 필연.
+    </p>
+    <ul>
+        <li><strong>EU EAA (Directive 2019/882):</strong> <u>2025.6.28 강제 시행</u> · <u>2030 전면 전환</u> · 1.01억 장애인 대상 · 미준수 시 <strong>벌금·EU 시장 퇴출</strong> — <em>EU27 전자책·디지털서비스 전 영역 강제</em></li>
+        <li><strong>한국 장애인차별금지법 + KS X 6201:</strong> 공공조달 접근성 의무화 · 2026 국립중앙도서관 "AI 데이터 기지" 정책 · <em>국내 B2G 즉시 가능</em></li>
+        <li><strong>미국 ADA · Section 508:</strong> 연방·주 조달 의무 · Title III 민간 소송 급증 — <em>미국 EdTech·출판사 대응 수요</em></li>
+        <li><strong>WHO 감각장애 인구:</strong> 시각 <strong>2.5억</strong> · 청각 <strong>7천만</strong> · 총 <strong>3.2억</strong> (전 세계 인구의 4%)</li>
+        <li><strong>문맹·디지털 격차:</strong> 세계 <strong>22억 모국어 화자</strong>가 모국어 디지털 콘텐츠 사각지대 (UNESCO·7,000+ 언어 중 97%가 AI 품질 현격 미달 또는 부재)</li>
+        <li><strong>고문서 복원 시장:</strong> 한국만 <strong>87.2%(451,304건)</strong> 미디지털화 · 글로벌 도서관·박물관 시장 연 <strong>수십조 원</strong> 추정</li>
+    </ul>
+
+    <h2>9. 수익 모델 (B2C · B2B · B2G)</h2>
+
+    <table>
+        <thead>
+            <tr><th>채널</th><th>대상</th><th>단가 · 규모</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>B2C</td><td>개인 독자·크리에이터</td><td>Credit 기반 ($0.01/Credit, WIA Coin 연동)</td></tr>
+            <tr><td>B2B</td><td>출판사·에듀테크·기업</td><td>API 구독 · 대량 변환 패키지</td></tr>
+            <tr><td>B2G</td><td>국립도서관·국가기록원·지자체</td><td>고문서 디지털화·접근성 변환 용역</td></tr>
+            <tr><td>B2G 해외</td><td>EAA 대응 EU 기업</td><td>컴플라이언스 솔루션</td></tr>
+        </tbody>
+    </table>
+
+    <h2>10. 2026~2027 로드맵 — AI 챔피언에서 CES까지</h2>
+
+    <table>
+        <thead>
+            <tr><th>시기</th><th>이벤트</th><th>마일스톤</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>2026.04</td><td>AI 챔피언 구현제안서 제출</td><td>본 문서</td></tr>
+            <tr><td>2026.05~07</td><td>사전심사 통과 후 연구개발</td><td>70%→85% 고도화</td></tr>
+            <tr><td><strong>2026.08.10~13</strong></td><td><strong>제90회 IFLA WLIC (부산 벡스코, 150개국 5,000명)</strong><br><span style="font-size:8.5pt;color:#666;">주제 "Connecting Libraries, Cities, and People" 정확히 매칭</span></td><td><strong>부대행사·위성회의 발표 목표</strong></td></tr>
+            <tr><td>2026.09~10</td><td>중간심사</td><td>데모 완성</td></tr>
+            <tr><td>2026.11</td><td>결선</td><td>최종 발표</td></tr>
+            <tr><td><strong>2027.01</strong></td><td><strong>CES 2027 출전</strong></td><td><strong>글로벌 확산</strong></td></tr>
+        </tbody>
+    </table>
+
+    <div class="callout">
+        <strong>파급력의 단계:</strong> 국내 AI 챔피언 → <strong>제90회 IFLA WLIC (150개국 5,000명) 글로벌 시연</strong> → CES 2027 글로벌 확산.<br>
+        2026.8월 부산 WLIC는 AI 챔피언 중간심사 직전 <strong>최적의 국제 검증 무대</strong>이며, 
+        WLIC 공식 주제 "Connecting Libraries, Cities, and People"와 본 프로젝트의 "글을 살려 모든 사람에게 잇다(글살림)" 비전이 정확히 정렬됨. 
+        부대행사·위성회의 발표 신청 및 국가위원회(공동위원장 차지호·정연욱 의원, 부위원장 김희섭 국립중앙도서관장) 협력 추진 예정.
+    </div>
+
+    <div class="page-num">4 / 5</div>
+</div>
+
+<!-- ======================================================== -->
+<!-- PAGE 5: 법적·윤리적 안전장치 + 팀 -->
+<!-- ======================================================== -->
+<div class="page">
+    <div class="page-header">
+        <h1>WIA Geulsalim — We're Geulsalim</h1>
+        <div class="meta">P5. 법적·윤리적 안전장치 · 팀 역량</div>
+    </div>
+
+    <h2>11. 법적·윤리적 안전장치 (사전 영상 4대 기준 대응)</h2>
+
+    <div class="grid-2">
+        <div class="card">
+            <h3>① 학습 데이터 적법성</h3>
+            <ul>
+                <li><strong>IPA DB 143MB:</strong> 자체 구축 + 공공 도메인만 사용 — 무단 크롤링 없음</li>
+                <li><strong>고문서 데이터:</strong> 저작권 소멸 자료 우선 · 국립중앙도서관·국가기록원 정식 채널</li>
+                <li><strong>오픈소스 공개:</strong> WIA Braille · WIHP 122언어 MIT License</li>
+                <li><strong>복원 학습:</strong> 공공 고문서 스캔 + 합성 노이즈만 사용 (딥페이크 학습 배제)</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>② 개인정보 보호 (GDPR · PIPA)</h3>
+            <ul>
+                <li><strong>Zero-storage 파이프라인:</strong> 사용자 업로드 문서는 처리 직후 즉시 삭제</li>
+                <li><strong>자동 PII 마스킹:</strong> OCR 결과에서 주민번호·계좌·연락처 자동 익명화</li>
+                <li><strong>암호화 전송:</strong> TLS 1.3 · 저장 시 AES-256</li>
+                <li><strong>EU 서버 옵션:</strong> GDPR 데이터 레지던시 보장 (EAA 대응)</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>③ 투명성 · 고영향 AI 대응</h3>
+            <ul>
+                <li><strong>EU AI Act (2024):</strong> 고영향 AI 자가진단 통과 · 기술 문서화 준비</li>
+                <li><strong>한국 AI 기본법:</strong> 고영향 AI 신뢰성·안전성 요건 대응</li>
+                <li><strong>Model Card · Datasheet 공개:</strong> 학습 데이터 출처·편향·한계 명시</li>
+                <li><strong>복원 로그 공개:</strong> 원본 해시 + 변형 이력 검증 가능</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>④ 사회적 책임 · 악용 방지</h3>
+            <ul>
+                <li><strong>복원 ≠ 조작 원칙:</strong> 원본 해시 보존 · 복원본 워터마크 삽입</li>
+                <li><strong>딥페이크 차단:</strong> 인물 얼굴 합성·변조 기능 의도적 배제</li>
+                <li><strong>유해 콘텐츠 필터:</strong> 혐오·성적·폭력 자동 차단 (다국어 분류기)</li>
+                <li><strong>취약계층 무료 티어:</strong> 난민·장애인·저소득층 Miluga 프로그램</li>
+            </ul>
+        </div>
+    </div>
+
+    <h2>12. 팀 역량 — AI 네이티브 1인 개발자 모델</h2>
+
+    <p class="lead" style="background:#fef3c7;border-left-color:#f59e0b; margin: 6px 0;">
+        본 프로젝트의 팀은 <strong>1인</strong>이며, 자문위원을 두지 않았다.
+        AI 시대 1인 개발의 실제를 있는 그대로 드러내기 위한 <strong>의도된 선택</strong>이다.
+        17년의 SmileStory 운영과 8년의 WIA Estonia 법인, 그리고 최근
+        <strong>2년간 매일 밤을 새우며 Claude 및 Claude Code와 컨텍스트가 가득 찰 때까지 주고받은 약 2만 회의 대화</strong>가,
+        <strong>205개 도메인 · 60만 페이지 · 41,507 포스트 · 144GB</strong> 규모의 인프라로 이어졌다.
+    </p>
+
+    <table>
+        <tbody>
+            <tr><td width="35%"><strong>운영 도메인 / 페이지</strong></td><td><strong>205개 / 600,485 HTML·PHP</strong> (CQM 183 + Koreantoday 14 + WIA SOOM 8)</td></tr>
+            <tr><td><strong>WP 콘텐츠 / 인프라</strong></td><td><strong>41,507 포스트 / 144GB</strong> (AWS EC2 3대)</td></tr>
+            <tr><td><strong>지원 언어</strong></td><td><strong>i18n 254</strong> · WIA Braille <strong>7,000+</strong></td></tr>
+            <tr><td><strong>메타-도구 (스스로 개발)</strong></td><td><strong>WIA SOOM v2.4</strong> — SSH 멀티모달 AI 터미널 · 3 AI Vision 동시 통합 · <em>동일 기능 상용 클라이언트 현재 확인되지 않음</em> · wiasoom.com 글로벌 서비스 중</td></tr>
+            <tr><td><strong>1인 ≠ 고립</strong></td><td>3D 수어 자원봉사자 <strong>글로벌 모집 중</strong> · 대회 통과 후 농인·시각장애·도서관·UNESCO 채널 협업 확장 (Participatory Design)</td></tr>
+        </tbody>
+    </table>
+
+    <div class="callout" style="background:#ecfdf5;border-left-color:#10b981; margin: 6px 0;">
+        <strong>검증 가능한 메타-증거:</strong> 본 제안서의 모든 인프라·코드·도메인은 제안자가 스스로 개발한 <strong>WIA SOOM (wiasoom.com)</strong>으로 구축됨 —
+        즉, <strong>WIA SOOM 자체가 본 프로젝트의 실현 가능성을 증명하는 살아있는 도구</strong>이며 심사위원 직접 다운로드·검증 가능.
+    </div>
+
+    <h2 style="margin-top:10px;">12-b. 창립자 철학 — "공개하되 끝까지 운영한다"</h2>
+
+    <div class="grid-2">
+        <div class="card" style="background:#fef3c7;border-left:4px solid #fbbf24; padding: 8px 11px;">
+            <p style="font-style:italic; font-size:9.8pt; line-height:1.4; margin-bottom:4px;">
+            "멀티모달이라는 단어도 몰랐다. 그저 내 AI가 <strong>내가 보는 것을 보길</strong> 바랐을 뿐이다."
+            </p>
+            <p style="font-size:7.8pt; color:#666;">— WIA SOOM Creator's Note → SSH 멀티모달 실현 · Prior Art 공개</p>
+        </div>
+        <div class="card" style="background:#ecfdf5;border-left:4px solid #10b981; padding: 8px 11px;">
+            <p style="font-style:italic; font-size:9.8pt; line-height:1.4; margin-bottom:4px;">
+            "<strong>주소는 인권이다.</strong> 소유할 수도, 소유할 필요도 없다."
+            </p>
+            <p style="font-size:7.8pt; color:#666;">— YUJIN Transform 비출원 선언 → 50+ 개도국·난민 무료 개방</p>
+        </div>
+    </div>
+
+    <p style="margin:5px 0; font-size:9pt; line-height:1.45;">
+    <strong>특허 받을 수 있는 기술은 일부러 공개(YUJIN·WIA Braille·WIHP)하고, 공개한 기술은 끝까지 운영(WIA SOOM)한다.</strong>
+    WIA Geulsalim도 같은 원칙 — 취약계층 무료 티어 + EAA 대응 B2G 유료. <em>홍익인간(弘益人間) — 두루 이롭게 하되, 지속가능하게.</em>
+    </p>
+
+    <h2>13. 요약</h2>
+
+    <p class="lead" style="margin:4px 0; line-height:1.5;">
+        ① <strong>실체:</strong> 8년 법인·40+ 서비스·이미 운영 중 &nbsp;&nbsp;&nbsp;
+        ② <strong>필연성:</strong> EAA 강제 시행·국립도서관 AI 전환<br>
+        ③ <strong>독창성:</strong> 복원+접근성+멀티모달 단일 파이프라인 &nbsp;&nbsp;
+        ④ <strong>사회가치:</strong> 22억 모국어 + 1.01억 EU 장애인 + 고문서<br>
+        ⑤ <strong>확장성:</strong> B2C·B2B·B2G · WLIC 2026 → CES 2027 &nbsp;&nbsp;
+        ⑥ <strong>철학:</strong> 공개와 운영의 진정성 (YUJIN·WIA SOOM)
+    </p>
+
+    <p style="text-align: center; margin-top: 8px; font-size: 11pt; font-weight: 700; line-height: 1.35;">
+        We're Geulsalim. 우리들의 글살림. · <span style="font-size:10pt;">弘益人間 · Benefit All Humanity</span>
+    </p>
+
+    <div class="page-num">5 / 5</div>
+</div>
+
+</body>
+</html>

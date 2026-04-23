@@ -1,0 +1,20 @@
+RewriteEngine Off
+
+# PDF 직접 접근 차단
+<FilesMatch "\.pdf$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# proposal HTML 직접 접근 차단
+<FilesMatch "proposal-.*\.html$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# 검색엔진 크롤링 차단
+<IfModule mod_headers.c>
+    <FilesMatch "(proposal|서식0).*\.(html|pdf)$">
+        Header set X-Robots-Tag "noindex, nofollow"
+    </FilesMatch>
+</IfModule>

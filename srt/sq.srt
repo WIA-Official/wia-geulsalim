@@ -1,0 +1,136 @@
+1
+00:00:00,000 --> 00:00:02,500
+Përshëndetje.
+
+2
+00:00:02,500 --> 00:00:05,500
+Unë jam zhvilluesi i vetëm Ryun Sam-heum.
+
+3
+00:00:05,500 --> 00:00:08,500
+Kam drejtuar një kompani për 17 vjet,
+
+4
+00:00:08,500 --> 00:00:14,000
+dhe kam krijuar më shumë se 200 faqe të internetit dhe 600,000 faqe.
+
+5
+00:00:14,000 --> 00:00:17,000
+Ky projekt nuk është bërë nga e para.
+
+6
+00:00:17,000 --> 00:00:20,000
+Është një mjet që është zhvilluar për 8 vjet — WIA Geulsalim.
+
+7
+00:00:21,000 --> 00:00:26,000
+95% e njohurive të njerëzimit për 5000 vjet
+ende nuk janë në dispozicion.
+
+8
+00:00:26,000 --> 00:00:32,000
+87% e dokumenteve historike koreane nuk janë digjitalizuar,
+
+9
+00:00:32,000 --> 00:00:40,000
+dhe 97% e 7000 gjuhëve të botës kanë cilësi të ulët ose nuk kanë fare
+përkthim AI dhe zë.
+
+10
+00:00:40,000 --> 00:00:45,000
+300 milion persona me aftësi të kufizuara
+ende nuk kanë mundësinë të prekin libra.
+
+11
+00:00:46,000 --> 00:00:50,000
+Këto 4 barrierë duhet të zgjidhen të gjitha njëherësh.
+
+12
+00:00:50,000 --> 00:00:54,500
+Geulsalim ka një pipeline në 4 faza —
+Restaurim, Strukturim, Transformim, Shkallëzim.
+
+13
+00:00:54,500 --> 00:00:59,500
+Tani do t'ju tregojmë personalisht përmes katër demonstratave.
+
+14
+00:01:00,000 --> 00:01:04,000
+Demostrata e parë — Restaurimi.
+
+15
+00:01:04,000 --> 00:01:10,000
+Modeli Diffusion restauron dokumentet historike të dëmtuara,
+dhe modeli i gjuhës inferon shkronjat e humbura.
+
+16
+00:01:10,000 --> 00:01:14,000
+Restaurimi nuk është manipulim.
+
+17
+00:01:14,000 --> 00:01:20,000
+Hash-i origjinal ruhet përherë.
+
+18
+00:01:25,000 --> 00:01:29,000
+Demostrata e dytë — Strukturimi.
+
+19
+00:01:29,000 --> 00:01:36,000
+PDF pa etiketa automatizohet nga AI në HTML që përputhet me WCAG 2.2,
+duke krijuar edhe tekst alternativ.
+
+20
+00:01:36,000 --> 00:01:42,000
+Në faqen e kontrollit të aksesit të WIA Book,
+jemi duke kontrolluar automatikisht tashmë 80 elemente.
+
+21
+00:01:50,000 --> 00:01:54,000
+Demostrata e tretë — Restaurimi i aksesit në EPUB.
+
+22
+00:01:54,000 --> 00:02:00,000
+EPUB 2 që nuk plotëson standardet e aksesit,
+restaurohet automatikisht në EPUB 3.
+
+23
+00:02:00,000 --> 00:02:06,000
+Kalojnë të gjithë 80 elementet e kontrollit.
+
+24
+00:02:06,000 --> 00:02:13,000
+WCAG, EPUB A11y, KS X 6201, EAA Evropiane —
+plotësojnë katër standarde ndërkombëtare njëkohësisht.
+
+25
+00:02:15,000 --> 00:02:19,000
+Demostrata e katërt — Dërgesa multimodale.
+
+26
+00:02:19,000 --> 00:02:24,000
+Gjuha e shenjave në 7000 gjuhë,
+zëri në 254 gjuhë,
+
+27
+00:02:24,000 --> 00:02:29,000
+WIA Talk me shenja 3D,
+436 mjete interaktive dhe simulues.
+
+28
+00:02:29,000 --> 00:02:36,000
+WIA Live, ku persona të dëgjueshëm dhe ata me të shurdhër
+bisedojnë direkt pa interpretorë,
+
+29
+00:02:36,000 --> 00:02:39,500
+është duke u përgatitur tashmë.
+
+30
+00:02:40,500 --> 00:02:43,000
+Geulsalim tonë.
+
+31
+00:02:43,000 --> 00:02:46,000
+弘益人間 — Të dobishëm për të gjithë, në mënyrë të qëndrueshme.
+We're Geulsalim.

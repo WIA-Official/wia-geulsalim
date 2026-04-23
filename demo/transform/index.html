@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>WIA Geulsalim · Demo 2 · 접근성 변환</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+<link rel="stylesheet" href="/demo/nav.css">
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+        font-family: 'Pretendard', sans-serif;
+        background: #0a0a0f;
+        color: #e5e7eb;
+        overflow: hidden;
+        height: 100vh;
+        width: 100vw;
+    }
+    .stage { display: flex; flex-direction: column; width: 100vw; height: 100vh; }
+    .brandbar {
+        flex: 0 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 14px 36px;
+        background: linear-gradient(90deg, #065f46 0%, #0a0a0f 100%);
+        border-bottom: 1px solid #1f2937;
+    }
+    .brandbar .logo { display:flex; align-items:center; gap:12px; }
+    .brandbar .logo-mark {
+        width: 42px; height: 42px;
+        background: #ffffff;
+        border-radius: 50%;
+        display: flex; align-items: center; justify-content: center;
+        overflow: hidden;
+        box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.4);
+    }
+    .brandbar .logo-mark img {
+        width: 80%;
+        height: 80%;
+        object-fit: contain;
+        display: block;
+    }
+    .brandbar .logo-text { font-weight: 800; font-size: 18px; }
+    .brandbar .logo-text .sub { font-size: 11px; color: #9ca3af; font-weight: 500; margin-left: 8px; }
+    .brandbar .demo-label { font-size: 13px; color: #10b981; font-weight: 700; letter-spacing: 2px; }
+
+    .main {
+        flex: 1;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 22px;
+        padding: 28px 36px;
+    }
+    .panel {
+        background: #111827;
+        border: 1px solid #1f2937;
+        border-radius: 14px;
+        padding: 22px;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+    .panel h3 {
+        font-size: 13px;
+        color: #9ca3af;
+        letter-spacing: 2px;
+        margin-bottom: 4px;
+        text-transform: uppercase;
+    }
+    .panel .sub { font-size: 11px; color: #6b7280; margin-bottom: 12px; }
+
+    /* Left: PDF doc preview */
+    .doc-preview {
+        flex: 1;
+        background: #ffffff;
+        color: #1f2937;
+        border-radius: 8px;
+        padding: 30px 32px;
+        font-size: 13px;
+        line-height: 1.7;
+        position: relative;
+        overflow: hidden;
+    }
+    .doc-preview h1 { font-size: 19px; margin-bottom: 14px; font-weight: 800; line-height: 1.3; }
+    .doc-preview h2 { font-size: 15px; margin: 22px 0 10px; font-weight: 700; color: #374151; line-height: 1.3; }
+    .doc-preview p { margin-bottom: 14px; line-height: 1.7; }
+    .doc-preview > *:not(.tag-highlight) { position: relative; z-index: 1; }
+    .doc-preview img {
+        display: block;
+        width: 60%;
+        height: 50px;
+        background: linear-gradient(135deg, #c7d2fe, #a5b4fc);
+        border-radius: 6px;
+        margin: 10px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 11px;
+        color: #3730a3;
+        font-weight: 600;
+    }
+    /* Highlight boxes show what AI tagged */
+    .tag-highlight {
+        position: absolute;
+        border: 2px solid transparent;
+        border-radius: 4px;
+        transition: all 0.4s ease;
+        pointer-events: none;
+    }
+    .tag-highlight.active {
+        border-color: #10b981;
+        background: rgba(16, 185, 129, 0.1);
+        box-shadow: 0 0 0 1px rgba(16, 185, 129, 0.25);
+    }
+    .tag-highlight .tag-label {
+        position: absolute;
+        top: -18px;
+        right: -2px;
+        background: #10b981;
+        color: #fff;
+        font-size: 9px;
+        font-weight: 700;
+        padding: 2px 6px;
+        border-radius: 3px;
+        letter-spacing: 0.5px;
+    }
+
+    /* Right: output tabs */
+    .outputs {
+        flex: 1;
+        display: grid;
+        grid-template-rows: auto 1fr;
+    }
+    .tabs {
+        display: flex;
+        gap: 6px;
+        margin-bottom: 12px;
+    }
+    .tab {
+        padding: 7px 14px;
+        background: #1f2937;
+        color: #9ca3af;
+        border-radius: 6px;
+        font-size: 12px;
+        font-weight: 600;
+        transition: all 0.3s;
+    }
+    .tab.active {
+        background: #10b981;
+        color: #0a0a0f;
+    }
+    .tab-content {
+        background: #0a0a0f;
+        border: 1px solid #1f2937;
+        border-radius: 8px;
+        padding: 18px;
+        font-family: 'JetBrains Mono', 'Courier New', monospace;
+        font-size: 11px;
+        line-height: 1.55;
+        color: #d1d5db;
+        overflow-y: auto;
+        position: relative;
+    }
+    .tab-content .code-keyword { color: #c084fc; }
+    .tab-content .code-string { color: #fbbf24; }
+    .tab-content .code-tag { color: #60a5fa; }
+    .tab-content .code-attr { color: #10b981; }
+    .tab-content .code-comment { color: #6b7280; font-style: italic; }
+
+    .typing-cursor {
+        display: inline-block;
+        width: 7px;
+        height: 13px;
+        background: #10b981;
+        vertical-align: text-bottom;
+        animation: blink 0.7s infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0;} }
+
+    /* Status bar */
+    .statusbar {
+        flex: 0 0 auto;
+        background: #111827;
+        border-top: 1px solid #1f2937;
+        padding: 14px 36px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 13px;
+    }
+    .status-left { display: flex; gap: 28px; }
+    .stat-item { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+    .stat-item .v { color: #10b981; font-weight: 700; font-size: 18px; line-height: 1; }
+    .stat-item .l { color: #9ca3af; font-size: 10px; }
+    .status-right {
+        color: #10b981;
+        font-weight: 700;
+        display: flex; gap: 8px; align-items: center;
+    }
+    .status-right::before { content: '●'; animation: dotblink 1s infinite; }
+    @keyframes dotblink { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+
+    .standards-row {
+        display: flex; gap: 8px;
+    }
+    .std-badge {
+        background: #1f2937;
+        padding: 4px 10px;
+        border-radius: 4px;
+        font-size: 10px;
+        color: #9ca3af;
+        font-weight: 600;
+        transition: all 0.3s;
+    }
+    .std-badge.pass {
+        background: #065f46;
+        color: #a7f3d0;
+    }
+</style>
+</head>
+<body>
+<div class="stage">
+    <div class="brandbar">
+        <div class="logo">
+            <div class="logo-mark"><img src="/assets/images/favicon.png" alt="WIA"></div>
+            <div class="logo-text">
+                WIA Geulsalim
+                <span class="sub">We're Geulsalim · 우리들의 글살림</span>
+            </div>
+        </div>
+        <div class="demo-label">DEMO 2 · STRUCTURE · 구조화 태깅</div>
+    </div>
+
+    <div class="main">
+        <!-- LEFT: input PDF -->
+        <div class="panel">
+            <h3>① INPUT · 접근성 태그 없는 PDF</h3>
+            <div class="sub">WebAIM 조사: 공개 PDF의 80%+는 태그 없음</div>
+            <div class="doc-preview" id="docPreview">
+                <h1 id="tag-h1">WIA Geulsalim 소개</h1>
+                <p id="tag-p1">
+                    WIA Geulsalim은 AI로 훼손된 글을 복원하고,
+                    언어·포맷·감각의 장벽을 넘어 모든 사람에게 전달하는
+                    통합 파이프라인입니다.
+                </p>
+                <h2 id="tag-h2">1. 기술 구성</h2>
+                <p id="tag-p2">
+                    Restore → Structure → Transform → Deliver.
+                    4단계가 단일 파이프라인에서 자동 실행됩니다.
+                </p>
+                <div id="tag-img" role="img" aria-label="4단계 파이프라인 다이어그램"
+                     style="background:linear-gradient(135deg, #c7d2fe, #a5b4fc); width:78%; height:62px; border-radius:6px; display:flex; align-items:center; justify-content:center; gap:8px; font-size:12px; color:#3730a3; font-weight:700; letter-spacing:0.3px; margin:16px 0 20px;">
+                    <span style="background:#4f46e5;color:#fff;padding:3px 10px;border-radius:4px;">복원</span>
+                    <span>→</span>
+                    <span style="background:#4f46e5;color:#fff;padding:3px 10px;border-radius:4px;">구조화</span>
+                    <span>→</span>
+                    <span style="background:#4f46e5;color:#fff;padding:3px 10px;border-radius:4px;">변환</span>
+                    <span>→</span>
+                    <span style="background:#4f46e5;color:#fff;padding:3px 10px;border-radius:4px;">전달</span>
+                </div>
+                <h2 id="tag-h3">2. 준수 표준</h2>
+                <p id="tag-p3">
+                    WCAG 2.2 AA · KS X 6201 · EPUB Accessibility 1.1 · EU EAA.
+                </p>
+
+                <!-- Highlight overlays — JS가 실제 대상 요소의 위치에 맞춰 동적으로 감싼다 -->
+                <div class="tag-highlight" id="hl-h1" data-target="#tag-h1">
+                    <span class="tag-label">&lt;h1&gt;</span>
+                </div>
+                <div class="tag-highlight" id="hl-p1" data-target="#tag-p1">
+                    <span class="tag-label">&lt;p&gt;</span>
+                </div>
+                <div class="tag-highlight" id="hl-h2" data-target="#tag-h2">
+                    <span class="tag-label">&lt;h2&gt;</span>
+                </div>
+                <div class="tag-highlight" id="hl-img" data-target="#tag-img">
+                    <span class="tag-label">alt 자동</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT: output tabs -->
+        <div class="panel outputs">
+            <div>
+                <h3>② OUTPUT · 접근성 변환 결과</h3>
+                <div class="sub">80개 검사 항목 · 4개 국제표준 동시 대응 · a11y.wiabook.com</div>
+
+                <div class="tabs">
+                    <div class="tab active" id="tab-html">Tagged HTML</div>
+                    <div class="tab" id="tab-epub">EPUB A11y 1.1</div>
+                    <div class="tab" id="tab-ai">AI 요약 · 대체텍스트</div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="codeArea"></div>
+        </div>
+    </div>
+
+    <div class="statusbar">
+        <div class="status-left">
+            <div class="stat-item"><span class="v" id="sTagged">0</span><span class="l">자동 태그</span></div>
+            <div class="stat-item"><span class="v" id="sScore">0</span><span class="l">접근성 점수</span></div>
+            <div class="stat-item"><span class="v" id="sGrade">─</span><span class="l">등급</span></div>
+            <div class="stat-item"><span class="v">80</span><span class="l">검사 항목</span></div>
+        </div>
+        <div class="standards-row">
+            <div class="std-badge" id="std-wcag">WCAG 2.2</div>
+            <div class="std-badge" id="std-epub">EPUB A11y 1.1</div>
+            <div class="std-badge" id="std-ks">KS X 6201</div>
+            <div class="std-badge" id="std-eaa">EU EAA</div>
+        </div>
+        <div class="status-right" id="statusText">SCANNING...</div>
+    </div>
+</div>
+
+<script>
+const samples = {
+    html: [
+        '<span class="code-comment">&lt;!-- WIA Geulsalim · AI tagged --&gt;</span>',
+        '<span class="code-tag">&lt;main</span> <span class="code-attr">role</span>=<span class="code-string">"main"</span> <span class="code-attr">lang</span>=<span class="code-string">"ko"</span><span class="code-tag">&gt;</span>',
+        '  <span class="code-tag">&lt;h1</span> <span class="code-attr">id</span>=<span class="code-string">"title"</span><span class="code-tag">&gt;</span>WIA Geulsalim 소개<span class="code-tag">&lt;/h1&gt;</span>',
+        '  <span class="code-tag">&lt;nav</span> <span class="code-attr">aria-label</span>=<span class="code-string">"목차"</span><span class="code-tag">&gt;</span>...<span class="code-tag">&lt;/nav&gt;</span>',
+        '  <span class="code-tag">&lt;section</span> <span class="code-attr">aria-labelledby</span>=<span class="code-string">"tech"</span><span class="code-tag">&gt;</span>',
+        '    <span class="code-tag">&lt;h2</span> <span class="code-attr">id</span>=<span class="code-string">"tech"</span><span class="code-tag">&gt;</span>1. 기술 구성<span class="code-tag">&lt;/h2&gt;</span>',
+        '    <span class="code-tag">&lt;p&gt;</span>Restore → Structure → Transform → Deliver<span class="code-tag">&lt;/p&gt;</span>',
+        '    <span class="code-tag">&lt;figure</span> <span class="code-attr">role</span>=<span class="code-string">"img"</span><span class="code-tag">&gt;</span>',
+        '      <span class="code-tag">&lt;img</span> <span class="code-attr">src</span>=<span class="code-string">"pipeline.png"</span>',
+        '           <span class="code-attr">alt</span>=<span class="code-string">"4단계 파이프라인 다이어그램:',
+        '                 복원→구조화→변환→전달"</span><span class="code-tag">&gt;</span>',
+        '    <span class="code-tag">&lt;/figure&gt;</span>',
+        '  <span class="code-tag">&lt;/section&gt;</span>',
+        '<span class="code-tag">&lt;/main&gt;</span>'
+    ],
+    epub: [
+        '<span class="code-comment">&lt;!-- package.opf - EPUB Accessibility 1.1 --&gt;</span>',
+        '<span class="code-tag">&lt;metadata&gt;</span>',
+        '  <span class="code-tag">&lt;meta</span> <span class="code-attr">property</span>=<span class="code-string">"schema:accessibilityFeature"</span><span class="code-tag">&gt;</span>',
+        '    structuralNavigation',
+        '  <span class="code-tag">&lt;/meta&gt;</span>',
+        '  <span class="code-tag">&lt;meta</span> <span class="code-attr">property</span>=<span class="code-string">"schema:accessibilityFeature"</span><span class="code-tag">&gt;</span>',
+        '    alternativeText',
+        '  <span class="code-tag">&lt;/meta&gt;</span>',
+        '  <span class="code-tag">&lt;meta</span> <span class="code-attr">property</span>=<span class="code-string">"schema:accessMode"</span><span class="code-tag">&gt;</span>',
+        '    textual, visual',
+        '  <span class="code-tag">&lt;/meta&gt;</span>',
+        '  <span class="code-tag">&lt;meta</span> <span class="code-attr">property</span>=<span class="code-string">"schema:accessibilityHazard"</span><span class="code-tag">&gt;</span>',
+        '    none',
+        '  <span class="code-tag">&lt;/meta&gt;</span>',
+        '  <span class="code-tag">&lt;meta</span> <span class="code-attr">property</span>=<span class="code-string">"schema:accessibilitySummary"</span><span class="code-tag">&gt;</span>',
+        '    전체 구조 네비게이션, 모든 이미지 대체텍스트 제공',
+        '  <span class="code-tag">&lt;/meta&gt;</span>',
+        '<span class="code-tag">&lt;/metadata&gt;</span>'
+    ],
+    ai: [
+        '<span class="code-comment"># WIA Geulsalim AI 대체텍스트 생성</span>',
+        '',
+        '<span class="code-keyword">이미지 분석:</span> pipeline.png',
+        '  <span class="code-attr">LLM Vision:</span> "4개 박스가 화살표로 연결됨"',
+        '  <span class="code-attr">OCR 추출:</span> "RESTORE → STRUCTURE",',
+        '              "TRANSFORM → DELIVER"',
+        '  <span class="code-attr">색상 분석:</span> 청 / 녹 / 황 / 분홍',
+        '  <span class="code-attr">최종 alt:</span> "WIA Geulsalim 4단계',
+        '              AI 파이프라인: 복원→구조화→',
+        '              변환→전달 순서 다이어그램"',
+        '',
+        '<span class="code-keyword">문서 요약 (TTS용):</span>',
+        '  "WIA Geulsalim은 훼손된 글을 AI로',
+        '   복원하여 모든 사람에게 전달하는',
+        '   통합 파이프라인입니다. 4단계로',
+        '   자동 실행되며, 4개 국제 접근성',
+        '   표준을 동시에 준수합니다."',
+        '',
+        '<span class="code-keyword">언어 감지:</span> ko-KR → 254 언어 동시 번역 가능'
+    ]
+};
+
+const tabs = ['html', 'epub', 'ai'];
+const hlElements = ['hl-h1', 'hl-p1', 'hl-h2', 'hl-img'];
+const stdBadges = ['std-wcag', 'std-epub', 'std-ks', 'std-eaa'];
+
+/* 하이라이트 박스를 실제 대상 요소 위치에 정확히 맞춰 그림 */
+function syncHighlights() {
+    const preview = document.querySelector('.doc-preview');
+    if (!preview) return;
+    const previewRect = preview.getBoundingClientRect();
+    const padY = 4;  // 세로 안전 여백
+    const padX = 4;  // 가로 안전 여백
+    document.querySelectorAll('.tag-highlight[data-target]').forEach(hl => {
+        const target = document.querySelector(hl.dataset.target);
+        if (!target) return;
+        const r = target.getBoundingClientRect();
+        hl.style.top    = (r.top  - previewRect.top  - padY) + 'px';
+        hl.style.left   = (r.left - previewRect.left - padX) + 'px';
+        hl.style.width  = (r.width  + padX*2) + 'px';
+        hl.style.height = (r.height + padY*2) + 'px';
+    });
+}
+window.addEventListener('load',   () => setTimeout(syncHighlights, 100));
+window.addEventListener('resize', () => syncHighlights());
+
+function typeCode(lines, el, cb) {
+    el.innerHTML = '';
+    let lineIdx = 0;
+
+    function nextLine() {
+        if (lineIdx >= lines.length) {
+            if (cb) cb();
+            return;
+        }
+        const line = lines[lineIdx];
+        const div = document.createElement('div');
+        div.innerHTML = line + '<span class="typing-cursor"></span>';
+        el.appendChild(div);
+
+        // scroll to bottom
+        el.scrollTop = el.scrollHeight;
+
+        lineIdx++;
+        setTimeout(() => {
+            const cursor = div.querySelector('.typing-cursor');
+            if (cursor) cursor.remove();
+            nextLine();
+        }, 220);
+    }
+    nextLine();
+}
+
+let loop = 0;
+
+function runDemo() {
+    const codeArea = document.getElementById('codeArea');
+    const statusText = document.getElementById('statusText');
+
+    // Reset
+    hlElements.forEach(id => document.getElementById(id).classList.remove('active'));
+    stdBadges.forEach(id => document.getElementById(id).classList.remove('pass'));
+    document.getElementById('sTagged').textContent = '0';
+    document.getElementById('sScore').textContent = '0';
+    document.getElementById('sGrade').textContent = '─';
+
+    // Switch to tab 1
+    tabs.forEach(t => document.getElementById('tab-'+t).classList.remove('active'));
+    document.getElementById('tab-html').classList.add('active');
+
+    statusText.textContent = 'SCANNING DOCUMENT...';
+    syncHighlights();  // 각 루프 시작마다 재계산
+
+    // Stage 1: highlight tags one by one (0-4s)
+    hlElements.forEach((id, i) => {
+        setTimeout(() => {
+            document.getElementById(id).classList.add('active');
+            document.getElementById('sTagged').textContent = (i+1)*3;
+        }, 600 + i*700);
+    });
+
+    // Stage 2: type HTML output (4-10s)
+    setTimeout(() => {
+        statusText.textContent = 'GENERATING TAGGED HTML...';
+        typeCode(samples.html, codeArea);
+    }, 4000);
+
+    // Stage 3: switch to EPUB tab (12s)
+    setTimeout(() => {
+        document.getElementById('tab-html').classList.remove('active');
+        document.getElementById('tab-epub').classList.add('active');
+        statusText.textContent = 'EMBEDDING EPUB METADATA...';
+        typeCode(samples.epub, codeArea);
+    }, 12000);
+
+    // Stage 4: switch to AI tab (20s)
+    setTimeout(() => {
+        document.getElementById('tab-epub').classList.remove('active');
+        document.getElementById('tab-ai').classList.add('active');
+        statusText.textContent = 'AI ALT-TEXT GENERATION...';
+        typeCode(samples.ai, codeArea);
+    }, 20000);
+
+    // Stage 5: pass standards + final score (28-32s)
+    setTimeout(() => {
+        stdBadges.forEach((id, i) => {
+            setTimeout(() => {
+                document.getElementById(id).classList.add('pass');
+            }, i * 400);
+        });
+        statusText.textContent = 'VALIDATING STANDARDS...';
+        animateNumber('sScore', 0, 96, 2500);
+    }, 28000);
+
+    setTimeout(() => {
+        document.getElementById('sGrade').textContent = 'A+';
+        document.getElementById('sTagged').textContent = '34';
+        statusText.textContent = 'COMPLETE ✓ ALL 4 STANDARDS PASS';
+    }, 31000);
+
+    // Loop (36s)
+    setTimeout(() => {
+        loop++;
+        runDemo();
+    }, 36000);
+}
+
+function animateNumber(id, from, to, duration) {
+    const el = document.getElementById(id);
+    const start = Date.now();
+    const tick = () => {
+        const elapsed = Date.now() - start;
+        const pct = Math.min(elapsed / duration, 1);
+        el.textContent = Math.floor(from + (to - from) * pct);
+        if (pct < 1) requestAnimationFrame(tick);
+    };
+    tick();
+}
+
+runDemo();
+</script>
+<script src="/demo/nav.js"></script>
+<script src="/assets/js/a11y-widget.js" defer></script>
+</body>
+</html>

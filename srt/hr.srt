@@ -1,0 +1,140 @@
+1
+00:00:00,000 --> 00:00:02,500
+Zdravo.
+
+2
+00:00:02,500 --> 00:00:05,500
+Ja sam jednoglačni developer Yeon Sam-heum.
+
+3
+00:00:05,500 --> 00:00:08,500
+Pokušavam voditi tvrtku 17 godina,
+
+4
+00:00:08,500 --> 00:00:14,000
+uz pomoć AI-a napravio sam više od 200 web stranica,
+600,000 stranica.
+
+5
+00:00:14,000 --> 00:00:17,000
+Ovaj rad nije nov.
+
+6
+00:00:17,000 --> 00:00:20,000
+Ovo je alat koji je izrastao tijekom 8 godina — WIA Geulsalim.
+
+7
+00:00:21,000 --> 00:00:26,000
+95% znanja ljudske civilizacije od 5000 godina
+još uvijek nije dostupno.
+
+8
+00:00:26,000 --> 00:00:32,000
+87% korejskih povijesnih dokumenata nije digitalizirano
+i još uvijek spava,
+
+9
+00:00:32,000 --> 00:00:40,000
+a među 7000 jezika svijeta, 97% ima
+mnogo lošiji kvalitet AI prijevoda i glasa ili ga uopće nema.
+
+10
+00:00:40,000 --> 00:00:45,000
+300 milijuna ljudi s osjetilnim invaliditetom
+još uvijek ne može dodirivati knjige.
+
+11
+00:00:46,000 --> 00:00:50,000
+Ova četiri zida moraju se riješiti odjednom.
+
+12
+00:00:50,000 --> 00:00:54,500
+Geulsalim je četverostupanjski proces —
+obnova · strukturiranje · transformacija · isporuka.
+
+13
+00:00:54,500 --> 00:00:59,500
+Sada ćemo vam pokazati
+kroz četiri demo prezentacije.
+
+14
+00:01:00,000 --> 00:01:04,000
+Prva demonstracija — obnova.
+
+15
+00:01:04,000 --> 00:01:10,000
+Diffusion model obnavlja oštećene povijesne dokumente,
+a jezični model inferira nestale znakove.
+
+16
+00:01:10,000 --> 00:01:14,000
+Obnova nije manipulacija.
+
+17
+00:01:14,000 --> 00:01:20,000
+Izvorni hash se trajno čuva.
+
+18
+00:01:25,000 --> 00:01:29,000
+Druga demonstracija — strukturiranje.
+
+19
+00:01:29,000 --> 00:01:36,000
+PDF bez oznaka strukturira se automatski
+u HTML koji je usklađen s WCAG 2.2,
+a AI također generira alternativni tekst.
+
+20
+00:01:36,000 --> 00:01:42,000
+Na WIA Book stranici za provjeru pristupačnosti,
+već sam automatski provjerio 80 stavki.
+
+21
+00:01:50,000 --> 00:01:54,000
+Treća demonstracija — obnova pristupačnosti EPUB-a.
+
+22
+00:01:54,000 --> 00:02:00,000
+EPUB 2 koji ne zadovoljava pristupačnost,
+automatski se obnavlja u EPUB 3.
+
+23
+00:02:00,000 --> 00:02:06,000
+Ispunjava svih 80 provjerenih stavki.
+
+24
+00:02:06,000 --> 00:02:13,000
+WCAG, EPUB A11y, KS X 6201, europski EAA —
+zadovoljava četiri međunarodna standarda istovremeno.
+
+25
+00:02:15,000 --> 00:02:19,000
+Četvrta demonstracija — multimodalna isporuka.
+
+26
+00:02:19,000 --> 00:02:24,000
+Braille za 7000 jezika,
+govor za 254 jezika,
+
+27
+00:02:24,000 --> 00:02:29,000
+WIA Talk 3D znakovni jezik,
+436 interaktivnih alata i simulatora.
+
+28
+00:02:29,000 --> 00:02:36,000
+WIA Live omogućuje gluhima i slijepima
+da razgovaraju izravno bez tumača,
+
+29
+00:02:36,000 --> 00:02:39,500
+već se provodi u pilot fazi.
+
+30
+00:02:40,500 --> 00:02:43,000
+Naša Geulsalim.
+
+31
+00:02:43,000 --> 00:02:46,000
+弘益人間 — koristiti za dobro svih, na održiv način.
+We're Geulsalim.

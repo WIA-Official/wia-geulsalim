@@ -1,0 +1,137 @@
+1
+00:00:00,000 --> 00:00:02,500
+Hei.
+
+2
+00:00:02,500 --> 00:00:05,500
+Olen yksittäinen kehittäjä, Yeon Sam-Heum.
+
+3
+00:00:05,500 --> 00:00:08,500
+Olen pyörittänyt yritystä 17 vuoden ajan,
+
+4
+00:00:08,500 --> 00:00:14,000
+ja tehnyt yli 200 verkkosivustoa ja 600,000 sivua yhdessä AI:n kanssa.
+
+5
+00:00:14,000 --> 00:00:17,000
+Tämä teos ei ole uusi.
+
+6
+00:00:17,000 --> 00:00:20,000
+Se on työkalu, joka on kasvanut kahdeksan vuotta — WIA Geulsalim.
+
+7
+00:00:21,000 --> 00:00:26,000
+95% ihmiskunnan 5000 vuoden tiedoista
+on yhä saavuttamattomissa.
+
+8
+00:00:26,000 --> 00:00:32,000
+Korean historiallisista asiakirjoista 87% on digitalisoimatta
+ja nukkuu,
+
+9
+00:00:32,000 --> 00:00:40,000
+ja 97% maailman 7000 kielestä
+on joko huonolaatuista AI-käännöstä tai ei lainkaan.
+
+10
+00:00:40,000 --> 00:00:45,000
+300 miljoonaa aistitusta vammaista
+eivät vieläkään voi koskea kirjoihin.
+
+11
+00:00:46,000 --> 00:00:50,000
+Nämä neljä estettä on ratkottava kerralla.
+
+12
+00:00:50,000 --> 00:00:54,500
+Geulsalim on nelivaiheinen prosessi —
+restaurointi · strukturointi · muuntaminen · jakelu.
+
+13
+00:00:54,500 --> 00:00:59,500
+Näytämme nyt neljän demon kautta
+suoraan käytännössä.
+
+14
+00:01:00,000 --> 00:01:04,000
+Ensimmäinen demo — restaurointi.
+
+15
+00:01:04,000 --> 00:01:10,000
+Diffusion-malli restauroi vahingoittuneet asiakirjat,
+ja kielimalli päättelee puuttuvat merkit.
+
+16
+00:01:10,000 --> 00:01:14,000
+Restaurointi ei ole manipulointia.
+
+17
+00:01:14,000 --> 00:01:20,000
+Alkuperäinen hash säilytetään pysyvästi.
+
+18
+00:01:25,000 --> 00:01:29,000
+Toinen demo — strukturointi.
+
+19
+00:01:29,000 --> 00:01:36,000
+Ilman tageja oleva PDF muunnetaan WCAG 2.2 -standardin mukaiseksi HTML:ksi,
+AI strukturoi sen automaattisesti ja luo vaihtoehtoistekstit.
+
+20
+00:01:36,000 --> 00:01:42,000
+WIA Bookin saavutettavuustarkastussivustolla
+olen jo tarkastanut automaattisesti 80 kohdetta.
+
+21
+00:01:50,000 --> 00:01:54,000
+Kolmas demo — EPUB:n saavutettavuuden palauttaminen.
+
+22
+00:01:54,000 --> 00:02:00,000
+Saavutettavuusvaatimusten alittava EPUB 2 palautuu automaattisesti EPUB 3:ksi.
+
+23
+00:02:00,000 --> 00:02:06,000
+Se läpäisee kaikki 80 tarkistuskohdetta.
+
+24
+00:02:06,000 --> 00:02:13,000
+WCAG, EPUB A11y, KS X 6201, Euroopan EAA —
+tyydytämme neljä kansainvälistä standardia samanaikaisesti.
+
+25
+00:02:15,000 --> 00:02:19,000
+Neljäs demo — monimuotoinen jakelu.
+
+26
+00:02:19,000 --> 00:02:24,000
+Braille 7000 kielellä,
+äänet 254 kielellä,
+
+27
+00:02:24,000 --> 00:02:29,000
+WIA Talk 3D viittomakieli,
+436 interaktiivista työkalua ja simulaattoria.
+
+28
+00:02:29,000 --> 00:02:36,000
+Kuurot ja näkövammaiset voivat keskustella
+ilman tulkkia WIA Live,
+
+29
+00:02:36,000 --> 00:02:39,500
+joka on jo pilottivaiheessa.
+
+30
+00:02:40,500 --> 00:02:43,000
+Meidän Geulsalim.
+
+31
+00:02:43,000 --> 00:02:46,000
+弘益人間 — hyödynnä kaikkia kestävästi.
+We're Geulsalim.

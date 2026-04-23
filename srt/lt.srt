@@ -1,0 +1,139 @@
+1
+00:00:00,000 --> 00:00:02,500
+Labas.
+
+2
+00:00:02,500 --> 00:00:05,500
+Aš esu vienas programuotojas Yeon Sam-Heum.
+
+3
+00:00:05,500 --> 00:00:08,500
+17 metų dirbau įmonėje,
+
+4
+00:00:08,500 --> 00:00:14,000
+ir kartu su AI sukūriau daugiau nei 200 svetainių,
+600 tūkst. puslapių.
+
+5
+00:00:14,000 --> 00:00:17,000
+Šis kūrinys nėra sukurtas naujai.
+
+6
+00:00:17,000 --> 00:00:20,000
+Tai įrankis, užaugęs per 8 metus — WIA Geulsalim.
+
+7
+00:00:21,000 --> 00:00:26,000
+Žmonijos 5 tūkst. metų žinių 95% yra
+dar neprieinamos.
+
+8
+00:00:26,000 --> 00:00:32,000
+87% Korėjos senųjų dokumentų dar nėra skaitmeninti
+ir tebeilsisi,
+
+9
+00:00:32,000 --> 00:00:40,000
+o iš 7 tūkst. pasaulio kalbų 97% 
+AI vertimo ir balso kokybė yra žymiškai prasta arba jos visai nėra.
+
+10
+00:00:40,000 --> 00:00:45,000
+300 milijonų jautrumą praradusių žmonių
+vis dar negali paliesti knygų.
+
+11
+00:00:46,000 --> 00:00:50,000
+Šie 4 barjerai turi būti išspręsti vienu metu.
+
+12
+00:00:50,000 --> 00:00:54,500
+Geulsalim turi 4 etapų vamzdyną —
+atnaujinimas · struktūravimas · konvertavimas · teikimas.
+
+13
+00:00:54,500 --> 00:00:59,500
+Dabar aš jums parodysiu keturis demonstracijas.
+
+14
+00:01:00,000 --> 00:01:04,000
+Pirmasis demonstravimas — atnaujinimas.
+
+15
+00:01:04,000 --> 00:01:10,000
+Diffusion modelis atnaujina sugadintus senus dokumentus,
+o kalbos modelis nustato prarastus ženklus.
+
+16
+00:01:10,000 --> 00:01:14,000
+Atnaujinimas nėra manipuliacija.
+
+17
+00:01:14,000 --> 00:01:20,000
+Originalus hash bus nuolat išsaugomas.
+
+18
+00:01:25,000 --> 00:01:29,000
+Antrasis demonstravimas — struktūravimas.
+
+19
+00:01:29,000 --> 00:01:36,000
+PDF be žymų automatiškai struktūravamas
+į WCAG 2.2 atitinkantį HTML, 
+o AI generuoja alternatyvius tekstus.
+
+20
+00:01:36,000 --> 00:01:42,000
+WIA Book prieinamumo tikrinimo svetainėje
+aš jau automatiškai patikrinau 80 punktų.
+
+21
+00:01:50,000 --> 00:01:54,000
+Trečiasis demonstravimas — EPUB prieinamumo atkūrimas.
+
+22
+00:01:54,000 --> 00:02:00,000
+Prieinamumo neatitinkančios EPUB 2
+automatiškai atkuriamos į EPUB 3.
+
+23
+00:02:00,000 --> 00:02:06,000
+Jis praeina visus 80 tikrinimo punktų.
+
+24
+00:02:06,000 --> 00:02:13,000
+WCAG, EPUB A11y, KS X 6201, Europos EAA —
+visi keturi tarptautiniai standartai yra patenkinti tuo pačiu metu.
+
+25
+00:02:15,000 --> 00:02:19,000
+Ketvirtasis demonstravimas — multimodalus teikimas.
+
+26
+00:02:19,000 --> 00:02:24,000
+Brailiu 7 tūkst. kalbų,
+balsu 254 kalbų,
+
+27
+00:02:24,000 --> 00:02:29,000
+WIA Talk 3D gestų kalba,
+436 interaktyvūs įrankiai ir simuliatoriai.
+
+28
+00:02:29,000 --> 00:02:36,000
+Kurčiųjų ir silpnaregių žmonių
+tiesioginė komunikacija be vertėjo — WIA Live,
+
+29
+00:02:36,000 --> 00:02:39,500
+jau veikia mokymo režimu.
+
+30
+00:02:40,500 --> 00:02:43,000
+Mūsų Geulsalim.
+
+31
+00:02:43,000 --> 00:02:46,000
+弘益人間 — gerinti visiems, laikantis tvarumo.
+We're Geulsalim.

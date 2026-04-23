@@ -1,0 +1,12 @@
+# 검색엔진 인증 파일 (보안)
+googlee4e05c952b37aa3e.html
+naver0c83209b00681f8e74581dfa73502820.html
+BingSiteAuth.xml
+yandex_414e9f9b1a1aedc3.html
+
+# PDF (접근 차단된 파일)
+pdf/
+
+# 임시 파일
+*.bak*
+.htpasswd

@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /pdf/
+Disallow: /docs/
+
+Sitemap: https://wiageulsalim.com/sitemap.xml

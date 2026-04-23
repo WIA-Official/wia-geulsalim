@@ -1,0 +1,138 @@
+1
+00:00:00,000 --> 00:00:02,500
+Kamusta.
+
+2
+00:00:02,500 --> 00:00:05,500
+Ako si Yeon Sam-heum, isang developer na nagtatrabaho mag-isa.
+
+3
+00:00:05,500 --> 00:00:08,500
+Matapos ang 17 taon ng pagpapatakbo ng kumpanya,
+
+4
+00:00:08,500 --> 00:00:14,000
+nakatulong ako sa paglikha ng higit sa 200 na mga website at 
+600,000 na pahina kasama ang AI.
+
+5
+00:00:14,000 --> 00:00:17,000
+Ang proyektong ito ay hindi bago.
+
+6
+00:00:17,000 --> 00:00:20,000
+Ito ay isang kasangkapan na lumago sa loob ng 8 taon — WIA Geulsalim.
+
+7
+00:00:21,000 --> 00:00:26,000
+95% ng kaalaman ng sangkatauhan sa nakalipas na 5,000 taon 
+ay hindi pa rin maaabot.
+
+8
+00:00:26,000 --> 00:00:32,000
+87% ng mga historical documents ng Korea ay nananatiling hindi 
+digitalized at natutulog,
+
+9
+00:00:32,000 --> 00:00:40,000
+at sa 7,000 na wika sa buong mundo, ang 97% ay 
+napakababa ng kalidad ng AI translation at voice o wala talaga.
+
+10
+00:00:40,000 --> 00:00:45,000
+300 milyong tao na may sensorial disabilities 
+ay hindi pa rin nakakakahawak ng mga libro.
+
+11
+00:00:46,000 --> 00:00:50,000
+Kailangang alisin ang apat na hadlang na ito sa isang pagkakataon.
+
+12
+00:00:50,000 --> 00:00:54,500
+Ang Geulsalim ay may 4 na hakbang na pipeline —
+pagbuhay, pag-istruktura, conversion, at paghahatid.
+
+13
+00:00:54,500 --> 00:00:59,500
+Mula ngayon ay ipapakita ko ito sa iyo sa pamamagitan ng apat na demo.
+
+14
+00:01:00,000 --> 00:01:04,000
+Unang demo — ang pagbuhay.
+
+15
+00:01:04,000 --> 00:01:10,000
+Ang Diffusion model ay nagbabalik ng mga nasirang historical documents,
+at pinaparating ng language model ang mga nawawalang salita.
+
+16
+00:01:10,000 --> 00:01:14,000
+Ang pagbuhay ay hindi isang manipulasyon.
+
+17
+00:01:14,000 --> 00:01:20,000
+Ang orihinal na hash ay permanente at mapapangalagaan.
+
+18
+00:01:25,000 --> 00:01:29,000
+Ikalawang demo — pag-istruktura.
+
+19
+00:01:29,000 --> 00:01:36,000
+Mga PDF na walang tag ay awtomatikong iniistruktura ng AI 
+sa WCAG 2.2 na sumusunod na HTML kasama na ang alt text.
+
+20
+00:01:36,000 --> 00:01:42,000
+Sa site ng accessibility checker ng WIA Book,
+ako ay kasalukuyang awtomatikong nagche-check ng 80 na mga item.
+
+21
+00:01:50,000 --> 00:01:54,000
+Ikatlong demo — pagbuhay ng accessibility ng EPUB.
+
+22
+00:01:54,000 --> 00:02:00,000
+Ang EPUB 2 na hindi naaabot ang accessibility ay 
+awtomatikong ibinabalik sa EPUB 3.
+
+23
+00:02:00,000 --> 00:02:06,000
+Tagumpay ang lahat ng 80 na paghuhusga.
+
+24
+00:02:06,000 --> 00:02:13,000
+WCAG, EPUB A11y, KS X 6201, at European EAA —
+matagumpay naming natutugunan ang apat na pandaigdigang pamantayan nang sabay-sabay.
+
+25
+00:02:15,000 --> 00:02:19,000
+Ikaapat na demo — multimodal na paghahatid.
+
+26
+00:02:19,000 --> 00:02:24,000
+Braille sa 7,000 na wika,
+254 na wika ng boses,
+
+27
+00:02:24,000 --> 00:02:29,000
+WIA Talk 3D sign language,
+436 na interactive tool at simulator.
+
+28
+00:02:29,000 --> 00:02:36,000
+Ang WIA Live, kung saan ang mga bingi at bulag 
+ay nakakapag-usap nang walang tagapagsalin,
+
+29
+00:02:36,000 --> 00:02:39,500
+ay kasalukuyang nasa pilot operation.
+
+30
+00:02:40,500 --> 00:02:43,000
+Ang aming Geulsalim.
+
+31
+00:02:43,000 --> 00:02:46,000
+弘益人間 — makabuti para sa lahat, sa paraang sustainable.
+We're Geulsalim.

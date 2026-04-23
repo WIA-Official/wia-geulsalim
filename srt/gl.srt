@@ -1,0 +1,139 @@
+1
+00:00:00,000 --> 00:00:02,500
+Ola.
+
+2
+00:00:02,500 --> 00:00:05,500
+Son Yeonsamhum, un desenvolvedor individual.
+
+3
+00:00:05,500 --> 00:00:08,500
+Durante 17 anos dirixín unha empresa,
+
+4
+00:00:08,500 --> 00:00:14,000
+creando máis de 200 sitios web  
+e 600,000 páxinas xunto coa IA.
+
+5
+00:00:14,000 --> 00:00:17,000
+Esta peza non é algo novo.
+
+6
+00:00:17,000 --> 00:00:20,000
+É unha ferramenta que creceu durante 8 anos — WIA Geulsalim.
+
+7
+00:00:21,000 --> 00:00:26,000
+O 95% do coñecemento humano dos últimos 5,000 anos  
+segue inaccesible.
+
+8
+00:00:26,000 --> 00:00:32,000
+O 87% dos documentos antigos coreanos  
+segue durmindo sen ser dixitalizados,
+
+9
+00:00:32,000 --> 00:00:40,000
+e o 97% das 7,000 linguas no mundo  
+teñen unha calidade de tradución e voz da IA que é drasticamente baixa ou inexistente.
+
+10
+00:00:40,000 --> 00:00:45,000
+300 millóns de persoas con discapacidade sensorial  
+aínda non poden tocar libros.
+
+11
+00:00:46,000 --> 00:00:50,000
+Estas catro barreiras deben ser superadas á vez.
+
+12
+00:00:50,000 --> 00:00:54,500
+Geulsalim ten un pipeline de 4 fases —  
+restauración · estruturación · conversión · entrega.
+
+13
+00:00:54,500 --> 00:00:59,500
+A partir de agora, amosarémosvos directamente con catro demostracións.
+
+14
+00:01:00,000 --> 00:01:04,000
+A primeira demostración — restauración.
+
+15
+00:01:04,000 --> 00:01:10,000
+O modelo Diffusion restaura documentos antigos danados  
+e o modelo de linguaxe infiere letras que falten.
+
+16
+00:01:10,000 --> 00:01:14,000
+A restauración non é manipulación.
+
+17
+00:01:14,000 --> 00:01:20,000
+O hash orixinal é almacenado permanentemente.
+
+18
+00:01:25,000 --> 00:01:29,000
+A segunda demostración — estruturación.
+
+19
+00:01:29,000 --> 00:01:36,000
+PDF sen etiquetas é estruturado automaticamente  
+por IA en HTML que cumpre coa WCAG 2.2,  
+e xera texto alternativo.
+
+20
+00:01:36,000 --> 00:01:42,000
+No sitio de verificación de accesibilidade de WIA Book,  
+xa estou a verificar automaticamente 80 elementos.
+
+21
+00:01:50,000 --> 00:01:54,000
+A terceira demostración — restauración de accesibilidade EPUB.
+
+22
+00:01:54,000 --> 00:02:00,000
+Restauramos automáticamente EPUB 2  
+que non cumpría as normas de accesibilidade a EPUB 3.
+
+23
+00:02:00,000 --> 00:02:06,000
+Supera todos os 80 elementos de verificación.
+
+24
+00:02:06,000 --> 00:02:13,000
+WCAG, EPUB A11y, KS X 6201, EAA de Europa —  
+satisfacemos catro estándares internacionais ao mesmo tempo.
+
+25
+00:02:15,000 --> 00:02:19,000
+A cuarta demostración — entrega multimodal.
+
+26
+00:02:19,000 --> 00:02:24,000
+Lingua Braille para 7,000 linguas,  
+voz para 254 linguas,
+
+27
+00:02:24,000 --> 00:02:29,000
+WIA Talk con linguaxe de signos en 3D,  
+436 ferramentas e simuladores interactivos.
+
+28
+00:02:29,000 --> 00:02:36,000
+WIA Live permite que xente xorda e con discapacidade visual converse  
+sen intérprete,
+
+29
+00:02:36,000 --> 00:02:39,500
+xa está en fase de proba.
+
+30
+00:02:40,500 --> 00:02:43,000
+Estamos a crear un mundo máis accesible.
+
+31
+00:02:43,000 --> 00:02:46,000
+弘益人間 — beneficiar a todos de maneira sustentable.  
+We're Geulsalim.
