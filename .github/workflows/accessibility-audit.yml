@@ -1,6 +1,6 @@
  name: Accessibility & Quality Audit                                                                
                                                                                                      
-  "on"                                                                                               
+  "on":                                                                                               
     push:                                                                                            
       branches: [master, main]                                                                       
     pull_request:                                                                                    
