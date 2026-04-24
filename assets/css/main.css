@@ -716,6 +716,125 @@ section h2 {
     text-decoration: underline;
     text-underline-offset: 2px;
 }
+
+/* ============================================
+   NETWORK GRID — 실운영 사이트
+   ============================================ */
+.network {
+    padding: 100px 0;
+    background: linear-gradient(180deg, rgba(20,24,36,0.9), rgba(10,14,26,0.95));
+}
+.network h2 {
+    font-size: clamp(26px, 3.6vw, 38px);
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 14px;
+    color: #fff;
+}
+.network .section-lead {
+    text-align: center;
+    font-size: 15px;
+    color: var(--text-secondary);
+    max-width: 760px;
+    margin: 0 auto 50px;
+    line-height: 1.75;
+}
+.network-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.net-cluster {
+    background: rgba(30,35,50,0.5);
+    border: 1px solid rgba(167,139,250,0.18);
+    border-radius: 14px;
+    padding: 18px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: border-color 0.3s, transform 0.3s;
+}
+.net-cluster:hover { border-color: rgba(167,139,250,0.5); }
+.net-cluster-title {
+    font-size: 13px;
+    font-weight: 800;
+    color: #a78bfa;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+    padding-bottom: 8px;
+    border-bottom: 1px dashed rgba(167,139,250,0.25);
+}
+.net-node {
+    display: block;
+    background: rgba(15,18,30,0.6);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 8px;
+    padding: 11px 13px;
+    text-decoration: none;
+    transition: background 0.2s, border-color 0.2s, transform 0.2s;
+}
+.net-node:hover {
+    background: rgba(108,60,225,0.12);
+    border-color: rgba(167,139,250,0.5);
+    transform: translateY(-1px);
+}
+.net-node .net-name {
+    font-size: 14px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 2px;
+    font-family: 'SF Mono', monospace, 'Noto Sans KR';
+}
+.net-node .net-desc {
+    font-size: 12px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+.net-node .net-label {
+    font-size: 10px;
+    color: #fbbf24;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-bottom: 4px;
+}
+.net-center {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, rgba(251,191,36,0.15), rgba(167,139,250,0.1));
+    border: 2px solid rgba(251,191,36,0.4);
+    text-align: center;
+    padding: 24px 20px;
+    margin-bottom: 10px;
+}
+.net-center .net-name {
+    font-size: 22px;
+    color: #fbbf24;
+    margin-bottom: 6px;
+}
+.net-center .net-desc {
+    font-size: 14px;
+    color: #fff;
+}
+.net-center:hover {
+    background: linear-gradient(135deg, rgba(251,191,36,0.2), rgba(167,139,250,0.15));
+    border-color: rgba(251,191,36,0.7);
+}
+.network-footnote {
+    text-align: center;
+    font-size: 14px;
+    color: var(--text-secondary);
+    max-width: 760px;
+    margin: 50px auto 0;
+    line-height: 1.85;
+}
+.network-footnote strong {
+    color: #fbbf24;
+    font-weight: 700;
+}
+@media (max-width: 720px) {
+    .network-grid { grid-template-columns: 1fr; }
+}
 @media (max-width: 640px) {
     .heritage-timeline::before { left: 20px; }
     .heritage-node { grid-template-columns: 1fr; gap: 4px; padding-left: 50px; }

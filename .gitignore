@@ -10,3 +10,4 @@ pdf/
 # 임시 파일
 *.bak*
 .htpasswd
+.github/workflows/
