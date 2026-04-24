@@ -1,107 +1,100 @@
- name: Accessibility & Quality Audit                                                                
+name: Accessibility & Quality Audit                                                                
                                                                                                      
-  "on":                                                                                               
+  "on":                                                                                              
     push:                                                                                            
       branches: [master, main]                                                                       
     pull_request:                                                                                    
       branches: [master, main]                              
-    workflow_dispatch:                    
-    schedule:
-      - cron: '0 0 * * 1'  # 매주 월요일 00:00 UTC                                                   
+    workflow_dispatch:                        
+    schedule:                             
+      - cron: '0 0 * * 1'
+                                                                                                     
+  jobs:
+    audit:                                                                                           
+      name: Live Site Audit (axe-core + Lighthouse)         
+      runs-on: ubuntu-latest
+      steps:                                  
+        - name: Checkout                  
+          uses: actions/checkout@v4
+                                                                                                     
+        - name: Setup Node.js
+          uses: actions/setup-node@v4                                                                
+          with:                                             
+            node-version: '20'
                                               
-  jobs:                                                                                              
-    audit:                                                  
-      name: Live Site Audit (axe-core + Lighthouse)                                                  
-      runs-on: ubuntu-latest                  
-      steps:                                                                                         
-        - name: Checkout                                    
-          uses: actions/checkout@v4                                                                  
+        - name: Install audit tools       
+          run: |
+            npm install -g lighthouse @axe-core/cli                                                  
   
-        - name: Setup Node.js                                                                        
-          uses: actions/setup-node@v4                       
-          with:
-            node-version: '20'                                                                       
-  
-        - name: Install audit tools                                                                  
-          run: |                                            
-            npm install -g lighthouse @axe-core/cli
-                                              
-        - name: Run WIA self-audit API (axe-core + Lighthouse)
-          id: wia-audit
-          run: |                                                                                     
-            echo "::group::🔍 WIA 자체 감사 API (a11y.wiabook.com)"
-            curl -s -X POST https://a11y.wiabook.com/api/analyze/url \                               
-              -H "Content-Type: application/json" \         
+        - name: Run WIA self-audit API                                                               
+          id: wia-audit                                     
+          run: |
+            curl -s -X POST https://a11y.wiabook.com/api/analyze/url \
+              -H "Content-Type: application/json" \
               -d '{"url":"https://wiageulsalim.com"}' \
-              -o audit-result.json                                                                   
-            echo "## WIA A11Y Audit Result" >> $GITHUB_STEP_SUMMARY
+              -o audit-result.json            
             cat audit-result.json | python3 -m json.tool >> $GITHUB_STEP_SUMMARY                     
-            SCORE=$(python3 -c "import json;                                                         
-  print(json.load(open('audit-result.json'))['data']['score'])")
-            echo "score=$SCORE" >> $GITHUB_OUTPUT                                                    
-            echo "✅ axe-core score: $SCORE"                                                         
-            if [ "$SCORE" -lt "95" ]; then
-              echo "::error::A11Y score dropped below 95 (current: $SCORE)"                          
+            SCORE=$(python3 -c "import json; 
+  print(json.load(open('audit-result.json'))['data']['score'])")                                     
+            echo "score=$SCORE" >> $GITHUB_OUTPUT           
+            echo "A11Y score: $SCORE"                                                                
+            if [ "$SCORE" -lt "95" ]; then                                                           
+              echo "::error::A11Y score below 95 (current: $SCORE)"
               exit 1                                                                                 
-            fi                            
-            echo "::endgroup::"                                                                      
+            fi                                              
                                                                                                      
-        - name: Run Lighthouse standalone (desktop)
+        - name: Run Lighthouse standalone
           run: |                                                                                     
-            echo "::group::🔦 Google Lighthouse"            
-            lighthouse https://wiageulsalim.com \
-              --preset=desktop \          
-              --output=json \
-              --output-path=./lighthouse.json \                                                      
-              --chrome-flags="--headless --no-sandbox --disable-gpu" \
-              --only-categories=performance,accessibility,best-practices,seo \                       
-              --quiet                                       
-            python3 -c "
-            import json                                                                              
-            d = json.load(open('lighthouse.json'))
-            for k,c in d['categories'].items():                                                      
-                s = int(c['score']*100) if c['score'] else 0
-                icon = '🟢' if s>=90 else ('🟡' if s>=50 else '🔴')
-                print(f'{icon} {c[\"title\"]}: {s}')                                                 
-            "                             
-            echo "::endgroup::"                                                                      
-                                                                                                     
-        - name: Upload audit artifacts
-          uses: actions/upload-artifact@v4                                                           
-          if: always()                                      
-          with:                           
-            name: audit-results
-            path: |                                                                                  
-              audit-result.json
-              lighthouse.json                                                                        
-            retention-days: 30                              
-
-    link-check:
-      name: Link Validation
-      runs-on: ubuntu-latest                  
-      steps:                              
-        - name: Checkout
-          uses: actions/checkout@v4                                                                  
+            lighthouse https://wiageulsalim.com \           
+              --preset=desktop \              
+              --output=json \             
+              --output-path=./lighthouse.json \
+              --chrome-flags="--headless --no-sandbox --disable-gpu" \                               
+              --only-categories=performance,accessibility,best-practices,seo \
+              --quiet                                                                                
+            python3 -c "                                    
+            import json
+            d = json.load(open('lighthouse.json'))                                                   
+            for k,c in d['categories'].items():
+                s = int(c['score']*100) if c['score'] else 0                                         
+                icon = 'OK' if s>=90 else 'WARN'            
+                print(icon, c['title'], s)
+            "                                                                                        
   
-        - name: Check external links (lychee)                                                        
-          uses: lycheeverse/lychee-action@v1                
-          with:                               
-            args: >-                      
+        - name: Upload audit artifacts                                                               
+          uses: actions/upload-artifact@v4                  
+          if: always()                    
+          with:
+            name: audit-results                                                                      
+            path: |
+              audit-result.json                                                                      
+              lighthouse.json                               
+            retention-days: 30
+                                              
+    link-check:                           
+      name: Link Validation
+      runs-on: ubuntu-latest                                                                         
+      steps:
+        - name: Checkout                                                                             
+          uses: actions/checkout@v4                         
+
+        - name: Check external links          
+          uses: lycheeverse/lychee-action@v1
+          with:
+            args: >-                                                                                 
               --accept 200,206,301,302,429
               --max-concurrency 10                                                                   
-              --exclude-path "pdf/"
-              --exclude "linkedin.com"                                                               
-              --exclude "twitter.com"                       
+              --exclude "linkedin.com"                      
+              --exclude "twitter.com"         
               README.md                   
-              docs/*.html
-              index.html                                                                             
-            fail: false
-            format: markdown                                                                         
-            output: lychee-out.md                           
-
-        - name: Upload link report            
+              index.html
+            fail: false                                                                              
+            format: markdown
+            output: lychee-out.md                                                                    
+                                                            
+        - name: Upload link report
           uses: actions/upload-artifact@v4
-          if: always()
-          with:                                                                                      
+          if: always()                        
+          with:                           
             name: link-report
-            path: lychee-out.md                    
+            path: lychee-out.md                   
