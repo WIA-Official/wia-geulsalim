@@ -5,9 +5,24 @@
 
 [![라이브 데모](https://img.shields.io/badge/라이브-wiageulsalim.com-6c3ce1?style=for-the-badge)](https://wiageulsalim.com)
 [![2026 AI 챔피언](https://img.shields.io/badge/2026-전국민%20AI%20챔피언%20대회-ff6b35?style=for-the-badge)](https://wiageulsalim.com)
-[![자막](https://img.shields.io/badge/자막-83개%20언어-blue?style=for-the-badge)](srt/)
-[![WIA 표준](https://img.shields.io/badge/WIA%20표준-765개%20공개-orange?style=for-the-badge)](https://github.com/WIA-Official/wia-standards-public)
 [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
+
+[![Accessibility](https://img.shields.io/badge/axe--core-100%2F100-10b981?style=flat-square&logo=W3C)](https://a11y.wiabook.com/?url=https://wiageulsalim.com)
+[![Lighthouse Performance](https://img.shields.io/badge/Lighthouse%20Perf-96-10b981?style=flat-square&logo=lighthouse)](docs/lighthouse-desktop.html)
+[![Lighthouse Best Practices](https://img.shields.io/badge/Lighthouse%20BP-100-10b981?style=flat-square&logo=lighthouse)](docs/lighthouse-desktop.html)
+[![Lighthouse SEO](https://img.shields.io/badge/Lighthouse%20SEO-100-10b981?style=flat-square&logo=lighthouse)](docs/lighthouse-desktop.html)
+[![Audit CI](https://github.com/WIA-Official/wia-geulsalim/actions/workflows/accessibility-audit.yml/badge.svg)](https://github.com/WIA-Official/wia-geulsalim/actions/workflows/accessibility-audit.yml)
+
+[![자막](https://img.shields.io/badge/자막-83개%20언어-blue?style=flat-square)](srt/)
+[![WIA 표준](https://img.shields.io/badge/WIA%20표준-765개%20공개-orange?style=flat-square)](https://github.com/WIA-Official/wia-standards-public)
+[![Patent](https://img.shields.io/badge/특허%20출원-3건-f59e0b?style=flat-square)](#특허-출원)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-6c3ce1?style=flat-square)](CONTRIBUTING.md)
+[![Code of Conduct](https://img.shields.io/badge/Code%20of-Conduct-6c3ce1?style=flat-square)](CODE_OF_CONDUCT.md)
+
+> **📄 한 페이지 공개 브리프** · 그들만의 리그가 아닙니다. 편하게 열어보세요:
+> [**wia-geulsalim-public-brief.pdf**](https://wiageulsalim.com/docs/wia-geulsalim-public-brief.pdf)
+> · [접근성 감사 리포트 PDF](https://wiageulsalim.com/docs/wia-geulsalim-a11y-report.pdf)
+> · [실시간 2엔진 재감사](https://a11y.wiabook.com/?url=https://wiageulsalim.com)
 
 ---
 

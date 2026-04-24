@@ -1,0 +1,53 @@
+name: 🐛 버그 제보 (Bug Report)
+description: 웹사이트·데모·접근성 관련 버그를 제보합니다
+labels: [bug, needs-triage]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 감사합니다 — 버그 제보는 가장 고마운 기여입니다.
+        弘益人間 정신에 따라 빠르게 확인하고 답변드리겠습니다.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: 무엇이 잘못됐나요? (Description)
+      description: 기대한 동작과 실제 동작을 알려주세요
+      placeholder: "예) 멀티모달 데모의 '음성 재생' 버튼을 눌렀는데 소리가 나지 않습니다"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: 영역 (Area)
+      options:
+        - 메인 페이지 (wiageulsalim.com)
+        - 복원 데모 (/demo/restore/)
+        - 구조화 데모 (/demo/transform/)
+        - 멀티모달 데모 (/demo/multimodal/)
+        - 접근성 (스크린리더·키보드 네비·색상대비)
+        - 자막 (/srt/*.srt)
+        - 문서·README
+        - 기타
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: 재현 방법 (Steps to Reproduce)
+      placeholder: |
+        1. wiageulsalim.com 접속
+        2. '...' 버튼 클릭
+        3. '...' 발생
+    validations:
+      required: true
+
+  - type: input
+    id: environment
+    attributes:
+      label: 환경 (Environment)
+      placeholder: "Chrome 123 / macOS 14 / iPhone 15"
+    validations:
+      required: true

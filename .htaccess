@@ -37,6 +37,10 @@ RewriteEngine Off
     Order Allow,Deny
     Allow from all
 </Files>
+<Files "wia-geulsalim-public-brief.pdf">
+    Order Allow,Deny
+    Allow from all
+</Files>
 
 # proposal HTML 직접 접근 차단
 <FilesMatch "proposal-.*\.html$">

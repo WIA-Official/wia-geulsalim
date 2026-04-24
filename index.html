@@ -159,6 +159,14 @@
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" type="image/png" href="/assets/images/favicon.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+
+    <!-- PWA · 홈화면 앱 설치 가능 -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#6c3ce1">
+    <meta name="application-name" content="WIA 글살림">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="WIA 글살림">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
@@ -451,6 +459,25 @@
                 <strong>EU AI Act</strong> (고영향 AI 자가진단) · <strong>한국 AI 기본법</strong>
             </p>
 
+            <!-- 한 페이지 공개 브리프 다운로드 — 대국민 검증 초대 -->
+            <div class="reveal" style="margin-top:44px;background:linear-gradient(135deg,rgba(251,191,36,0.15),rgba(167,139,250,0.08));border:1.5px solid rgba(251,191,36,0.45);border-radius:14px;padding:22px 26px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;">
+                <div style="flex:1;min-width:260px;">
+                    <div style="font-size:11px;color:#f59e0b;font-weight:700;letter-spacing:2px;margin-bottom:4px;">PUBLIC BRIEF · 대국민 공개 브리프</div>
+                    <h3 style="font-size:18px;color:#fff;font-weight:800;margin-bottom:6px;">그들만의 리그가 아닙니다. 편하게 열어보세요.</h3>
+                    <p style="font-size:13px;color:#d1d5db;line-height:1.65;">
+                        4단계 파이프라인 · 5개 감사 점수 · 4개 국제표준 · 3건 특허 · 17년 축적 — 한 페이지에 전부. 누구나 5분 안에 검증 가능한 투어가 포함돼 있습니다.
+                    </p>
+                </div>
+                <div style="display:flex;gap:10px;flex-wrap:wrap;">
+                    <a href="/docs/wia-geulsalim-public-brief.pdf" download style="display:inline-flex;align-items:center;gap:6px;background:#f59e0b;color:#1a1a2e;padding:12px 20px;border-radius:8px;font-size:13px;font-weight:800;text-decoration:none;">
+                        <span style="font-size:15px;">📄</span> 공개 브리프 PDF
+                    </a>
+                    <a href="/docs/public-brief.html" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;background:transparent;color:#fbbf24;padding:12px 18px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;border:1px solid rgba(251,191,36,0.5);">
+                        웹에서 보기 ↗
+                    </a>
+                </div>
+            </div>
+
             <!-- 종합 품질 감사 배지 — axe-core + Google Lighthouse 교차 검증 -->
             <div class="a11y-premium-badge reveal" style="margin-top:60px;background:linear-gradient(135deg,#1a1a2e,#2d1b4e);border:2px solid #6c3ce1;border-radius:16px;padding:32px 28px;color:#fff;">
                 <div style="font-size:12px;color:#a78bfa;font-weight:700;letter-spacing:2px;margin-bottom:14px;text-align:center;">
@@ -516,6 +543,72 @@
                     감사 일시: 2026-04-24 · 엔진: a11y.wiabook.com(axe-core) + Google Lighthouse v12 · 교차 검증 완료
                 </p>
             </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 5b: HERITAGE — 17년 축적 타임라인 -->
+    <!-- ============================================ -->
+    <section id="heritage" class="heritage" aria-label="17년 축적 타임라인">
+        <div class="container">
+            <h2>1인 개발자의 17년 · 자취는 거짓말을 못 합니다</h2>
+            <p class="section-lead">2009년 창업부터 2026년 글살림 출품까지 — 공개된 자국(痕迹)을 시간 순서로.</p>
+
+            <ol class="heritage-timeline">
+                <li class="heritage-node reveal">
+                    <div class="heritage-year">2009</div>
+                    <div class="heritage-content">
+                        <h3>(주)스마일스토리 창립</h3>
+                        <p>대한민국. 웹·콘텐츠 통합 솔루션 시작.</p>
+                    </div>
+                </li>
+                <li class="heritage-node reveal">
+                    <div class="heritage-year">2018</div>
+                    <div class="heritage-content">
+                        <h3>WIA 창립 (에스토니아)</h3>
+                        <p>World Certification Industry Association OÜ · 국제 표준·인증 플랫폼 출범.</p>
+                    </div>
+                </li>
+                <li class="heritage-node reveal">
+                    <div class="heritage-year">2009~2025</div>
+                    <div class="heritage-content">
+                        <h3>200+ 사이트·60만+ 페이지 축적</h3>
+                        <p>wiabook · wiasoom · wia.live · wia360 · wiatalk · wiapress · a11y.wiabook 등 공개 포트폴리오.</p>
+                    </div>
+                </li>
+                <li class="heritage-node reveal">
+                    <div class="heritage-year">2024~2025</div>
+                    <div class="heritage-content">
+                        <h3>WIA 공개 국제표준 765개 · GitHub 2,500+ 커밋</h3>
+                        <p><a href="https://github.com/WIA-Official/wia-standards-public" target="_blank" rel="noopener">wia-standards-public</a> — 전 세계 누구나 검증·재활용 가능한 MIT 오픈소스.</p>
+                    </div>
+                </li>
+                <li class="heritage-node reveal">
+                    <div class="heritage-year">2025</div>
+                    <div class="heritage-content">
+                        <h3>특허 출원 3건 · 대한민국 특허청</h3>
+                        <p><code>10-2025-0186631</code> · <code>10-2025-0187878</code> · <code>10-2025-0187887</code> — Kipris 직접 조회.</p>
+                    </div>
+                </li>
+                <li class="heritage-node reveal heritage-highlight">
+                    <div class="heritage-year">2026</div>
+                    <div class="heritage-content">
+                        <h3>🏆 WIA 글살림 출품 · 2026 전국민 AI 챔피언 대회</h3>
+                        <p>과학기술정보통신부 주관. 4단계 AI 파이프라인 · 83개 언어 자막 · 접근성 감사 100점. <strong>전부 공개, 누구나 검증.</strong></p>
+                    </div>
+                </li>
+                <li class="heritage-node reveal">
+                    <div class="heritage-year">2027~</div>
+                    <div class="heritage-content">
+                        <h3>CES · 글로벌 시장 진출</h3>
+                        <p>에스토니아 법인(WIA) → 유럽·미국·중동 확장. 인류 전체로.</p>
+                    </div>
+                </li>
+            </ol>
+
+            <p class="heritage-footnote">
+                모든 자취는 <a href="https://github.com/WIA-Official" target="_blank" rel="noopener">github.com/WIA-Official</a> · <a href="https://wiageulsalim.com" target="_self">wiageulsalim.com</a> · <a href="http://www.kipris.or.kr" target="_blank" rel="noopener noreferrer">Kipris</a> 에서 공개 조회 가능합니다.
+            </p>
         </div>
     </section>
 
@@ -648,5 +741,16 @@
 
     <script src="/assets/js/main.js"></script>
     <script src="/assets/js/a11y-widget.js" defer></script>
+
+    <!-- PWA Service Worker 등록 -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function () {
+          navigator.serviceWorker.register('/service-worker.js')
+            .then(function (reg) { console.log('[PWA] Service Worker registered · scope:', reg.scope); })
+            .catch(function (err) { console.warn('[PWA] SW registration failed:', err); });
+        });
+      }
+    </script>
 </body>
 </html>

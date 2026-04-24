@@ -1,0 +1,49 @@
+{
+  "name": "WIA 글살림 · Geulsalim",
+  "short_name": "글살림",
+  "description": "AI 고문서 복원·접근성 변환 통합 플랫폼 · 2026 전국민 AI 챔피언 대회 출품작",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#6c3ce1",
+  "background_color": "#0a0e1a",
+  "lang": "ko",
+  "dir": "ltr",
+  "categories": ["education", "accessibility", "productivity", "utilities"],
+  "icons": [
+    { "src": "/assets/pwa/icon-72.png",  "sizes": "72x72",   "type": "image/png" },
+    { "src": "/assets/pwa/icon-96.png",  "sizes": "96x96",   "type": "image/png" },
+    { "src": "/assets/pwa/icon-128.png", "sizes": "128x128", "type": "image/png" },
+    { "src": "/assets/pwa/icon-144.png", "sizes": "144x144", "type": "image/png" },
+    { "src": "/assets/pwa/icon-152.png", "sizes": "152x152", "type": "image/png" },
+    { "src": "/assets/pwa/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/assets/pwa/icon-256.png", "sizes": "256x256", "type": "image/png" },
+    { "src": "/assets/pwa/icon-384.png", "sizes": "384x384", "type": "image/png" },
+    { "src": "/assets/pwa/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/assets/pwa/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    {
+      "name": "복원 데모",
+      "short_name": "복원",
+      "description": "손상된 고문서 복원 체험",
+      "url": "/demo/restore/?source=pwa",
+      "icons": [{ "src": "/assets/pwa/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "구조화 데모",
+      "short_name": "구조화",
+      "description": "WCAG 2.2 자동 구조화",
+      "url": "/demo/transform/?source=pwa",
+      "icons": [{ "src": "/assets/pwa/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "멀티모달 데모",
+      "short_name": "멀티모달",
+      "description": "점자·음성·수어·WebXR",
+      "url": "/demo/multimodal/?source=pwa",
+      "icons": [{ "src": "/assets/pwa/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>WIA 글살림 · 한 페이지 공개 브리프 — 편하게 열어보고 직접 검증해보세요</title>
+<style>
+@page { size: A4; margin: 12mm; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color:#1a1a2e; font-size: 9.5pt; line-height: 1.5; }
+
+.header { display:flex; justify-content:space-between; align-items:flex-start; border-bottom: 2.5px solid #6c3ce1; padding-bottom: 8px; margin-bottom: 10px; }
+.header .left h1 { font-size: 22pt; color:#1e3a5f; line-height:1.05; font-weight:900; }
+.header .left .sub { color:#6c3ce1; font-size:10pt; font-weight:700; margin-top: 3px; }
+.header .left .meta { color:#666; font-size:8pt; margin-top:5px; }
+.header .right { text-align:right; font-size:8pt; color:#888; line-height:1.4; }
+.header .right strong { color:#1e3a5f; font-size:9pt; }
+
+.vibe { background: linear-gradient(90deg, #fffaed, #f3f4f6); border-left: 3px solid #f59e0b; padding: 8px 12px; margin-bottom: 10px; font-size:9.5pt; color: #1e3a5f; line-height:1.55; border-radius: 0 6px 6px 0; }
+.vibe strong { color: #b45309; }
+
+.row { display:grid; grid-template-columns: 1.35fr 1fr; gap: 10px; margin-bottom: 10px; }
+
+.pipeline { background: linear-gradient(135deg,#f8f7ff,#ebe6ff); border-radius:8px; padding:10px 12px; }
+.pipeline h2 { font-size: 10.5pt; color:#6c3ce1; font-weight:800; margin-bottom:6px; }
+.pipe-steps { display:grid; grid-template-columns: repeat(4,1fr); gap: 6px; }
+.pipe-step { background:#fff; border:1px solid #d8cfff; border-radius:6px; padding:7px 8px; font-size:8.5pt; line-height:1.4; }
+.pipe-step .num { color:#6c3ce1; font-weight:800; font-size:9pt; display:block; }
+.pipe-step .title { font-weight:800; color:#1e3a5f; display:block; margin:2px 0; font-size:9pt; }
+.pipe-step .desc { color:#555; font-size:8pt; }
+
+.scores { background:#0d1222; color:#fff; border-radius:8px; padding:10px 12px; }
+.scores h2 { font-size:10.5pt; color:#a78bfa; font-weight:800; margin-bottom:6px; }
+.score-grid { display:grid; grid-template-columns: repeat(5,1fr); gap: 4px; text-align:center; }
+.score-cell { background: rgba(167,139,250,0.15); border-radius:5px; padding:6px 3px; }
+.score-cell .label { font-size:7pt; color:#a78bfa; font-weight:700; letter-spacing:0.3px; min-height:18px; display:block; }
+.score-cell .val { font-size:16pt; font-weight:900; color:#10b981; line-height:1; }
+.score-cell .sub { font-size:6.5pt; color:#ccc; margin-top:2px; display:block; }
+.vitals { margin-top:6px; font-size:7.5pt; color:#a78bfa; text-align:center; border-top:1px solid rgba(255,255,255,0.1); padding-top:5px; }
+
+.section { background:#fff; border:1px solid #e5e7eb; border-radius:8px; padding:8px 10px; margin-bottom: 8px; }
+.section h2 { font-size:10pt; color:#1e3a5f; border-left:3px solid #6c3ce1; padding-left:8px; font-weight:800; margin-bottom:6px; }
+.section ul { list-style:none; font-size:8.5pt; }
+.section ul li { padding:2px 0; padding-left:14px; position:relative; }
+.section ul li::before { content:"▪"; position:absolute; left:0; color:#6c3ce1; font-weight:700; }
+
+.checklist { background: #fffaed; border: 1px solid #fde68a; border-radius: 8px; padding: 10px 12px; margin-bottom: 8px; }
+.checklist h2 { font-size: 11pt; color:#b45309; font-weight:800; margin-bottom:4px; }
+.checklist .lead { font-size: 8.5pt; color: #92400e; margin-bottom: 6px; }
+.checklist-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 14px; }
+.check-item { font-size:8.5pt; padding: 3px 0; display:flex; align-items:start; gap:6px; }
+.check-item .box { display:inline-block; width:10px; height:10px; border:1.5px solid #b45309; border-radius:2px; margin-top:3px; flex-shrink:0; }
+.check-item .text strong { color:#1e3a5f; }
+.check-item .url { font-size:7.5pt; color:#6c3ce1; font-family: monospace; word-break: break-all; }
+
+.stats { background: #f0f4ff; border-radius:8px; padding:8px 10px; }
+.stats h2 { font-size:10pt; color:#6c3ce1; margin-bottom:6px; font-weight:800; }
+.stat-row { display:grid; grid-template-columns: repeat(4,1fr); gap:4px; text-align:center; }
+.stat-cell { background:#fff; border-radius:5px; padding:6px 2px; border:1px solid #d8cfff; }
+.stat-cell .val { font-size:13pt; font-weight:900; color:#6c3ce1; line-height:1; }
+.stat-cell .label { font-size:7pt; color:#555; margin-top:3px; line-height:1.2; display:block; }
+
+.qr-row { display:grid; grid-template-columns: repeat(4,1fr); gap: 8px; margin-top: 6px; background:#f8f9fa; border-radius:8px; padding:8px 10px; }
+.qr-cell { text-align:center; }
+.qr-cell img { width:58px; height:58px; }
+.qr-cell .label { font-size:7pt; color:#1e3a5f; font-weight:700; margin-top:3px; line-height:1.2; }
+.qr-cell .url { font-size:6.5pt; color:#666; font-family:monospace; word-break: break-all; margin-top:1px; }
+
+.footer { border-top: 1px solid #e5e7eb; padding-top: 6px; margin-top: 8px; font-size: 7.5pt; color: #666; display:flex; justify-content: space-between; }
+.footer strong { color: #1e3a5f; }
+
+.tag { display:inline-block; background:#6c3ce1; color:#fff; padding: 1px 6px; border-radius:3px; font-size:7pt; font-weight:700; margin-right:3px; }
+.tag.gold { background:#f59e0b; }
+.tag.green { background:#10b981; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="left">
+    <h1>WIA 글살림 <span style="font-size:13pt;color:#6c3ce1;">Geulsalim</span></h1>
+    <div class="sub">AI 고문서 복원·접근성 변환 통합 플랫폼 · 4단계 파이프라인</div>
+    <div class="meta">
+      <span class="tag gold">🏆 2026 전국민 AI 챔피언 대회 출품작</span>
+      <span class="tag">과학기술정보통신부 주관</span>
+      <span class="tag green">MIT Open Source</span>
+    </div>
+  </div>
+  <div class="right">
+    <strong>한 페이지 공개 브리프</strong><br>
+    2026-04-24 · v1.0<br>
+    <a href="https://wiageulsalim.com" style="color:#6c3ce1;">wiageulsalim.com</a>
+  </div>
+</div>
+
+<div class="vibe">
+  <strong>👋 그들만의 리그가 아닙니다.</strong>
+  소스코드도·감사 리포트도·특허 번호도·보도자료도 — <strong>전부 공개</strong>합니다.
+  편하게 눌러 열어보고, 직접 감사 돌려보고, 즐기면서 검증해보세요. 전국민이 보고 반응해주시면, 그게 제일 큰 답입니다. <em>弘益人間.</em>
+</div>
+
+<div class="row">
+  <div class="pipeline">
+    <h2>4단계 통합 AI 파이프라인</h2>
+    <div class="pipe-steps">
+      <div class="pipe-step">
+        <span class="num">01</span>
+        <span class="title">RESTORE</span>
+        <span class="desc">Diffusion + LLM<br>고문서 복원<br>해시 불변 증명</span>
+      </div>
+      <div class="pipe-step">
+        <span class="num">02</span>
+        <span class="title">STRUCTURE</span>
+        <span class="desc">WCAG 2.2 HTML<br>EPUB 3 A11y<br>AI 대체텍스트</span>
+      </div>
+      <div class="pipe-step">
+        <span class="num">03</span>
+        <span class="title">CONVERT</span>
+        <span class="desc">점자 7,000언어<br>음성 254언어<br>KS X 6201</span>
+      </div>
+      <div class="pipe-step">
+        <span class="num">04</span>
+        <span class="title">DELIVER</span>
+        <span class="desc">3D 수어 · WebXR<br>WIA Live<br>(농인↔시각장애)</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="scores">
+    <h2>독립 2엔진 교차 감사 결과 · 공개 실측</h2>
+    <div class="score-grid">
+      <div class="score-cell"><span class="label">axe-core</span><span class="val">100</span><span class="sub">WCAG 2.2</span></div>
+      <div class="score-cell"><span class="label">LH · A11y</span><span class="val">100</span><span class="sub">Accessibility</span></div>
+      <div class="score-cell"><span class="label">LH · Perf</span><span class="val">96</span><span class="sub">Performance</span></div>
+      <div class="score-cell"><span class="label">LH · BP</span><span class="val">100</span><span class="sub">Best Practices</span></div>
+      <div class="score-cell"><span class="label">LH · SEO</span><span class="val">100</span><span class="sub">SEO</span></div>
+    </div>
+    <div class="vitals">Core Web Vitals: FCP 1.6s · LCP 2.7s · CLS 0.004 · TBT 40ms · Speed Index 1.6s</div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="section">
+    <h2>적용 국제·국내 표준 (위반 0건)</h2>
+    <ul>
+      <li><strong>WCAG 2.2 Level AA</strong> (W3C 권고) — 감사 통과</li>
+      <li><strong>EU EAA</strong> — 2025.6.28 강제 시행 · 2030 전면 전환 대응</li>
+      <li><strong>KS X 6201</strong> — 한국 정보통신 접근성 표준</li>
+      <li><strong>EPUB Accessibility 1.1</strong> — 전자책 접근성 명세</li>
+    </ul>
+  </div>
+  <div class="section">
+    <h2>공개된 특허 출원 (대한민국 특허청)</h2>
+    <ul>
+      <li><code style="font-family:monospace;">10-2025-0186631</code></li>
+      <li><code style="font-family:monospace;">10-2025-0187878</code></li>
+      <li><code style="font-family:monospace;">10-2025-0187887</code></li>
+    </ul>
+    <div style="margin-top:4px;font-size:7.5pt;color:#666;">Kipris에서 직접 조회 가능</div>
+  </div>
+</div>
+
+<div class="stats">
+  <h2>17년 축적 · 1인 개발자의 누적 자취 (전부 공개)</h2>
+  <div class="stat-row">
+    <div class="stat-cell"><div class="val">765</div><span class="label">WIA 공개 국제표준<br>(2,500+ 커밋, GitHub)</span></div>
+    <div class="stat-cell"><div class="val">200+</div><span class="label">구축 사이트<br>wiabook·wiasoom 외</span></div>
+    <div class="stat-cell"><div class="val">83</div><span class="label">데모 영상 자막 언어<br>(YouTube 공개)</span></div>
+    <div class="stat-cell"><div class="val">17년</div><span class="label">개발 경력<br>(2009~)</span></div>
+  </div>
+</div>
+
+<div class="checklist">
+  <h2>👀 편하게 열어보세요 · 누구나 5분에 훑는 검증 투어</h2>
+  <div class="lead">아래 6개만 클릭해보시면, 글살림이 주장하는 모든 것을 직접 확인하실 수 있습니다. 링크·소스·리포트 전부 공개입니다.</div>
+  <div class="checklist-grid">
+    <div class="check-item"><span class="box"></span><span class="text"><strong>① 복원 데모 30초만</strong><br><span class="url">wiageulsalim.com/demo/restore/</span></span></div>
+    <div class="check-item"><span class="box"></span><span class="text"><strong>② 멀티모달 전달 체험</strong><br><span class="url">wiageulsalim.com/demo/multimodal/</span></span></div>
+    <div class="check-item"><span class="box"></span><span class="text"><strong>③ 감사 리포트 PDF 다운</strong><br><span class="url">/docs/wia-geulsalim-a11y-report.pdf</span></span></div>
+    <div class="check-item"><span class="box"></span><span class="text"><strong>④ 2엔진 감사 직접 돌려보기</strong><br><span class="url">a11y.wiabook.com/?url=wiageulsalim.com</span></span></div>
+    <div class="check-item"><span class="box"></span><span class="text"><strong>⑤ 소스 보기 · 커밋 이력 (MIT)</strong><br><span class="url">github.com/WIA-Official/wia-geulsalim</span></span></div>
+    <div class="check-item"><span class="box"></span><span class="text"><strong>⑥ 제3자 언론 보도 (구글 뉴스)</strong><br><span class="url">thekorean.today</span></span></div>
+  </div>
+</div>
+
+<div class="qr-row">
+  <div class="qr-cell">
+    <img src="/var/www/wiageulsalim/docs/qr/main.png" alt="메인 사이트 QR">
+    <div class="label">메인 사이트</div>
+    <div class="url">wiageulsalim.com</div>
+  </div>
+  <div class="qr-cell">
+    <img src="/var/www/wiageulsalim/docs/qr/demo.png" alt="복원 데모 QR">
+    <div class="label">복원 데모</div>
+    <div class="url">/demo/restore/</div>
+  </div>
+  <div class="qr-cell">
+    <img src="/var/www/wiageulsalim/docs/qr/audit.png" alt="실시간 감사 QR">
+    <div class="label">실시간 2엔진 감사</div>
+    <div class="url">a11y.wiabook.com</div>
+  </div>
+  <div class="qr-cell">
+    <img src="/var/www/wiageulsalim/docs/qr/github.png" alt="GitHub QR">
+    <div class="label">GitHub 오픈소스</div>
+    <div class="url">WIA-Official/wia-geulsalim</div>
+  </div>
+</div>
+
+<div class="footer">
+  <div>
+    <strong>WIA (World Certification Industry Association OÜ)</strong> · 에스토니아 2018<br>
+    <strong>(주)스마일스토리</strong> · 대한민국 2009 · 창립자 연삼흠 (Yeon Sam-heum)
+  </div>
+  <div style="text-align:right;">
+    📧 global@thekoreantoday.com<br>
+    MIT License · <em>弘益人間 · 홍익인간</em>
+  </div>
+</div>
+
+</body>
+</html>
